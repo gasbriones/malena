@@ -1,0 +1,24 @@
+{
+  "name": "malena",
+  "version": "1.0.0",
+  "description": "maqueta sitio malena",
+  "main": "./dist/build",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gasbriones/malena.git"
+  },
+  "author": "Gastón Briones",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gasbriones/malena/issues"
+  },
+  "homepage": "https://github.com/gasbriones/malena#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.1"
+  }
+}
