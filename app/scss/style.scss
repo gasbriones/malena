@@ -28,8 +28,10 @@ html, body {
 }
 .header{
   height: (136em/16);
-  padding: (24em/16) 0;
 
+  .navigation{
+    padding: (24em/16) 0;
+  }
   .menu{
     font-family: HelveticaNeueLTStd-Roman;
     font-size: (15em/16);
@@ -47,8 +49,14 @@ html, body {
     }
   }
 
-  .filers{
+  .filters{
     height: (62em/16);
     background: #5AC0D7;
+    color: #ffffff;
+    font-size: (18em/16);
+    .upper{
+      text-transform: uppercase;
+      margin-right: (3em/18);
+    }
   }
 }

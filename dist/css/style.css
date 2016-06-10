@@ -20,8 +20,9 @@ html, body {
   margin: 0 auto; }
 
 .header {
-  height: 8.5em;
-  padding: 1.5em 0; }
+  height: 8.5em; }
+  .header .navigation {
+    padding: 1.5em 0; }
   .header .menu {
     font-family: HelveticaNeueLTStd-Roman;
     font-size: 0.9375em; }
@@ -34,6 +35,11 @@ html, body {
       .header .menu li a {
         color: #000000;
         text-decoration: none; }
-  .header .filers {
+  .header .filters {
     height: 3.875em;
-    background: #5AC0D7; }
+    background: #5AC0D7;
+    color: #ffffff;
+    font-size: 1.125em; }
+    .header .filters .upper {
+      text-transform: uppercase;
+      margin-right: 0.16667em; }

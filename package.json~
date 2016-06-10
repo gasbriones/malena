@@ -28,6 +28,7 @@
     "react-dom": "^15.0.1"
   },
   "dependencies": {
-    "react-image-gallery": "0.6.2"
+    "gulp-haml": "^0.1.6",
+    "react-image-gallery": "^0.6.3"
   }
 }
