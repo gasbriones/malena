@@ -1,14 +1,29 @@
 !!! 5
-%head
-  %link{rel: 'stylesheet',href:'css/style.css' }
-%body
-  %header#header.clearfix
-
-  %section#body.wrapper
-    %a{href: 'hola mundo', title: 'cambio el title'}
-      Hola Lean
-    .lang
-      %a.spa
-      %a.eng
-
-</html>
+%html{lang: 'en'}
+  %head
+    %meta{charset: 'UTF-8'}
+    %meta{name: 'viewport', content:'width=device-width'}
+    %link{rel: 'stylesheet',href:'css/gridlex.css' }
+    %link{rel: 'stylesheet',href:'css/normalize.css' }
+    %link{rel: 'stylesheet',href:'css/style.css' }
+  %body
+    %div#site.wrapper
+      %header.header.grid-center
+        %div.col-10.grid.navigation
+          %div.col-2{'push-right':'off-2'}
+            %img{src: 'images/logo-caicyt.png'}
+          %div.col-8.grid-middle
+            %div.col-12
+              %ul.menu
+                %li
+                  %a{href:'#'} Inicio
+                %li
+                  %a{href:'#'} Explorar según
+                %li
+                  %a{href:'#'} Herramientas y documentos
+                %li
+                  %a{href:'#'} Acerca de
+        %div.col-8.grid-middle.filers
+          %div.col-12
+            asdasd
+      %section#body.wrapper
