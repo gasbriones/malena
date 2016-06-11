@@ -4,6 +4,30 @@
   font-weight: normal;
   font-style: normal; }
 
+@font-face {
+  font-family: 'HelveticaNeue-Bold';
+  src: url("../fonts/HelveticaNeue-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/HelveticaNeue-Bold.woff") format("woff"), url("../fonts/HelveticaNeue-Bold.ttf") format("truetype"), url("../fonts/HelveticaNeue-Bold.svg#HelveticaNeue-Bold") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'MyriadPro-Regular';
+  src: url("../fonts/MyriadPro-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/MyriadPro-Regular.otf") format("opentype"), url("../fonts/MyriadPro-Regular.woff") format("woff"), url("../fonts/MyriadPro-Regular.ttf") format("truetype"), url("../fonts/MyriadPro-Regular.svg#MyriadPro-Regular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'OpenSans';
+  src: url("../fonts/OpenSans.eot?#iefix") format("embedded-opentype"), url("../fonts/OpenSans.woff") format("woff"), url("../fonts/OpenSans.ttf") format("truetype"), url("../fonts/OpenSans.svg#OpenSans") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Raleway-Medium';
+  src: url("../fonts/Raleway-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/Raleway-Medium.woff") format("woff"), url("../fonts/Raleway-Medium.ttf") format("truetype"), url("../fonts/Raleway-Medium.svg#Raleway-Medium") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
 html {
   background: #ffffff; }
 
@@ -38,8 +62,16 @@ html, body {
   .header .filters {
     height: 3.875em;
     background: #5AC0D7;
-    color: #ffffff;
-    font-size: 1.125em; }
-    .header .filters .upper {
+    color: #ffffff; }
+    .header .filters .label {
       text-transform: uppercase;
-      margin-right: 0.16667em; }
+      text-shadow: 1px 1px 1px #999;
+      font-family: HelveticaNeue-Bold;
+      font-size: 1.25em; }
+    .header .filters .input input {
+      line-height: 1.875em;
+      border: solid 1px #A5A5A5;
+      width: 100%;
+      box-sizing: border-box; }
+    .header .filters .advanced {
+      font: 1em; }
