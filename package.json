@@ -19,11 +19,13 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
+    "gulp-clean": "^0.3.2",
     "gulp-connect": "^4.0.0",
     "gulp-haml": "^0.1.6",
     "gulp-livereload": "^3.8.0",
     "gulp-prettify": "^0.4.0",
     "gulp-sass": "^2.1.1",
+    "gulp-util": "^3.0.7",
     "react": "^15.0.1",
     "react-dom": "^15.0.1"
   },
