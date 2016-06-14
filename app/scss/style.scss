@@ -69,8 +69,6 @@ html, body {
   margin: 0 auto;
 }
 .header{
-  height: (136em/16);
-
   .navigation{
     padding: (24em/16) 0;
   }
@@ -111,7 +109,235 @@ html, body {
       }
     }
     .advanced{
-      font: (16em/16);
+      font-size: (16em/16);
+      position: relative;
+      .icon{
+        &:before{
+          font-size: (22em/16);
+          color: #ffffff;
+          position: absolute;
+          left: -(30em/22);
+          top:50%;
+          transform: translate(0,-50%);
+        }
+      }
+    }
+  }
+}
+
+#home-carousel{
+  position: relative;
+  &:before {
+    background: radial-gradient(circle, transparent,black);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+  }
+}
+
+.item{
+  box-sizing: border-box;
+  .item-title{
+    color: #000;
+    font-family: 'MyriadPro-Regular';
+    font-size: (24em/16);
+  }
+
+  .item-autor{
+    position: relative;
+    padding-left:(40em/16) ;
+    box-sizing: border-box;
+    .icon{
+      &:before{
+        font-size: (26em/16);
+        color: #479DB1;
+        position: absolute;
+        left: 0;
+        top:50%;
+        transform: translate(0,-50%);
+      }
+    }
+  }
+
+  .item-section{
+    position: relative;
+    padding-left:(40em/16) ;
+    box-sizing: border-box;
+
+    .icon{
+      &:before{
+        font-size: (26em/16);
+        color: #479DB1;
+        position: absolute;
+        left: 0;
+        top:50%;
+        transform: translate(0,-50%);
+      }
+    }
+  }
+
+  p{
+    color: #333333;
+    font-size: (14em/16);
+  }
+}
+
+.spotlight{
+  padding:(30em/16) 0 (40em/16) !important;
+  .title{
+    text-transform: uppercase;
+    font-family: HelveticaNeue-Bold;
+    font-size: (20em/16);
+    color: #479EB2;
+  }
+
+  .slider{
+    margin-top: (15em/16);
+    .item{
+
+      .item-border{
+        margin: 0 3.5%;
+        background: #EEEEEE;
+        padding: (20em/16) (20em/16);
+        border: solid 1px #D8DEE0;
+      }
+    }
+  }
+}
+
+.explore{
+  background: #479EB2;
+  padding:(45em/16) 0 !important;
+
+  .explore-grid{
+    margin-top: (15em/16);
+
+    .item{
+      margin-bottom: (30em/16);
+      background: #ffffff;
+      flex-basis: 48.5% !important;
+      max-width: 48.5% !important;
+      padding: (20em/16) (20em/16);
+      border: solid 1px #D8DEE0;
+      .item-autor{
+        .icon{
+          &:before{
+            color: #CBCBCB;
+          }
+        }
+      }
+
+      .item-section{
+        .icon{
+          &:before{
+            color: #CBCBCB;
+          }
+        }
+      }
+    }
+  }
+  .title{
+    text-transform: uppercase;
+    font-family: HelveticaNeue-Bold;
+    font-size: (20em/16);
+    color: #ffffff;
+  }
+
+  .sort{
+    float: right;
+    >li {
+      float: left;
+      margin-left: (15em/16);
+
+      &:first-child{
+        margin-left: 0;
+        line-height: (30em/16);
+        color: #ffffff !important
+      }
+      .btn {
+        font-size: (12em/16);
+        line-height: (30em/12);
+        border: solid 1px #73B1BF;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 (15em/12);
+        color: #000000;
+        border-radius: (5em/12);
+        background: #ffffff;
+
+        &.active{
+          background: #59BFD7;
+          color: #ffffff;
+          border-color:#357F90;
+        }
+      }
+
+      .btn-img{
+        background: none;
+        border: none;
+      }
+      .sort-style{
+        li{
+          float: left;
+        }
+      }
+    }
+  }
+}
+
+.newsletter{
+  background: #5AC0D7;
+  padding:(45em/16) 0 !important;
+
+  .title{
+    text-transform: uppercase;
+    font-family: HelveticaNeue-Bold;
+    font-size: (20em/16);
+    color: #ffffff;
+    margin-bottom: (15em/20);
+  }
+  .news-form{
+    input{
+      font-size: (14em/16);
+      line-height: (40em/14);
+      border: solid 1px #73B1BF;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0 (15em/14);
+      color: #000000;
+    }
+    button{
+      line-height: (40em/16);
+      border: solid 1px #73B1BF;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0 (15em/16);
+      background: #FAFAFA;
+      color: #479EB2;
+    }
+  }
+
+  .col-5{
+    flex-basis: 38.667%;
+    max-width: 38.667%
+  }
+}
+
+#footer{
+  background: #ffffff;
+  padding: (30em/16) 0 !important;
+  .links{
+    a{
+      color: #666666;
+      text-decoration: none;
+      display: block;
+      text-transform: uppercase;
+      font-size: (12em/16);
+      line-height: (18em/12);
     }
   }
 }

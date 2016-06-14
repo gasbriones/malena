@@ -5,10 +5,13 @@
     %meta{name: 'viewport', content:'width=device-width'}
     %link{rel: 'stylesheet',href:'css/gridlex.css' }
     %link{rel: 'stylesheet',href:'css/normalize.css' }
+    %link{rel: 'stylesheet',href:'css/image-gallery.css' }
+    %link{rel: 'stylesheet',href:'css/slick.css' }
+    %link{rel: 'stylesheet',href:'css/icon.css' }
     %link{rel: 'stylesheet',href:'css/style.css' }
   %body
     %div#site.wrapper
-      %header.header.grid-center
+      %header.header.grid-center.clearfix
         %div.col-10.grid.navigation
           %div.col-2{'push-right':'off-2'}
             %img{src: 'images/logo-caicyt.png'}
@@ -22,7 +25,7 @@
                 %li
                   %a{href:'#'} Herramientas y documentos
                 %li
-                  %a{href:'#'} Acerca dess
+                  %a{href:'#'} Acerca de
         %div.col-12.grid-middle.grid-center.filters
           %div.col-10.grid-middle
             %div.col-3.label
@@ -30,7 +33,78 @@
             %div.col-5.input{'push-right':'off-1'}
               %input{type:'text'}
             %div.col-3.advanced
-              Búsqueda avanzada
-      %section#body.wrapper
-    %div#footer
-      %script{src: 'js/init.js'}
+              %i.icon.icon-zoom-in
+              Búsqueda avanzadas
+      %div#body.grid
+        %div#home-carousel.col-12
+        %div.spotlight.col-12.grid-center
+          %div.col-10
+            %h1.title
+              Publicaciones destacadas
+          %div.col-11.grid-center
+            %div#slider.col-10.slider
+        %div.col-12.grid-center.explore
+          %div.col-10.grid-spaceAround
+            %div.col-6
+              %h1.title
+                Explorar publicaciones
+            %div.col-6
+              %ul.sort
+                %li
+                  Según:
+                %li
+                  %button.btn
+                    Materias
+                %li
+                  %button.btn.active
+                    Licencias
+                %li
+                  %button.btn
+                    Certificaciones
+                %li
+                  %ul.sort-style
+                    %li
+                      %button.btn-img
+                        %img{src: 'images/sort-icon-grid.png'}
+                    %li
+                      %button.btn-img
+                        %img{src: 'images/sort-icon-column.png'}
+          %div.col-10.grid-spaceBetween.explore-grid
+            - for (var i = 0; i < 8; ++i)
+              %div.col-6.item
+                %h2.item-title
+                  El fusilamiento de Penina
+                %p.item-autor
+                  %i.icon.icon-user
+                  Autores: Parra, Isabel Palomera; Gonzalo, Blanca Pascual; Pérez Montes, Mercedes; Rocasolano Díez, Ana
+                %p.item-section
+                  %i.icon.icon-books
+                  Ciencias de la Información y Política Científica
+        %div.col-12.grid-center.newsletter
+          %div.col-10
+            %h1.title
+              suscribite a nuestro boletín
+          %form.col-10.grid-spaceBetween.news-form
+            %div.col-5
+              %input{type:'text', placeHolder: 'Nombre completo'}
+            %div.col-5
+              %input{type:'text', placeHolder: 'Correo electrónico'}
+            %div.col-2
+              %button
+                Registrarme
+      %footer#footer.grid-center
+        %div.col-10.grid-center
+          %div.col-2
+            %img{src: 'images/logo-caicyt-white.png'}
+          %div.col-10.grid.links
+            - for (var i = 0; i < 4; ++i)
+              %div.col-3
+                %a{href:'#'}
+                  Inicio
+                %a{href:'#'}
+                  Explorar Documentos
+                %a{href:'#'}
+                  Búsqueda avanzada
+                %a{href:'#'}
+                  Acerca del catálogo
+        %script{src:'build/init.js'}
