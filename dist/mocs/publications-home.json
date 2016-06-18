@@ -1,0 +1,91 @@
+{
+  "meta": {
+    "limit": 10,
+    "next": "?limit=10&offset=20",
+    "offset": "10",
+    "previous": "?limit=10&offset=0",
+    "total_count": 20
+  },
+  "comments": [
+    {
+      "username": "user-10",
+      "comment": "This is the comment #1"
+    },
+    {
+      "username": "user-11",
+      "comment": "This is the comment #2"
+    },
+    {
+      "username": "user-12",
+      "comment": "This is the comment #3"
+    },
+    {
+      "username": "user-13",
+      "comment": "This is the comment #4"
+    },
+    {
+      "username": "user-14",
+      "comment": "This is the comment #5"
+    },
+    {
+      "username": "user-15",
+      "comment": "This is the comment #6"
+    },
+    {
+      "username": "user-15",
+      "comment": "This is the comment #7"
+    },
+    {
+      "username": "user-15",
+      "comment": "This is the comment #8"
+    },
+    {
+      "username": "user-15",
+      "comment": "This is the comment #8"
+    },
+    {
+      "username": "user-15",
+      "comment": "This is the comment #10"
+    },
+    {
+      "username": "user-15",
+      "comment": "This is the comment #11"
+    },
+    {
+      "username": "user-15",
+      "comment": "This is the comment #12"
+    },
+    {
+      "username": "user-15",
+      "comment": "This is the comment #13"
+    },
+    {
+      "username": "user-15",
+      "comment": "This is the comment #14"
+    },
+    {
+      "username": "user-15",
+      "comment": "This is the comment #15"
+    },
+    {
+      "username": "user-15",
+      "comment": "This is the comment #16"
+    },
+    {
+      "username": "user-15",
+      "comment": "This is the comment #17"
+    },
+    {
+      "username": "user-15",
+      "comment": "This is the comment #18"
+    },
+    {
+      "username": "user-15",
+      "comment": "This is the comment #19"
+    },
+    {
+      "username": "user-15",
+      "comment": "This is the comment #20"
+    }
+  ]
+}
