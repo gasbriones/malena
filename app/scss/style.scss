@@ -219,10 +219,9 @@ html, body {
     .item{
       margin-bottom: (30em/16);
       background: #ffffff;
-      flex-basis: 48.5% !important;
-      max-width: 48.5% !important;
       padding: (20em/16) (20em/16);
       border: solid 1px #D8DEE0;
+      transition: all .3s;
       .item-autor{
         .icon{
           &:before{
@@ -237,6 +236,10 @@ html, body {
             color: #CBCBCB;
           }
         }
+      }
+      &.col-6{
+        flex-basis: 48.5% !important;
+        max-width: 48.5% !important;
       }
     }
   }

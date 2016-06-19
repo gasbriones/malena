@@ -42,7 +42,7 @@ gulp.task('buildJsx', function () {
     return gulp.src("app/js/jsx/**/*.jsx")
         .pipe(plumber({errorHandler: onError}))
         .pipe(babel({
-            presets: ['react', 'es2015'],
+            presets: ['react', 'es2015','stage-0'],
         }))
         .pipe(gulp.dest("dist/build"))
 });

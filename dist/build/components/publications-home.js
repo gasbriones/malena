@@ -19,9 +19,9 @@ var _reactPaginate = require('react-paginate');
 
 var _reactPaginate2 = _interopRequireDefault(_reactPaginate);
 
-var _axios = require('axios');
+var _jquery = require('jquery');
 
-var _axios2 = _interopRequireDefault(_axios);
+var _jquery2 = _interopRequireDefault(_jquery);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31,22 +31,37 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+window.React = _react2.default;
+
 var CommentList = function (_React$Component) {
     _inherits(CommentList, _React$Component);
 
     function CommentList() {
         _classCallCheck(this, CommentList);
 
-        return _possibleConstructorReturn(this, Object.getPrototypeOf(CommentList).apply(this, arguments));
+        return _possibleConstructorReturn(this, Object.getPrototypeOf(CommentList).call(this));
     }
 
     _createClass(CommentList, [{
+        key: '_sortByCell',
+        value: function _sortByCell() {
+            _reactDom2.default.render(_react2.default.createElement(App, { url: location.href + '/mocs/publications-home.json',
+                perPage: 6, colClass: 'item col-6' }), document.getElementById('explore'));
+        }
+    }, {
+        key: '_sortByCol',
+        value: function _sortByCol() {
+            _reactDom2.default.render(_react2.default.createElement(App, { url: location.href + '/mocs/publications-home.json',
+                perPage: 6, colClass: 'item col-12' }), document.getElementById('explore'));
+        }
+    }, {
         key: 'render',
         value: function render() {
+            var self = this;
             var commentNodes = this.props.data.map(function (comment, index) {
                 return _react2.default.createElement(
                     'div',
-                    { key: index, className: 'item col-6' },
+                    { key: index, className: self.props.colClass || 'item col-6' },
                     _react2.default.createElement(
                         'div',
                         { className: 'item-border' },
@@ -73,16 +88,97 @@ var CommentList = function (_React$Component) {
 
             return _react2.default.createElement(
                 'div',
-                { className: 'grid-spaceBetween' },
-                commentNodes
+                { className: 'col-12 grid-center' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'col-10 grid-spaceAround' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-6' },
+                        _react2.default.createElement(
+                            'h1',
+                            { className: 'title' },
+                            'Explorar publicaciones'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-6' },
+                        _react2.default.createElement(
+                            'ul',
+                            { className: 'sort' },
+                            _react2.default.createElement(
+                                'li',
+                                null,
+                                'Según:'
+                            ),
+                            _react2.default.createElement(
+                                'li',
+                                null,
+                                _react2.default.createElement(
+                                    'button',
+                                    { className: 'btn' },
+                                    'Materias'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'li',
+                                null,
+                                _react2.default.createElement(
+                                    'button',
+                                    { className: 'btn active' },
+                                    'Licencias'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'li',
+                                null,
+                                _react2.default.createElement(
+                                    'button',
+                                    { className: 'btn' },
+                                    'Certificaciones'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'li',
+                                null,
+                                _react2.default.createElement(
+                                    'ul',
+                                    { className: 'sort-style' },
+                                    _react2.default.createElement(
+                                        'li',
+                                        null,
+                                        _react2.default.createElement(
+                                            'button',
+                                            { className: 'btn-img', onClick: this._sortByCell },
+                                            _react2.default.createElement('img', { src: 'images/sort-icon-grid.png' })
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        'li',
+                                        null,
+                                        _react2.default.createElement(
+                                            'button',
+                                            { className: 'btn-img', onClick: this._sortByCol },
+                                            _react2.default.createElement('img', { src: 'images/sort-icon-column.png' })
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'col-10 explore-grid grid-spaceBetween' },
+                    commentNodes
+                )
             );
         }
     }]);
 
     return CommentList;
 }(_react2.default.Component);
-
-;
 
 var App = exports.App = function (_React$Component2) {
     _inherits(App, _React$Component2);
@@ -91,6 +187,15 @@ var App = exports.App = function (_React$Component2) {
         _classCallCheck(this, App);
 
         var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, props));
+
+        _this2.handlePageClick = function (data) {
+            var selected = data.selected;
+            var offset = Math.ceil(selected * _this2.props.perPage);
+
+            _this2.setState({ offset: offset }, function () {
+                _this2.loadCommentsFromServer();
+            });
+        };
 
         _this2.state = {
             data: [],
@@ -102,20 +207,21 @@ var App = exports.App = function (_React$Component2) {
     _createClass(App, [{
         key: 'loadCommentsFromServer',
         value: function loadCommentsFromServer() {
-            var self = this;
+            var _this3 = this;
 
-            // Set config defaults when creating the instance
-            var instance = _axios2.default.create({
-                headers: {
-                    "Access-Control-Allow-Origin": "http://localhost"
+            _jquery2.default.ajax({
+                url: this.props.url,
+                data: { limit: this.props.perPage, offset: this.state.offset },
+                dataType: 'json',
+                type: 'GET',
+
+                success: function success(data) {
+                    _this3.setState({ data: data.comments, pageNum: Math.ceil(data.meta.total_count / data.meta.limit) });
+                },
+
+                error: function error(xhr, status, err) {
+                    console.error(_this3.props.url, status, err.toString());
                 }
-            });
-
-            instance.get(this.props.url, { limit: this.props.perPage, offset: this.state.offset }).then(function (response) {
-                self.setState({
-                    data: response.data.comments,
-                    pageNum: Math.ceil(response.data.meta.total_count / response.data.meta.limit)
-                });
             });
         }
     }, {
@@ -124,22 +230,12 @@ var App = exports.App = function (_React$Component2) {
             this.loadCommentsFromServer();
         }
     }, {
-        key: 'handlePageClick',
-        value: function handlePageClick(data) {
-            var selected = data.selected;
-            var offset = Math.ceil(selected * this.props.perPage);
-
-            this.setState({ offset: offset }, function () {
-                this.loadCommentsFromServer();
-            });
-        }
-    }, {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                { className: 'commentBox' },
-                _react2.default.createElement(CommentList, { data: this.state.data }),
+                null,
+                _react2.default.createElement(CommentList, { data: this.state.data, colClass: this.props.colClass }),
                 _react2.default.createElement(_reactPaginate2.default, { previousLabel: "previous",
                     nextLabel: "next",
                     breakLabel: _react2.default.createElement(
@@ -161,5 +257,5 @@ var App = exports.App = function (_React$Component2) {
     return App;
 }(_react2.default.Component);
 
-_reactDom2.default.render(_react2.default.createElement(App, { url: 'http://localhost:3000/comments',
-    perPage: 5 }), document.getElementById('react-paginate'));
+_reactDom2.default.render(_react2.default.createElement(App, { url: location.href + '/mocs/publications-home.json',
+    perPage: 6 }), document.getElementById('explore'));

@@ -151,14 +151,16 @@ html, body {
     .explore .explore-grid .item {
       margin-bottom: 1.875em;
       background: #ffffff;
-      flex-basis: 48.5% !important;
-      max-width: 48.5% !important;
       padding: 1.25em 1.25em;
-      border: solid 1px #D8DEE0; }
+      border: solid 1px #D8DEE0;
+      transition: all .3s; }
       .explore .explore-grid .item .item-autor .icon:before {
         color: #CBCBCB; }
       .explore .explore-grid .item .item-section .icon:before {
         color: #CBCBCB; }
+      .explore .explore-grid .item.col-6 {
+        flex-basis: 48.5% !important;
+        max-width: 48.5% !important; }
   .explore .title {
     text-transform: uppercase;
     font-family: HelveticaNeue-Bold;

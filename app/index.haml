@@ -44,7 +44,7 @@
               Publicaciones destacadas
           %div.col-11.grid-center
             %div#slider.col-10.slider
-        %div.col-12.grid-center.explore
+        %div#explore.col-12.grid-center.explore
           %div.col-10.grid-spaceAround
             %div.col-6
               %h1.title
@@ -70,8 +70,17 @@
                     %li
                       %button.btn-img
                         %img{src: 'images/sort-icon-column.png'}
-          %div.col-10.explore-grid
-            %div#react-paginate
+          %div.col-10.grid-spaceBetween.explore-grid
+            - for (var i = 0; i < 8; ++i)
+              %div.col-6.item
+                %h2.item-title
+                  El fusilamiento de Penina
+                %p.item-autor
+                  %i.icon.icon-user
+                  Autores: Parra, Isabel Palomera; Gonzalo, Blanca Pascual; Pérez Montes, Mercedes; Rocasolano Díez, Ana
+                %p.item-section
+                  %i.icon.icon-books
+                  Ciencias de la Información y Política Científica
         %div.col-12.grid-center.newsletter
           %div.col-10
             %h1.title

@@ -1,13 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactPaginate from 'react-paginate';
-import Axios from 'axios'
+import $ from 'jquery';
+
+window.React = React;
 
 class CommentList extends React.Component {
+
+    constructor(){
+        super()
+    }
+
+    _sortByCell (){
+        ReactDOM.render(
+            <App url={location.href + '/mocs/publications-home.json'}
+                 perPage={6} colClass={'item col-6'}/>,
+            document.getElementById('explore')
+        )
+    }
+
+    _sortByCol (){
+        ReactDOM.render(
+            <App url={location.href + '/mocs/publications-home.json'}
+                 perPage={6} colClass={'item col-12'}/>,
+            document.getElementById('explore')
+        )
+    }
+
     render() {
+        let self = this;
         let commentNodes = this.props.data.map(function (comment, index) {
             return (
-                <div key={index} className="item col-6">
+                <div key={index} className={self.props.colClass || 'item col-6'}>
                     <div className="item-border">
                         <h2 className="item-title">{comment.username}</h2>
                         <p className="item-autor">
@@ -24,13 +48,44 @@ class CommentList extends React.Component {
         });
 
         return (
-            <div className="grid-spaceBetween">
-                {commentNodes}
+            <div className="col-12 grid-center">
+                <div className="col-10 grid-spaceAround">
+                    <div className="col-6">
+                        <h1 className="title">Explorar publicaciones</h1></div>
+                    <div className="col-6">
+                        <ul className="sort">
+                            <li>Según:</li>
+                            <li>
+                                <button className="btn">Materias</button>
+                            </li>
+                            <li>
+                                <button className="btn active">Licencias</button>
+                            </li>
+                            <li>
+                                <button className="btn">Certificaciones</button>
+                            </li>
+                            <li>
+                                <ul className="sort-style">
+                                    <li>
+                                        <button className="btn-img" onClick={this._sortByCell}>
+                                            <img src="images/sort-icon-grid.png"/></button>
+                                    </li>
+                                    <li>
+                                        <button className="btn-img" onClick={this._sortByCol}>
+                                            <img src="images/sort-icon-column.png"/></button>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div className="col-10 explore-grid grid-spaceBetween">
+                    {commentNodes}
+                </div>
             </div>
-        );
+        )
     }
 }
-;
 
 export class App extends React.Component {
     constructor(props) {
@@ -43,40 +98,39 @@ export class App extends React.Component {
     }
 
     loadCommentsFromServer() {
-        let self = this;
+        $.ajax({
+            url      : this.props.url,
+            data     : {limit: this.props.perPage, offset: this.state.offset},
+            dataType : 'json',
+            type     : 'GET',
 
-        // Set config defaults when creating the instance
-        var instance = Axios.create({
-            headers: {
-                "Access-Control-Allow-Origin":"http://localhost"
+            success: data => {
+                this.setState({data: data.comments, pageNum: Math.ceil(data.meta.total_count / data.meta.limit)});
+            },
+
+            error: (xhr, status, err) => {
+                console.error(this.props.url, status, err.toString());
             }
         });
-
-        instance.get(this.props.url,{limit: this.props.perPage, offset: this.state.offset}).then(function (response) {
-            self.setState({
-                data: response.data.comments,
-                pageNum: Math.ceil(response.data.meta.total_count / response.data.meta.limit)
-            });
-        })
     }
 
     componentDidMount() {
         this.loadCommentsFromServer();
     }
 
-    handlePageClick(data) {
+    handlePageClick = (data) => {
         let selected = data.selected;
         let offset = Math.ceil(selected * this.props.perPage);
 
-        this.setState({offset: offset}, function () {
+        this.setState({offset: offset}, () => {
             this.loadCommentsFromServer();
         });
     };
 
     render() {
         return (
-            <div className="commentBox">
-                <CommentList data={this.state.data}/>
+            <div>
+                <CommentList data={this.state.data} colClass={this.props.colClass}/>
                 <ReactPaginate previousLabel={"previous"}
                                nextLabel={"next"}
                                breakLabel={<a href="">...</a>}
@@ -93,7 +147,7 @@ export class App extends React.Component {
 }
 
 ReactDOM.render(
-    <App url={'http://localhost:3000/comments'}
-         perPage={5}/>,
-    document.getElementById('react-paginate')
+    <App url={location.href + '/mocs/publications-home.json'}
+         perPage={6}/>,
+    document.getElementById('explore')
 );
