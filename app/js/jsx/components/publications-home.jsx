@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactPaginate from 'react-paginate';
-import $ from 'jquery';
-
-window.React = React;
+import Axios from 'axios'
 
 class CommentList extends React.Component {
 
     constructor(){
         super()
+
     }
 
     _sortByCell (){
@@ -87,7 +86,7 @@ class CommentList extends React.Component {
     }
 }
 
-export class App extends React.Component {
+export default class App extends React.Component {
     constructor(props) {
         super(props);
 
@@ -98,20 +97,19 @@ export class App extends React.Component {
     }
 
     loadCommentsFromServer() {
-        $.ajax({
-            url      : this.props.url,
-            data     : {limit: this.props.perPage, offset: this.state.offset},
-            dataType : 'json',
-            type     : 'GET',
-
-            success: data => {
-                this.setState({data: data.comments, pageNum: Math.ceil(data.meta.total_count / data.meta.limit)});
-            },
-
-            error: (xhr, status, err) => {
-                console.error(this.props.url, status, err.toString());
+        let self = this;
+        var instance = Axios.create({
+            headers: {
+                "Access-Control-Allow-Origin": "http://localhost"
             }
         });
+
+        instance.get(self.props.url, {limit: self.props.perPage, offset: self.state.offset}).then(function (response) {
+            self.setState({
+                data: response.data.comments,
+                pageNum: Math.ceil(response.data.meta.total_count / response.data.meta.limit)
+            });
+        })
     }
 
     componentDidMount() {

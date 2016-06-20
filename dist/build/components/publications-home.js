@@ -3,7 +3,6 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.App = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -19,9 +18,9 @@ var _reactPaginate = require('react-paginate');
 
 var _reactPaginate2 = _interopRequireDefault(_reactPaginate);
 
-var _jquery = require('jquery');
+var _axios = require('axios');
 
-var _jquery2 = _interopRequireDefault(_jquery);
+var _axios2 = _interopRequireDefault(_axios);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31,15 +30,17 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-window.React = _react2.default;
-
 var CommentList = function (_React$Component) {
     _inherits(CommentList, _React$Component);
 
     function CommentList() {
         _classCallCheck(this, CommentList);
 
-        return _possibleConstructorReturn(this, Object.getPrototypeOf(CommentList).call(this));
+        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(CommentList).call(this));
+
+        _this._sortByCell = _this._sortByCell.bind(_this);
+        _this._sortByCol = _this._sortByCol.bind(_this);
+        return _this;
     }
 
     _createClass(CommentList, [{
@@ -180,7 +181,7 @@ var CommentList = function (_React$Component) {
     return CommentList;
 }(_react2.default.Component);
 
-var App = exports.App = function (_React$Component2) {
+var App = function (_React$Component2) {
     _inherits(App, _React$Component2);
 
     function App(props) {
@@ -207,21 +208,18 @@ var App = exports.App = function (_React$Component2) {
     _createClass(App, [{
         key: 'loadCommentsFromServer',
         value: function loadCommentsFromServer() {
-            var _this3 = this;
-
-            _jquery2.default.ajax({
-                url: this.props.url,
-                data: { limit: this.props.perPage, offset: this.state.offset },
-                dataType: 'json',
-                type: 'GET',
-
-                success: function success(data) {
-                    _this3.setState({ data: data.comments, pageNum: Math.ceil(data.meta.total_count / data.meta.limit) });
-                },
-
-                error: function error(xhr, status, err) {
-                    console.error(_this3.props.url, status, err.toString());
+            var self = this;
+            var instance = _axios2.default.create({
+                headers: {
+                    "Access-Control-Allow-Origin": "http://localhost"
                 }
+            });
+
+            instance.get(self.props.url, { limit: self.props.perPage, offset: self.state.offset }).then(function (response) {
+                self.setState({
+                    data: response.data.comments,
+                    pageNum: Math.ceil(response.data.meta.total_count / response.data.meta.limit)
+                });
             });
         }
     }, {
@@ -256,6 +254,9 @@ var App = exports.App = function (_React$Component2) {
 
     return App;
 }(_react2.default.Component);
+
+exports.default = App;
+
 
 _reactDom2.default.render(_react2.default.createElement(App, { url: location.href + '/mocs/publications-home.json',
     perPage: 6 }), document.getElementById('explore'));
