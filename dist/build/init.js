@@ -16,7 +16,7 @@ var _publicationsHome2 = _interopRequireDefault(_publicationsHome);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-}).call(this,require("+7ZJp0"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_3c48d8a7.js","/")
+}).call(this,require("+7ZJp0"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_7ac181e8.js","/")
 },{"+7ZJp0":117,"../../../dist/build/components/carousel-home.js":2,"../../../dist/build/components/publications-home.js":3,"../../../dist/build/components/slider-home.js":4,"buffer":114}],2:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
@@ -235,11 +235,7 @@ var CommentList = function (_React$Component) {
     function CommentList() {
         _classCallCheck(this, CommentList);
 
-        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(CommentList).call(this));
-
-        _this._sortByCell = _this._sortByCell.bind(_this);
-        _this._sortByCol = _this._sortByCol.bind(_this);
-        return _this;
+        return _possibleConstructorReturn(this, Object.getPrototypeOf(CommentList).call(this));
     }
 
     _createClass(CommentList, [{
@@ -258,11 +254,11 @@ var CommentList = function (_React$Component) {
         key: 'render',
         value: function render() {
             var self = this;
-            var commentNodes = this.props.data.map(function (comment, index) {
-                return _react2.default.createElement('div', { key: index, className: self.props.colClass || 'item col-6' }, _react2.default.createElement('div', { className: 'item-border' }, _react2.default.createElement('h2', { className: 'item-title' }, comment.username), _react2.default.createElement('p', { className: 'item-autor' }, _react2.default.createElement('i', { className: 'icon icon-user' }), comment.comment), _react2.default.createElement('p', { className: 'item-section' }, _react2.default.createElement('i', { className: 'icon icon-books' }), comment.comment)));
+            var publicationsNodes = this.props.data.map(function (publication, index) {
+                return _react2.default.createElement('div', { key: index, className: self.props.colClass || 'item col-6' }, _react2.default.createElement('div', { className: 'item-border' }, _react2.default.createElement('h2', { className: 'item-title' }, publication.title), _react2.default.createElement('p', { className: 'item-autor' }, _react2.default.createElement('i', { className: 'icon icon-user' }), publication.author), _react2.default.createElement('p', { className: 'item-section' }, _react2.default.createElement('i', { className: 'icon icon-books' }), publication.section)));
             });
 
-            return _react2.default.createElement('div', { className: 'col-12 grid-center' }, _react2.default.createElement('div', { className: 'col-10 grid-spaceAround' }, _react2.default.createElement('div', { className: 'col-6' }, _react2.default.createElement('h1', { className: 'title' }, 'Explorar publicaciones')), _react2.default.createElement('div', { className: 'col-6' }, _react2.default.createElement('ul', { className: 'sort' }, _react2.default.createElement('li', null, 'Según:'), _react2.default.createElement('li', null, _react2.default.createElement('button', { className: 'btn' }, 'Materias')), _react2.default.createElement('li', null, _react2.default.createElement('button', { className: 'btn active' }, 'Licencias')), _react2.default.createElement('li', null, _react2.default.createElement('button', { className: 'btn' }, 'Certificaciones')), _react2.default.createElement('li', null, _react2.default.createElement('ul', { className: 'sort-style' }, _react2.default.createElement('li', null, _react2.default.createElement('button', { className: 'btn-img', onClick: this._sortByCell }, _react2.default.createElement('img', { src: 'images/sort-icon-grid.png' }))), _react2.default.createElement('li', null, _react2.default.createElement('button', { className: 'btn-img', onClick: this._sortByCol }, _react2.default.createElement('img', { src: 'images/sort-icon-column.png' })))))))), _react2.default.createElement('div', { className: 'col-10 explore-grid grid-spaceBetween' }, commentNodes));
+            return _react2.default.createElement('div', { className: 'col-12 grid-center' }, _react2.default.createElement('div', { className: 'col-10 grid-spaceAround' }, _react2.default.createElement('div', { className: 'col-6' }, _react2.default.createElement('h1', { className: 'title' }, 'Explorar publicaciones')), _react2.default.createElement('div', { className: 'col-6' }, _react2.default.createElement('ul', { className: 'sort' }, _react2.default.createElement('li', null, 'Según:'), _react2.default.createElement('li', null, _react2.default.createElement('button', { className: 'btn' }, 'Materias')), _react2.default.createElement('li', null, _react2.default.createElement('button', { className: 'btn active' }, 'Licencias')), _react2.default.createElement('li', null, _react2.default.createElement('button', { className: 'btn' }, 'Certificaciones')), _react2.default.createElement('li', null, _react2.default.createElement('ul', { className: 'sort-style' }, _react2.default.createElement('li', null, _react2.default.createElement('button', { className: 'btn-img', onClick: this._sortByCell }, _react2.default.createElement('img', { src: 'images/sort-icon-grid.png' }))), _react2.default.createElement('li', null, _react2.default.createElement('button', { className: 'btn-img', onClick: this._sortByCol }, _react2.default.createElement('img', { src: 'images/sort-icon-column.png' })))))))), _react2.default.createElement('div', { className: 'col-10 explore-grid grid-spaceBetween' }, publicationsNodes));
         }
     }]);
 
@@ -304,8 +300,9 @@ var App = function (_React$Component2) {
             });
 
             instance.get(self.props.url, { limit: self.props.perPage, offset: self.state.offset }).then(function (response) {
+                console.log(response);
                 self.setState({
-                    data: response.data.comments,
+                    data: response.data.publications,
                     pageNum: Math.ceil(response.data.meta.total_count / response.data.meta.limit)
                 });
             });
@@ -318,8 +315,8 @@ var App = function (_React$Component2) {
     }, {
         key: 'render',
         value: function render() {
-            return _react2.default.createElement('div', null, _react2.default.createElement(CommentList, { data: this.state.data, colClass: this.props.colClass }), _react2.default.createElement(_reactPaginate2.default, { previousLabel: "previous",
-                nextLabel: "next",
+            return _react2.default.createElement('div', null, _react2.default.createElement(CommentList, { data: this.state.data, colClass: this.props.colClass }), _react2.default.createElement(_reactPaginate2.default, { previousLabel: "«",
+                nextLabel: "»",
                 breakLabel: _react2.default.createElement('a', { href: '' }, '...'),
                 pageNum: this.state.pageNum,
                 marginPagesDisplayed: 2,

@@ -36,11 +36,7 @@ var CommentList = function (_React$Component) {
     function CommentList() {
         _classCallCheck(this, CommentList);
 
-        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(CommentList).call(this));
-
-        _this._sortByCell = _this._sortByCell.bind(_this);
-        _this._sortByCol = _this._sortByCol.bind(_this);
-        return _this;
+        return _possibleConstructorReturn(this, Object.getPrototypeOf(CommentList).call(this));
     }
 
     _createClass(CommentList, [{
@@ -59,7 +55,7 @@ var CommentList = function (_React$Component) {
         key: 'render',
         value: function render() {
             var self = this;
-            var commentNodes = this.props.data.map(function (comment, index) {
+            var publicationsNodes = this.props.data.map(function (publication, index) {
                 return _react2.default.createElement(
                     'div',
                     { key: index, className: self.props.colClass || 'item col-6' },
@@ -69,19 +65,19 @@ var CommentList = function (_React$Component) {
                         _react2.default.createElement(
                             'h2',
                             { className: 'item-title' },
-                            comment.username
+                            publication.title
                         ),
                         _react2.default.createElement(
                             'p',
                             { className: 'item-autor' },
                             _react2.default.createElement('i', { className: 'icon icon-user' }),
-                            comment.comment
+                            publication.author
                         ),
                         _react2.default.createElement(
                             'p',
                             { className: 'item-section' },
                             _react2.default.createElement('i', { className: 'icon icon-books' }),
-                            comment.comment
+                            publication.section
                         )
                     )
                 );
@@ -172,7 +168,7 @@ var CommentList = function (_React$Component) {
                 _react2.default.createElement(
                     'div',
                     { className: 'col-10 explore-grid grid-spaceBetween' },
-                    commentNodes
+                    publicationsNodes
                 )
             );
         }
@@ -216,8 +212,9 @@ var App = function (_React$Component2) {
             });
 
             instance.get(self.props.url, { limit: self.props.perPage, offset: self.state.offset }).then(function (response) {
+                console.log(response);
                 self.setState({
-                    data: response.data.comments,
+                    data: response.data.publications,
                     pageNum: Math.ceil(response.data.meta.total_count / response.data.meta.limit)
                 });
             });
@@ -234,8 +231,8 @@ var App = function (_React$Component2) {
                 'div',
                 null,
                 _react2.default.createElement(CommentList, { data: this.state.data, colClass: this.props.colClass }),
-                _react2.default.createElement(_reactPaginate2.default, { previousLabel: "previous",
-                    nextLabel: "next",
+                _react2.default.createElement(_reactPaginate2.default, { previousLabel: "«",
+                    nextLabel: "»",
                     breakLabel: _react2.default.createElement(
                         'a',
                         { href: '' },

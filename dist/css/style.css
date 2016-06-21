@@ -36,7 +36,8 @@ html, body {
   padding: 0;
   width: 100%;
   height: 100%;
-  font-size: 1em; }
+  font-size: 1em;
+  font-family: HelveticaNeueLTStd-Roman; }
 
 .wrapper {
   width: 100%;
@@ -69,10 +70,17 @@ html, body {
     font-family: HelveticaNeue-Bold;
     font-size: 1.25em; }
   .header .filters .input input {
-    line-height: 1.875em;
+    line-height: 2.25em;
     border: solid 1px #A5A5A5;
-    width: 100%;
-    box-sizing: border-box; }
+    width: 80%;
+    box-sizing: border-box;
+    float: left;
+    border-right: none; }
+  .header .filters .input button {
+    background: transparent;
+    border: none;
+    float: left;
+    padding: 0; }
   .header .filters .advanced {
     font-size: 1em;
     position: relative; }
@@ -86,15 +94,19 @@ html, body {
 
 #home-carousel {
   position: relative; }
-  #home-carousel:before {
-    background: radial-gradient(circle, transparent, black);
-    content: "";
-    height: 100%;
-    left: 0;
+  #home-carousel .image-gallery-description {
     position: absolute;
-    top: 0;
+    z-index: 99999;
     width: 100%;
-    z-index: 999; }
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: radial-gradient(circle, transparent, black);
+    text-align: center;
+    font-size: 1.375em;
+    box-sizing: border-box;
+    padding: 15% 17%;
+    line-height: 1.27273em; }
 
 .item {
   box-sizing: border-box; }
@@ -234,3 +246,30 @@ html, body {
     text-transform: uppercase;
     font-size: 0.75em;
     line-height: 1.5em; }
+
+.pagination {
+  display: table;
+  margin: 0 auto; }
+  .pagination li {
+    float: left;
+    border-radius: 0.1875em;
+    border: 1px solid #338193;
+    background: #fff;
+    margin-left: 0.3125em;
+    box-sizing: border-box; }
+    .pagination li a {
+      font-size: 0.75em;
+      color: #000000;
+      display: block;
+      line-height: 1.66667em;
+      padding: 0px 6px;
+      cursor: pointer; }
+    .pagination li.previous a, .pagination li.next a {
+      font-size: 1.25em;
+      color: #717171;
+      line-height: 1em; }
+    .pagination li.active {
+      background: #439aae;
+      box-shadow: inset 0 0 3px #317281; }
+      .pagination li.active a {
+        color: #fff; }

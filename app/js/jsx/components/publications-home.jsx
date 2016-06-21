@@ -5,12 +5,11 @@ import Axios from 'axios'
 
 class CommentList extends React.Component {
 
-    constructor(){
+    constructor() {
         super()
-
     }
 
-    _sortByCell (){
+    _sortByCell() {
         ReactDOM.render(
             <App url={location.href + '/mocs/publications-home.json'}
                  perPage={6} colClass={'item col-6'}/>,
@@ -18,7 +17,7 @@ class CommentList extends React.Component {
         )
     }
 
-    _sortByCol (){
+    _sortByCol() {
         ReactDOM.render(
             <App url={location.href + '/mocs/publications-home.json'}
                  perPage={6} colClass={'item col-12'}/>,
@@ -28,18 +27,18 @@ class CommentList extends React.Component {
 
     render() {
         let self = this;
-        let commentNodes = this.props.data.map(function (comment, index) {
+        let publicationsNodes = this.props.data.map(function (publication, index) {
             return (
                 <div key={index} className={self.props.colClass || 'item col-6'}>
                     <div className="item-border">
-                        <h2 className="item-title">{comment.username}</h2>
+                        <h2 className="item-title">{publication.title}</h2>
                         <p className="item-autor">
                             <i className="icon icon-user"/>
-                            {comment.comment}
+                            {publication.author}
                         </p>
                         <p className="item-section">
                             <i className="icon icon-books"/>
-                            {comment.comment}
+                            {publication.section}
                         </p>
                     </div>
                 </div>
@@ -79,7 +78,7 @@ class CommentList extends React.Component {
                     </div>
                 </div>
                 <div className="col-10 explore-grid grid-spaceBetween">
-                    {commentNodes}
+                    {publicationsNodes}
                 </div>
             </div>
         )
@@ -105,8 +104,9 @@ export default class App extends React.Component {
         });
 
         instance.get(self.props.url, {limit: self.props.perPage, offset: self.state.offset}).then(function (response) {
+            console.log(response);
             self.setState({
-                data: response.data.comments,
+                data: response.data.publications,
                 pageNum: Math.ceil(response.data.meta.total_count / response.data.meta.limit)
             });
         })
@@ -129,8 +129,8 @@ export default class App extends React.Component {
         return (
             <div>
                 <CommentList data={this.state.data} colClass={this.props.colClass}/>
-                <ReactPaginate previousLabel={"previous"}
-                               nextLabel={"next"}
+                <ReactPaginate previousLabel={"«"}
+                               nextLabel={"»"}
                                breakLabel={<a href="">...</a>}
                                pageNum={this.state.pageNum}
                                marginPagesDisplayed={2}

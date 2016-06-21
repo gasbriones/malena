@@ -6,86 +6,66 @@
     "previous": "?limit=10&offset=0",
     "total_count": 20
   },
-  "comments": [
+  "publications": [
     {
-      "username": "user-10",
-      "comment": "This is the comment #1"
+      "title": "El fusilamiento de Penina",
+      "author": "Autores: Parra, Isabel Palomera; Gonzalo, Blanca Pascual; Pérez Montes, Mercedes; Rocasolano Díez, Ana",
+      "section":"Ciencias de la Información y Política Científica",
+      "flag":"red"
     },
     {
-      "username": "user-11",
-      "comment": "This is the comment #2"
+      "title": "El fusilamiento de Penina",
+      "author": "Autores: Parra, Isabel Palomera; Gonzalo, Blanca Pascual; Pérez Montes, Mercedes; Rocasolano Díez, Ana",
+      "section":"Ciencias de la Información y Política Científica",
+      "flag":"red"
     },
     {
-      "username": "user-12",
-      "comment": "This is the comment #3"
+      "title": "El fusilamiento de Penina",
+      "author": "Autores: Parra, Isabel Palomera; Gonzalo, Blanca Pascual; Pérez Montes, Mercedes; Rocasolano Díez, Ana",
+      "section":"Ciencias de la Información y Política Científica",
+      "flag":"red"
     },
     {
-      "username": "user-13",
-      "comment": "This is the comment #4"
+      "title": "El fusilamiento de Penina",
+      "author": "Autores: Parra, Isabel Palomera; Gonzalo, Blanca Pascual; Pérez Montes, Mercedes; Rocasolano Díez, Ana",
+      "section":"Ciencias de la Información y Política Científica",
+      "flag":"red"
     },
     {
-      "username": "user-14",
-      "comment": "This is the comment #5"
+      "title": "El fusilamiento de Penina",
+      "author": "Autores: Parra, Isabel Palomera; Gonzalo, Blanca Pascual; Pérez Montes, Mercedes; Rocasolano Díez, Ana",
+      "section":"Ciencias de la Información y Política Científica",
+      "flag":"red"
     },
     {
-      "username": "user-15",
-      "comment": "This is the comment #6"
+      "title": "El fusilamiento de Penina",
+      "author": "Autores: Parra, Isabel Palomera; Gonzalo, Blanca Pascual; Pérez Montes, Mercedes; Rocasolano Díez, Ana",
+      "section":"Ciencias de la Información y Política Científica",
+      "flag":"red"
     },
     {
-      "username": "user-16",
-      "comment": "This is the comment #7"
+      "title": "El fusilamiento de Penina",
+      "author": "Autores: Parra, Isabel Palomera; Gonzalo, Blanca Pascual; Pérez Montes, Mercedes; Rocasolano Díez, Ana",
+      "section":"Ciencias de la Información y Política Científica",
+      "flag":"red"
     },
     {
-      "username": "user-17",
-      "comment": "This is the comment #8"
+      "title": "El fusilamiento de Penina",
+      "author": "Autores: Parra, Isabel Palomera; Gonzalo, Blanca Pascual; Pérez Montes, Mercedes; Rocasolano Díez, Ana",
+      "section":"Ciencias de la Información y Política Científica",
+      "flag":"red"
     },
     {
-      "username": "user-18",
-      "comment": "This is the comment #8"
+      "title": "El fusilamiento de Penina",
+      "author": "Autores: Parra, Isabel Palomera; Gonzalo, Blanca Pascual; Pérez Montes, Mercedes; Rocasolano Díez, Ana",
+      "section":"Ciencias de la Información y Política Científica",
+      "flag":"red"
     },
     {
-      "username": "user-19",
-      "comment": "This is the comment #10"
-    },
-    {
-      "username": "user-20",
-      "comment": "This is the comment #11"
-    },
-    {
-      "username": "user-21",
-      "comment": "This is the comment #12"
-    },
-    {
-      "username": "user-22",
-      "comment": "This is the comment #13"
-    },
-    {
-      "username": "user-23",
-      "comment": "This is the comment #14"
-    },
-    {
-      "username": "user-24",
-      "comment": "This is the comment #15"
-    },
-    {
-      "username": "user-25",
-      "comment": "This is the comment #16"
-    },
-    {
-      "username": "user-26",
-      "comment": "This is the comment #17"
-    },
-    {
-      "username": "user-27",
-      "comment": "This is the comment #18"
-    },
-    {
-      "username": "user-28",
-      "comment": "This is the comment #19"
-    },
-    {
-      "username": "user-29",
-      "comment": "This is the comment #20"
+      "title": "El fusilamiento de Penina",
+      "author": "Autores: Parra, Isabel Palomera; Gonzalo, Blanca Pascual; Pérez Montes, Mercedes; Rocasolano Díez, Ana",
+      "section":"Ciencias de la Información y Política Científica",
+      "flag":"red"
     }
   ]
 }
