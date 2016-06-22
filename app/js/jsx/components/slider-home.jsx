@@ -35,18 +35,20 @@ class App extends React.Component {
         this._processData();
     }
 
-
     render() {
         var settings = {
             dots: false,
             infinite: true,
             speed: 500,
             slidesToShow: 2,
-            slidesToScroll: 1
+            slidesToScroll: 1,
+            responsive: [
+                {breakpoint: 768, settings: {slidesToShow: 1}}
+            ]
         };
         return (
             <Slider {...settings}>
-                {this.state.items.map(function(row,index){
+                {this.state.items.map(function (row, index) {
                     return <div key={index} className="item">
                         <div className="item-border">
                             <h2 className="item-title">{row.title}</h2>
@@ -59,7 +61,8 @@ class App extends React.Component {
                                 {row.section}
                             </p>
                         </div>
-                    </div> })}
+                    </div>
+                })}
             </Slider>
         );
     }

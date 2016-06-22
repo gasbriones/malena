@@ -61,7 +61,7 @@ html, body {
       text-decoration: none; }
 
 .header .filters {
-  height: 3.875em;
+  padding: 0.875em 0;
   background: #5AC0D7;
   color: #ffffff; }
   .header .filters .label {
@@ -71,6 +71,7 @@ html, body {
     font-size: 1.25em; }
   .header .filters .input input {
     line-height: 2.25em;
+    height: 2.5em;
     border: solid 1px #A5A5A5;
     width: 80%;
     box-sizing: border-box;
@@ -170,9 +171,9 @@ html, body {
         color: #CBCBCB; }
       .explore .explore-grid .item .item-section .icon:before {
         color: #CBCBCB; }
-      .explore .explore-grid .item.col-6 {
-        flex-basis: 48.5% !important;
-        max-width: 48.5% !important; }
+      .explore .explore-grid .item[class*="col-6"] {
+        flex-basis: 48.5%;
+        max-width: 48.5%; }
   .explore .title {
     text-transform: uppercase;
     font-family: HelveticaNeue-Bold;

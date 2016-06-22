@@ -90,8 +90,9 @@ html, body {
     }
   }
 
-  .filters{
-    height: (62em/16);
+  .filters {
+
+    padding: (14em/16) 0;
     background: #5AC0D7;
     color: #ffffff;
 
@@ -104,6 +105,7 @@ html, body {
     .input{
       input{
         line-height: (36em/16);
+        height: (40em/16);
         border: solid 1px #A5A5A5;
         width: 80%;
         box-sizing: border-box;
@@ -253,9 +255,10 @@ html, body {
           }
         }
       }
-      &.col-6{
-        flex-basis: 48.5% !important;
-        max-width: 48.5% !important;
+
+      &[class*="col-6"]{
+        flex-basis: 48.5%;
+        max-width: 48.5%;
       }
     }
   }

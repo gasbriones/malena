@@ -16,7 +16,7 @@ var _publicationsHome2 = _interopRequireDefault(_publicationsHome);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-}).call(this,require("+7ZJp0"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_7ac181e8.js","/")
+}).call(this,require("+7ZJp0"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_2b2c78fd.js","/")
 },{"+7ZJp0":117,"../../../dist/build/components/carousel-home.js":2,"../../../dist/build/components/publications-home.js":3,"../../../dist/build/components/slider-home.js":4,"buffer":114}],2:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
@@ -255,10 +255,10 @@ var CommentList = function (_React$Component) {
         value: function render() {
             var self = this;
             var publicationsNodes = this.props.data.map(function (publication, index) {
-                return _react2.default.createElement('div', { key: index, className: self.props.colClass || 'item col-6' }, _react2.default.createElement('div', { className: 'item-border' }, _react2.default.createElement('h2', { className: 'item-title' }, publication.title), _react2.default.createElement('p', { className: 'item-autor' }, _react2.default.createElement('i', { className: 'icon icon-user' }), publication.author), _react2.default.createElement('p', { className: 'item-section' }, _react2.default.createElement('i', { className: 'icon icon-books' }), publication.section)));
+                return _react2.default.createElement('div', { key: index, className: self.props.colClass || 'item col-6_sm-12' }, _react2.default.createElement('div', { className: 'item-border' }, _react2.default.createElement('h2', { className: 'item-title' }, publication.title), _react2.default.createElement('p', { className: 'item-autor' }, _react2.default.createElement('i', { className: 'icon icon-user' }), publication.author), _react2.default.createElement('p', { className: 'item-section' }, _react2.default.createElement('i', { className: 'icon icon-books' }), publication.section)));
             });
 
-            return _react2.default.createElement('div', { className: 'col-12 grid-center' }, _react2.default.createElement('div', { className: 'col-10 grid-spaceAround' }, _react2.default.createElement('div', { className: 'col-6' }, _react2.default.createElement('h1', { className: 'title' }, 'Explorar publicaciones')), _react2.default.createElement('div', { className: 'col-6' }, _react2.default.createElement('ul', { className: 'sort' }, _react2.default.createElement('li', null, 'Según:'), _react2.default.createElement('li', null, _react2.default.createElement('button', { className: 'btn' }, 'Materias')), _react2.default.createElement('li', null, _react2.default.createElement('button', { className: 'btn active' }, 'Licencias')), _react2.default.createElement('li', null, _react2.default.createElement('button', { className: 'btn' }, 'Certificaciones')), _react2.default.createElement('li', null, _react2.default.createElement('ul', { className: 'sort-style' }, _react2.default.createElement('li', null, _react2.default.createElement('button', { className: 'btn-img', onClick: this._sortByCell }, _react2.default.createElement('img', { src: 'images/sort-icon-grid.png' }))), _react2.default.createElement('li', null, _react2.default.createElement('button', { className: 'btn-img', onClick: this._sortByCol }, _react2.default.createElement('img', { src: 'images/sort-icon-column.png' })))))))), _react2.default.createElement('div', { className: 'col-10 explore-grid grid-spaceBetween' }, publicationsNodes));
+            return _react2.default.createElement('div', { className: 'col-12 grid-center' }, _react2.default.createElement('div', { className: 'col-10_md-11 grid-spaceAround' }, _react2.default.createElement('div', { className: 'col-6_md-4_sm-12' }, _react2.default.createElement('h1', { className: 'title' }, 'Explorar publicaciones')), _react2.default.createElement('div', { className: 'col-6_md-8_sm-12' }, _react2.default.createElement('ul', { className: 'sort' }, _react2.default.createElement('li', null, 'Según:'), _react2.default.createElement('li', null, _react2.default.createElement('button', { className: 'btn' }, 'Materias')), _react2.default.createElement('li', null, _react2.default.createElement('button', { className: 'btn active' }, 'Licencias')), _react2.default.createElement('li', null, _react2.default.createElement('button', { className: 'btn' }, 'Certificaciones')), _react2.default.createElement('li', null, _react2.default.createElement('ul', { className: 'sort-style' }, _react2.default.createElement('li', null, _react2.default.createElement('button', { className: 'btn-img', onClick: this._sortByCell }, _react2.default.createElement('img', { src: 'images/sort-icon-grid.png' }))), _react2.default.createElement('li', null, _react2.default.createElement('button', { className: 'btn-img', onClick: this._sortByCol }, _react2.default.createElement('img', { src: 'images/sort-icon-column.png' })))))))), _react2.default.createElement('div', { className: 'col-10_md-11 explore-grid grid-spaceBetween' }, publicationsNodes));
         }
     }]);
 
@@ -315,7 +315,7 @@ var App = function (_React$Component2) {
     }, {
         key: 'render',
         value: function render() {
-            return _react2.default.createElement('div', null, _react2.default.createElement(CommentList, { data: this.state.data, colClass: this.props.colClass }), _react2.default.createElement(_reactPaginate2.default, { previousLabel: "«",
+            return _react2.default.createElement('div', { className: 'col-12 grid-center' }, _react2.default.createElement(CommentList, { data: this.state.data, colClass: this.props.colClass }), _react2.default.createElement(_reactPaginate2.default, { previousLabel: "«",
                 nextLabel: "»",
                 breakLabel: _react2.default.createElement('a', { href: '' }, '...'),
                 pageNum: this.state.pageNum,
@@ -460,7 +460,8 @@ var App = function (_React$Component) {
                 infinite: true,
                 speed: 500,
                 slidesToShow: 2,
-                slidesToScroll: 1
+                slidesToScroll: 1,
+                responsive: [{ breakpoint: 768, settings: { slidesToShow: 1 } }]
             };
             return _react2.default.createElement(_reactSlick2.default, settings, this.state.items.map(function (row, index) {
                 return _react2.default.createElement('div', { key: index, className: 'item' }, _react2.default.createElement('div', { className: 'item-border' }, _react2.default.createElement('h2', { className: 'item-title' }, row.title), _react2.default.createElement('p', { className: 'item-autor' }, _react2.default.createElement('i', { className: 'icon icon-user' }), row.author), _react2.default.createElement('p', { className: 'item-section' }, _react2.default.createElement('i', { className: 'icon icon-books' }), row.section)));

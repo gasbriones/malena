@@ -1,138 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="css/gridlex.css" />
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/image-gallery.css" />
-    <link rel="stylesheet" href="css/slick-theme.css" />
-    <link rel="stylesheet" href="css/slick.css" />
-    <link rel="stylesheet" href="css/icon.css" />
-    <link rel="stylesheet" href="css/style.css" /> </head>
-
-  <body>
-    <div id="site" class="wrapper">
-      <header class="header grid-center clearfix">
-        <div class="col-10 grid navigation">
-          <div push-right="off-2" class="col-2"> <img src="images/logo-caicyt.png" /></div>
-          <div class="col-8 grid-middle">
-            <div class="col-12">
-              <ul class="menu">
-                <li> <a href="#">Inicio</a></li>
-                <li> <a href="#">Explorar según</a></li>
-                <li> <a href="#">Herramientas y documentos</a></li>
-                <li> <a href="#">Acerca de</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 grid-middle grid-center filters">
-          <div class="col-10 grid-middle">
-            <div class="col-3 label">Buscar publicación</div>
-            <div push-right="off-1" class="col-5 input"> <input type="text" /> <button>
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width"/>
+<link rel="stylesheet" href="css/gridlex.css"/>
+<link rel="stylesheet" href="css/normalize.css"/>
+<link rel="stylesheet" href="css/image-gallery.css"/>
+<link rel="stylesheet" href="css/slick-theme.css"/>
+<link rel="stylesheet" href="css/slick.css"/>
+<link rel="stylesheet" href="css/icon.css"/>
+<link rel="stylesheet" href="css/style.css"/>
+<link rel="stylesheet" href="css/mediaqueries.css"/></head>
+<body>
+<div id="site" class="wrapper">
+<header class="header grid-center clearfix">
+<div class="col-10_md-11 grid navigation">
+<div push-right="off-2" class="col-2_xs-12">
+<img src="images/logo-caicyt.png"/></div>
+<div class="col-8 grid-middle">
+<div class="col-12">
+<div id="burger"></div>
+<ul class="menu">
+<li>
+<a href="#">Inicio</a></li>
+<li>
+<a href="#">Explorar según</a></li>
+<li>
+<a href="#">Herramientas y documentos</a></li>
+<li>
+<a href="#">Acerca de</a></li></ul></div></div></div>
+<div class="col-12 grid-middle grid-center filters">
+<div class="col-10_md-11 grid-middle">
+<div class="col-3_xs-12 label">Buscar publicación</div>
+<div push-right="off-1_xs-0" class="col-5_xs-12 input">
+<input type="text"/>
+<button>
 <img src="images/lupa.png"/></button></div>
-            <div class="col-3 advanced"> <i class="icon icon-zoom-in"></i>Búsqueda avanzadas</div>
-          </div>
-        </div>
-      </header>
-      <div id="body" class="grid">
-        <div id="home-carousel" class="col-12"></div>
-        <div class="spotlight col-12 grid-center">
-          <div class="col-10">
-            <h1 class="title">Publicaciones destacadas</h1></div>
-          <div class="col-11 grid-center">
-            <div id="slider" class="col-10 slider"></div>
-          </div>
-        </div>
-        <div id="explore" class="explore">
-          <div class="col-10 grid-spaceAround">
-            <div class="col-6">
-              <h1 class="title">Explorar publicaciones</h1></div>
-            <div class="col-6">
-              <ul class="sort">
-                <li>Según:</li>
-                <li> <button class="btn">Materias</button></li>
-                <li> <button class="btn active">Licencias</button></li>
-                <li> <button class="btn">Certificaciones</button></li>
-                <li>
-                  <ul class="sort-style">
-                    <li> <button class="btn-img">
-<img src="images/sort-icon-grid.png"/></button></li>
-                    <li> <button class="btn-img">
-<img src="images/sort-icon-column.png"/></button></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-10 grid-spaceBetween explore-grid">
-            <div class="col-6 item">
-              <h2 class="item-title">El fusilamiento de Penina</h2>
-              <p class="item-autor"> <i class="icon icon-user"></i>Autores: Parra, Isabel Palomera; Gonzalo, Blanca Pascual; Pérez Montes, Mercedes; Rocasolano Díez, Ana</p>
-              <p class="item-section"> <i class="icon icon-books"></i>Ciencias de la Información y Política Científica</p>
-            </div>
-            <div class="col-6 item">
-              <h2 class="item-title">El fusilamiento de Penina</h2>
-              <p class="item-autor"> <i class="icon icon-user"></i>Autores: Parra, Isabel Palomera; Gonzalo, Blanca Pascual; Pérez Montes, Mercedes; Rocasolano Díez, Ana</p>
-              <p class="item-section"> <i class="icon icon-books"></i>Ciencias de la Información y Política Científica</p>
-            </div>
-            <div class="col-6 item">
-              <h2 class="item-title">El fusilamiento de Penina</h2>
-              <p class="item-autor"> <i class="icon icon-user"></i>Autores: Parra, Isabel Palomera; Gonzalo, Blanca Pascual; Pérez Montes, Mercedes; Rocasolano Díez, Ana</p>
-              <p class="item-section"> <i class="icon icon-books"></i>Ciencias de la Información y Política Científica</p>
-            </div>
-            <div class="col-6 item">
-              <h2 class="item-title">El fusilamiento de Penina</h2>
-              <p class="item-autor"> <i class="icon icon-user"></i>Autores: Parra, Isabel Palomera; Gonzalo, Blanca Pascual; Pérez Montes, Mercedes; Rocasolano Díez, Ana</p>
-              <p class="item-section"> <i class="icon icon-books"></i>Ciencias de la Información y Política Científica</p>
-            </div>
-            <div class="col-6 item">
-              <h2 class="item-title">El fusilamiento de Penina</h2>
-              <p class="item-autor"> <i class="icon icon-user"></i>Autores: Parra, Isabel Palomera; Gonzalo, Blanca Pascual; Pérez Montes, Mercedes; Rocasolano Díez, Ana</p>
-              <p class="item-section"> <i class="icon icon-books"></i>Ciencias de la Información y Política Científica</p>
-            </div>
-            <div class="col-6 item">
-              <h2 class="item-title">El fusilamiento de Penina</h2>
-              <p class="item-autor"> <i class="icon icon-user"></i>Autores: Parra, Isabel Palomera; Gonzalo, Blanca Pascual; Pérez Montes, Mercedes; Rocasolano Díez, Ana</p>
-              <p class="item-section"> <i class="icon icon-books"></i>Ciencias de la Información y Política Científica</p>
-            </div>
-            <div class="col-6 item">
-              <h2 class="item-title">El fusilamiento de Penina</h2>
-              <p class="item-autor"> <i class="icon icon-user"></i>Autores: Parra, Isabel Palomera; Gonzalo, Blanca Pascual; Pérez Montes, Mercedes; Rocasolano Díez, Ana</p>
-              <p class="item-section"> <i class="icon icon-books"></i>Ciencias de la Información y Política Científica</p>
-            </div>
-            <div class="col-6 item">
-              <h2 class="item-title">El fusilamiento de Penina</h2>
-              <p class="item-autor"> <i class="icon icon-user"></i>Autores: Parra, Isabel Palomera; Gonzalo, Blanca Pascual; Pérez Montes, Mercedes; Rocasolano Díez, Ana</p>
-              <p class="item-section"> <i class="icon icon-books"></i>Ciencias de la Información y Política Científica</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 grid-center newsletter">
-          <div class="col-10">
-            <h1 class="title">suscribite a nuestro boletín</h1></div>
-          <form class="col-10 grid-spaceBetween news-form">
-            <div class="col-5"> <input type="text" placeHolder="Nombre completo" /></div>
-            <div class="col-5"> <input type="text" placeHolder="Correo electrónico" /></div>
-            <div class="col-2"> <button>Registrarme</button></div>
-          </form>
-        </div>
-      </div>
-      <footer id="footer" class="grid-center">
-        <div class="col-10 grid-center">
-          <div class="col-2"> <img src="images/logo-caicyt-white.png" /></div>
-          <div class="col-10 grid links">
-            <div class="col-3"> <a href="#">Inicio</a> <a href="#">Explorar Documentos</a> <a href="#">Búsqueda avanzada</a> <a href="#">Acerca del catálogo</a></div>
-            <div class="col-3"> <a href="#">Inicio</a> <a href="#">Explorar Documentos</a> <a href="#">Búsqueda avanzada</a> <a href="#">Acerca del catálogo</a></div>
-            <div class="col-3"> <a href="#">Inicio</a> <a href="#">Explorar Documentos</a> <a href="#">Búsqueda avanzada</a> <a href="#">Acerca del catálogo</a></div>
-            <div class="col-3"> <a href="#">Inicio</a> <a href="#">Explorar Documentos</a> <a href="#">Búsqueda avanzada</a> <a href="#">Acerca del catálogo</a></div>
-          </div>
-        </div>
-        <script src="build/init.js"></script>
-      </footer>
-    </div>
-  </body>
-
-</html>
+<div class="col-3_xs-12 advanced">
+<i class="icon icon-zoom-in"></i>Búsqueda avanzadas</div></div></div></header>
+<div id="body" class="grid">
+<div id="home-carousel" class="col-12"></div>
+<div class="spotlight col-12 grid-center">
+<div class="col-10">
+<h1 class="title">Publicaciones destacadas</h1></div>
+<div class="col-11 grid-center">
+<div id="slider" class="col-10_md-11 slider"></div></div></div>
+<div id="explore" class="explore col-12 grid-center"></div>
+<div class="col-12 grid-center newsletter">
+<div class="col-10_md-11">
+<h1 class="title">suscribite a nuestro boletín</h1></div>
+<form class="col-10_md-11 grid-spaceBetween news-form">
+<div class="col-4_xs-12">
+<input type="text" placeHolder="Nombre completo"/></div>
+<div class="col-5_xs-12">
+<input type="text" placeHolder="Correo electrónico"/></div>
+<div class="col-2_xs-12">
+<button>Registrarme</button></div></form></div></div>
+<footer id="footer" class="grid-center">
+<div class="col-10_md-11 grid-center">
+<div class="col-2_xs-7">
+<img src="images/logo-caicyt-white.png"/></div>
+<div class="col-10 grid links">
+<div class="col-3_xs-12">
+<a href="#">Inicio</a>
+<a href="#">Explorar Documentos</a>
+<a href="#">Búsqueda avanzada</a>
+<a href="#">Acerca del catálogo</a></div>
+<div class="col-3_xs-12">
+<a href="#">Inicio</a>
+<a href="#">Explorar Documentos</a>
+<a href="#">Búsqueda avanzada</a>
+<a href="#">Acerca del catálogo</a></div>
+<div class="col-3_xs-12">
+<a href="#">Inicio</a>
+<a href="#">Explorar Documentos</a>
+<a href="#">Búsqueda avanzada</a>
+<a href="#">Acerca del catálogo</a></div>
+<div class="col-3_xs-12">
+<a href="#">Inicio</a>
+<a href="#">Explorar Documentos</a>
+<a href="#">Búsqueda avanzada</a>
+<a href="#">Acerca del catálogo</a></div></div></div>
+<script src="build/init.js"></script></footer></div></body></html>

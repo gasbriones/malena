@@ -29,7 +29,7 @@ class CommentList extends React.Component {
         let self = this;
         let publicationsNodes = this.props.data.map(function (publication, index) {
             return (
-                <div key={index} className={self.props.colClass || 'item col-6'}>
+                <div key={index} className={self.props.colClass || 'item col-6_sm-12'}>
                     <div className="item-border">
                         <h2 className="item-title">{publication.title}</h2>
                         <p className="item-autor">
@@ -47,10 +47,10 @@ class CommentList extends React.Component {
 
         return (
             <div className="col-12 grid-center">
-                <div className="col-10 grid-spaceAround">
-                    <div className="col-6">
+                <div className="col-10_md-11 grid-spaceAround">
+                    <div className="col-6_md-4_sm-12">
                         <h1 className="title">Explorar publicaciones</h1></div>
-                    <div className="col-6">
+                    <div className="col-6_md-8_sm-12">
                         <ul className="sort">
                             <li>Según:</li>
                             <li>
@@ -77,7 +77,7 @@ class CommentList extends React.Component {
                         </ul>
                     </div>
                 </div>
-                <div className="col-10 explore-grid grid-spaceBetween">
+                <div className="col-10_md-11 explore-grid grid-spaceBetween">
                     {publicationsNodes}
                 </div>
             </div>
@@ -127,7 +127,7 @@ export default class App extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="col-12 grid-center">
                 <CommentList data={this.state.data} colClass={this.props.colClass}/>
                 <ReactPaginate previousLabel={"«"}
                                nextLabel={"»"}

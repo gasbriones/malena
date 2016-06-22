@@ -58,7 +58,7 @@ var CommentList = function (_React$Component) {
             var publicationsNodes = this.props.data.map(function (publication, index) {
                 return _react2.default.createElement(
                     'div',
-                    { key: index, className: self.props.colClass || 'item col-6' },
+                    { key: index, className: self.props.colClass || 'item col-6_sm-12' },
                     _react2.default.createElement(
                         'div',
                         { className: 'item-border' },
@@ -88,10 +88,10 @@ var CommentList = function (_React$Component) {
                 { className: 'col-12 grid-center' },
                 _react2.default.createElement(
                     'div',
-                    { className: 'col-10 grid-spaceAround' },
+                    { className: 'col-10_md-11 grid-spaceAround' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-6' },
+                        { className: 'col-6_md-4_sm-12' },
                         _react2.default.createElement(
                             'h1',
                             { className: 'title' },
@@ -100,7 +100,7 @@ var CommentList = function (_React$Component) {
                     ),
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-6' },
+                        { className: 'col-6_md-8_sm-12' },
                         _react2.default.createElement(
                             'ul',
                             { className: 'sort' },
@@ -167,7 +167,7 @@ var CommentList = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                     'div',
-                    { className: 'col-10 explore-grid grid-spaceBetween' },
+                    { className: 'col-10_md-11 explore-grid grid-spaceBetween' },
                     publicationsNodes
                 )
             );
@@ -229,7 +229,7 @@ var App = function (_React$Component2) {
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                null,
+                { className: 'col-12 grid-center' },
                 _react2.default.createElement(CommentList, { data: this.state.data, colClass: this.props.colClass }),
                 _react2.default.createElement(_reactPaginate2.default, { previousLabel: "«",
                     nextLabel: "»",

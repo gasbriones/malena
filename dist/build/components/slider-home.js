@@ -95,7 +95,8 @@ var App = function (_React$Component) {
                 infinite: true,
                 speed: 500,
                 slidesToShow: 2,
-                slidesToScroll: 1
+                slidesToScroll: 1,
+                responsive: [{ breakpoint: 768, settings: { slidesToShow: 1 } }]
             };
             return _react2.default.createElement(
                 _reactSlick2.default,
