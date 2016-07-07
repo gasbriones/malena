@@ -58,7 +58,7 @@ var CommentList = function (_React$Component) {
             var publicationsNodes = this.props.data.map(function (publication, index) {
                 return _react2.default.createElement(
                     'div',
-                    { key: index, className: self.props.colClass || 'item col-6_sm-12' },
+                    { key: index, className: self.props.colClass || 'item col-12_sm-12' },
                     _react2.default.createElement(
                         'div',
                         { className: 'item-border' },
@@ -110,6 +110,34 @@ var CommentList = function (_React$Component) {
                                 _react2.default.createElement(
                                     'ul',
                                     { className: 'sort-style' },
+                                    _react2.default.createElement(
+                                        'li',
+                                        null,
+                                        _react2.default.createElement(
+                                            'select',
+                                            null,
+                                            _react2.default.createElement(
+                                                'option',
+                                                null,
+                                                'Ordenar por'
+                                            ),
+                                            _react2.default.createElement(
+                                                'option',
+                                                null,
+                                                'Option 1'
+                                            ),
+                                            _react2.default.createElement(
+                                                'option',
+                                                null,
+                                                'Option 2'
+                                            ),
+                                            _react2.default.createElement(
+                                                'option',
+                                                null,
+                                                'Option 3'
+                                            )
+                                        )
+                                    ),
                                     _react2.default.createElement(
                                         'li',
                                         null,

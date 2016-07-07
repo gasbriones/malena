@@ -16,7 +16,7 @@ class App extends React.Component {
         let self = this;
         const array = [];
 
-        Axios.get(location.href + '/mocs/slider-home.json').then(function (response) {
+        Axios.get('/demos/malena/dist/mocs/slider-home.json').then(function (response) {
 
             for (let value of response.data) {
                 array.push({

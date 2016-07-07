@@ -61,7 +61,7 @@ var App = function (_React$Component) {
             var array = [];
             var self = this;
 
-            _axios2.default.get(location.href + '/mocs/carousel-home.json').then(function (response) {
+            _axios2.default.get('/demos/malena/dist/mocs/carousel-home.json').then(function (response) {
                 var _iteratorNormalCompletion = true;
                 var _didIteratorError = false;
                 var _iteratorError = undefined;

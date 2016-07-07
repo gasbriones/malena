@@ -42,13 +42,13 @@ var CommentList = function (_React$Component) {
     _createClass(CommentList, [{
         key: '_sortByCell',
         value: function _sortByCell() {
-            _reactDom2.default.render(_react2.default.createElement(App, { url: '/demos/malena/dist/mocs/publications-home.json',
+            _reactDom2.default.render(_react2.default.createElement(App, { url: location.href.split('/')[0] + '/mocs/publications-home.json',
                 perPage: 6, colClass: 'item col-6' }), document.getElementById('explore'));
         }
     }, {
         key: '_sortByCol',
         value: function _sortByCol() {
-            _reactDom2.default.render(_react2.default.createElement(App, { url: '/demos/malena/dist/mocs/publications-home.json',
+            _reactDom2.default.render(_react2.default.createElement(App, { url: location.href.split('/')[0] + '/mocs/publications-home.json',
                 perPage: 6, colClass: 'item col-12' }), document.getElementById('explore'));
         }
     }, {
@@ -223,5 +223,5 @@ var App = function (_React$Component2) {
 exports.default = App;
 
 
-_reactDom2.default.render(_react2.default.createElement(App, { url: '/demos/malena/dist/mocs/publications-home.json',
+_reactDom2.default.render(_react2.default.createElement(App, { url: location.href.split('/')[0] + '/mocs/publications-home.json',
     perPage: 6 }), document.getElementById('explore'));

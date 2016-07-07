@@ -47,7 +47,7 @@ var App = function (_React$Component) {
             var self = this;
             var array = [];
 
-            _axios2.default.get(location.href + '/mocs/slider-home.json').then(function (response) {
+            _axios2.default.get('/demos/malena/dist/mocs/slider-home.json').then(function (response) {
                 var _iteratorNormalCompletion = true;
                 var _didIteratorError = false;
                 var _iteratorError = undefined;

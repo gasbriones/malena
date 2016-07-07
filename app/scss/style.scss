@@ -63,7 +63,9 @@ html, body {
   font-size: 1em;
   font-family: HelveticaNeueLTStd-Roman;
 }
-
+.text-center{
+  text-align: center;
+}
 .wrapper {
   width: 100%;
   max-width: 80em;
@@ -101,6 +103,31 @@ html, body {
       text-shadow: 1px 1px 1px #999;
       font-family: HelveticaNeue-Bold;
       font-size: (20em/16);
+
+      .filter{
+        li{
+          float: left;
+          margin-right: (5em/16);
+          .btn {
+            font-family: HelveticaNeue-Bold;
+            font-size: (10em/16);
+            line-height: (20em/10);
+            border: solid 1px #73B1BF;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0 (10em/10);
+            color: #287C8F;
+            border-radius: (3em/10);
+            background: #ffffff;
+
+            &.active{
+              background: #59BFD7;
+              color: #ffffff;
+              border-color:#357F90;
+            }
+          }
+        }
+      }
     }
     .input{
       input{
@@ -280,23 +307,6 @@ html, body {
         line-height: (30em/16);
         color: #ffffff !important
       }
-      .btn {
-        font-size: (12em/16);
-        line-height: (30em/12);
-        border: solid 1px #73B1BF;
-        width: 100%;
-        box-sizing: border-box;
-        padding: 0 (15em/12);
-        color: #000000;
-        border-radius: (5em/12);
-        background: #ffffff;
-
-        &.active{
-          background: #59BFD7;
-          color: #ffffff;
-          border-color:#357F90;
-        }
-      }
 
       .btn-img{
         background: none;
@@ -399,6 +409,44 @@ html, body {
       a{
         color: #fff;
       }
+    }
+  }
+}
+
+
+.explorar{
+  .explore{
+    background: #E9E9E9;
+    .title{
+      color: #1A95B0;
+    }
+  }
+}
+
+.detail{
+  padding: (30em/16) 0;
+  .title{
+    color: #5AC0D7;
+    font-size: (28em/16);
+    font-family: HelveticaNeue-Bold;
+    text-transform: uppercase;
+  }
+  p{
+    color: #666666;
+    font-size: (14em/16);
+    margin: (25em/14) 0;
+
+    &.indizado{
+      font-family: HelveticaNeue-Bold;
+      font-size: (14em/14);
+      b{
+        color: #5AC0D7;
+      }
+    }
+  }
+  .more{
+    a{
+      color: #5AC0D7;
     }
   }
 }

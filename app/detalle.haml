@@ -11,7 +11,7 @@
     %link{rel: 'stylesheet',href:'css/icon.css' }
     %link{rel: 'stylesheet',href:'css/style.css' }
     %link{rel: 'stylesheet',href:'css/mediaqueries.css' }
-  %body
+  %body.explorar
     %div#site.wrapper
       %header.header.grid-center.clearfix
         %div.col-10_md-11.grid.navigation
@@ -50,14 +50,44 @@
               %i.icon.icon-zoom-in
               Búsqueda avanzadas
       %div#body.grid
-        %div#home-carousel.col-12
-        %div.spotlight.col-12.grid-center
-          %div.col-10
-            %h1.title
-              Publicaciones destacadas
-          %div.col-11.grid-center
-            %div#slider.col-10_md-11.slider
-        %div#explore.explore.col-12.grid-center
+        %div#detalle.detail.col-12.grid-spaceBetween
+          %div.col-8_xs-12.grid-center
+            %div.col-9_xs-10
+              %h1.title
+                Sarmiento y Alberdi
+              %div
+                %p.indizado
+                  %b Indizados:&nbsp;
+                  Cannes, Novel
+                %p
+                  %b Materia:&nbsp;
+                  Historia, Sociología
+                  %br
+                  %b Editor:&nbsp;
+                  Instituto de Literatura Hispanoamericana, Facultad de Filosofía y Letras, Universidad de Buenos Aires
+                %p
+                  %b Formato:&nbsp;
+                  Impresa
+                  %br
+                  Identificador: 1851-6866
+                %p
+                  %b Ciudad del editor:&nbsp;
+                  Buenos Aires
+                  %br
+                  Indizador regional Iberoamericano: Latindex-Catálogo
+                %p
+                  %b URL institucional:&nbsp;
+                  No determinada
+                  %br
+                  Políticas de archivo: No aplica
+                %p
+                  %b Res. 2249:&nbsp;
+                  Nivel 3
+                %p.more
+                  %a{href:'#'}
+                    Ver metadatos completos >
+          %div.col-4_xs-10.text-center
+            %img{src: 'images/detail-img.png'}
         %div.col-12.grid-center.newsletter
           %div.col-10_md-11
             %h1.title
@@ -85,4 +115,3 @@
                   Búsqueda avanzada
                 %a{href:'#'}
                   Acerca del catálogo
-        %script{src:'build/init.js'}

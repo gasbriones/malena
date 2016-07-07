@@ -29,7 +29,7 @@ class CommentList extends React.Component {
         let self = this;
         let publicationsNodes = this.props.data.map(function (publication, index) {
             return (
-                <div key={index} className={self.props.colClass || 'item col-6_sm-12'}>
+                <div key={index} className={self.props.colClass || 'item col-12_sm-12'}>
                     <div className="item-border">
                         <h2 className="item-title">{publication.title}</h2>
                         <p className="item-autor">
@@ -54,6 +54,14 @@ class CommentList extends React.Component {
                         <ul className="sort">
                             <li>
                                 <ul className="sort-style">
+                                    <li>
+                                        <select>
+                                            <option>Ordenar por</option>
+                                            <option>Option 1</option>
+                                            <option>Option 2</option>
+                                            <option>Option 3</option>
+                                        </select>
+                                    </li>
                                     <li>
                                         <button className="btn-img" onClick={this._sortByCell}>
                                             <img src="images/sort-icon-grid.png"/></button>
