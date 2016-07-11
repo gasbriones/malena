@@ -24,18 +24,22 @@ var page = document.getElementsByTagName("body")[0];
 
 switch (page.getAttribute('data-page')) {
     case 'home':
-        var sh = new _sliderHome2.default(),
-            ph = new _publicationsHome2.default();
+        var sh = new _sliderHome2.default();
+        sh._init();
+        var ph = new _publicationsHome2.default();
+        ph._init();
         break;
     case 'explorer':
         var pe = new _publicationsExplore2.default();
+        pe._init();
         break;
     case 'result':
         var pr = new _publicationsResultado2.default();
+        pr._init();
         break;
 }
 
-}).call(this,require("+7ZJp0"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_c8a5300.js","/")
+}).call(this,require("+7ZJp0"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_f5742ca1.js","/")
 },{"+7ZJp0":28,"../../../dist/build/components/publications-explore.js":2,"../../../dist/build/components/publications-home.js":3,"../../../dist/build/components/publications-resultado.js":4,"../../../dist/build/components/slider-home.js":5,"buffer":25}],2:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
@@ -155,7 +159,6 @@ var App = function (_React$Component2) {
             data: [],
             offset: 0
         };
-        _this2._init();
         return _this2;
     }
 
@@ -324,8 +327,6 @@ var App = function (_React$Component2) {
             data: [],
             offset: 0
         };
-
-        _this2._init();
         return _this2;
     }
 
@@ -487,8 +488,6 @@ var App = function (_React$Component2) {
             data: [],
             offset: 0
         };
-
-        _this2._init();
         return _this2;
     }
 
@@ -612,7 +611,6 @@ var App = function (_React$Component) {
             items: []
         };
         _this._processData = _this._processData.bind(_this);
-        _this._init();
         return _this;
     }
 

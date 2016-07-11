@@ -175,8 +175,6 @@ var App = function (_React$Component2) {
             data: [],
             offset: 0
         };
-
-        _this2._init();
         return _this2;
     }
 

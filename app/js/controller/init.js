@@ -7,13 +7,17 @@ var page = document.getElementsByTagName("body")[0];
 
 switch (page.getAttribute('data-page')) {
     case 'home':
-        var sh = new SliderHome(),
-            ph = new PublicationsHome();
+        let sh = new SliderHome();
+            sh._init();
+        let ph =  new PublicationsHome();
+            ph._init();
     break;
     case 'explorer':
-        var pe = new PublicationsExplore();
+        let pe =  new PublicationsExplore();
+            pe._init();
     break;
     case 'result':
-        var pr = new PublicationsResultado();
+        let pr =  new PublicationsResultado();
+            pr._init();
     break;
 }

@@ -10,7 +10,6 @@ export default class App extends React.Component {
             items: []
         }
         this._processData = this._processData.bind(this)
-        this._init();
     }
 
     _init(){
