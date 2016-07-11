@@ -31,7 +31,7 @@ class App extends React.Component {
         const array = [];
         let self = this;
 
-        Axios.get('/demos/malena/dist/mocs/carousel-home.json').then(function (response) {
+        Axios.get('/services/featured').then(function (response) {
             for (let value of response.data) {
                 array.push({
                     original: value.original,

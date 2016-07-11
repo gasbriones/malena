@@ -11,7 +11,7 @@ class CommentList extends React.Component {
 
     _sortByCell() {
         ReactDOM.render(
-            <App url={'/demos/malena/dist/mocs/publications-home.json'}
+            <App url={'/services/publications'}
                  perPage={6} colClass={'item col-6'}/>,
             document.getElementById('explore')
         )
@@ -19,7 +19,7 @@ class CommentList extends React.Component {
 
     _sortByCol() {
         ReactDOM.render(
-            <App url={'/demos/malena/dist/mocs/publications-home.json'}
+            <App url={'/services/publications'}
                  perPage={6} colClass={'item col-12'}/>,
             document.getElementById('explore')
         )
@@ -60,11 +60,11 @@ class CommentList extends React.Component {
                                 <ul className="sort-style">
                                     <li>
                                         <button className="btn-img" onClick={this._sortByCell}>
-                                            <img src="images/sort-icon-grid.png"/></button>
+                                            <img src="themes/malena/images/sort-icon-grid.png"/></button>
                                     </li>
                                     <li>
                                         <button className="btn-img" onClick={this._sortByCol}>
-                                            <img src="images/sort-icon-column.png"/></button>
+                                            <img src="themes/malena/images/sort-icon-column.png"/></button>
                                     </li>
                                 </ul>
                             </li>
@@ -141,7 +141,7 @@ export default class App extends React.Component {
 }
 
 ReactDOM.render(
-    <App url={'/demos/malena/dist/mocs/publications-home.json'}
+    <App url={'/services/publications'}
          perPage={6}/>,
     document.getElementById('explore')
 );

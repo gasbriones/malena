@@ -108,7 +108,7 @@ export default class App extends React.Component {
 }
 
 ReactDOM.render(
-    <App url={'/demos/malena/dist/mocs/publications-home.json'}
+    <App url={'/services/publications'}
          perPage={6}/>,
     document.getElementById('result')
 );
