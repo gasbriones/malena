@@ -96,7 +96,6 @@ export default class App extends React.Component {
             data: [],
             offset: 0
         }
-        this._init();
     }
 
     _init(){

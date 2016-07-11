@@ -44,7 +44,6 @@ var App = function (_React$Component) {
             items: []
         };
         _this._processData = _this._processData.bind(_this);
-        _this._init();
         return _this;
     }
 
