@@ -49,6 +49,9 @@ class App extends React.Component {
         return (
             <Slider {...settings}>
                 {this.state.items.map(function (row, index) {
+                    var style = {
+                        color: row.flag
+                    }
                     return <div key={index} className="item">
                         <div className="item-border">
                             <h2 className="item-title">{row.title}</h2>
@@ -60,6 +63,7 @@ class App extends React.Component {
                                 <i className="icon icon-books"/>
                                 {row.section}
                             </p>
+                            <i className="icon icon-flag" style={style}/>
                         </div>
                     </div>
                 })}

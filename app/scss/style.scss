@@ -186,10 +186,19 @@ html, body {
 
 .item{
   box-sizing: border-box;
+  position: relative;
   .item-title{
     color: #000;
     font-family: 'MyriadPro-Regular';
     font-size: (24em/16);
+  }
+  .icon-flag{
+    position:absolute;
+    right: 0;
+    bottom: 0;
+    font-size: (12em/16);
+    background: #5AC0D7;
+    padding: (5em/12) (3em/12);
   }
 
   .item-autor{
@@ -249,12 +258,13 @@ html, body {
         background: #EEEEEE;
         padding: (20em/16) (20em/16);
         border: solid 1px #D8DEE0;
+        position: relative;
       }
     }
   }
 }
 
-.explore{
+.explore,.result{
   background: #479EB2;
   padding:(45em/16) 0 !important;
 
@@ -450,3 +460,46 @@ html, body {
     }
   }
 }
+
+.resultado{
+  .result{
+    background: #E9E9E9;
+    .title{
+      color: #1A95B0;
+    }
+  }
+
+
+
+  .more-filters{
+    background: #AAE8F6;
+    padding: (30em/16) 0;
+    .input{
+      margin-bottom: (20em/16);
+
+      &:last-child{
+        margin-bottom: 0;
+      }
+
+      select{
+        border-radius: 0;
+        border: solid 1px #A5A5A5;
+        height: (40em/16);
+        color: #4BB1C8;
+        background: #F9F9F9;
+        width: 100%;
+      }
+
+      input{
+        line-height: (36em/16);
+        height: (40em/16);
+        border: solid 1px #A5A5A5;
+        width: 100%;
+        box-sizing: border-box;
+        box-sizing: border-box;
+        padding:0 (5em/16);
+      }
+    }
+  }
+}
+

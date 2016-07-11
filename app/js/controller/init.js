@@ -3,4 +3,3 @@ import Slider from "../../../dist/build/components/slider-home.js"
 
 import Articles from "../../../dist/build/components/publications-home.js"
 
-

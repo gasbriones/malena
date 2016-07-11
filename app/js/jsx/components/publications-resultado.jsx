@@ -8,25 +8,9 @@ class CommentList extends React.Component {
     constructor() {
         super()
     }
-
-    _sortByCell() {
-        ReactDOM.render(
-            <App url={'/demos/malena/dist/mocs/publications-home.json'}
-                 perPage={6} colClass={'item col-6'}/>,
-            document.getElementById('explore')
-        )
-    }
-
-    _sortByCol() {
-        ReactDOM.render(
-            <App url={'/demos/malena/dist/mocs/publications-home.json'}
-                 perPage={6} colClass={'item col-12'}/>,
-            document.getElementById('explore')
-        )
-    }
-
     render() {
         let self = this;
+
         let publicationsNodes = this.props.data.map(function (publication, index) {
             var style = {
                 color: publication.flag
@@ -52,32 +36,8 @@ class CommentList extends React.Component {
         return (
             <div className="col-12 grid-center">
                 <div className="col-10_md-11 grid-spaceAround">
-                    <div className="col-6_md-4_sm-12">
-                        <h1 className="title">Explorar publicaciones</h1></div>
-                    <div className="col-6_md-8_sm-12">
-                        <ul className="sort">
-                            <li>
-                                <ul className="sort-style">
-                                    <li>
-                                        <select>
-                                            <option>Ordenar por</option>
-                                            <option>Option 1</option>
-                                            <option>Option 2</option>
-                                            <option>Option 3</option>
-                                        </select>
-                                    </li>
-                                    <li>
-                                        <button className="btn-img" onClick={this._sortByCell}>
-                                            <img src="images/sort-icon-grid.png"/></button>
-                                    </li>
-                                    <li>
-                                        <button className="btn-img" onClick={this._sortByCol}>
-                                            <img src="images/sort-icon-column.png"/></button>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
+                    <div className="col-12_md-12_sm-12">
+                        <h1 className="title">Resultados</h1></div>
                 </div>
                 <div className="col-10_md-11 explore-grid grid-spaceBetween">
                     {publicationsNodes}
@@ -108,7 +68,6 @@ export default class App extends React.Component {
         });
 
         instance.get(self.props.url, {limit: self.props.perPage, offset: self.state.offset}).then(function (response) {
-            console.log(response);
             self.setState({
                 data: response.data.publications,
                 pageNum: Math.ceil(response.data.meta.total_count / response.data.meta.limit)
@@ -151,5 +110,5 @@ export default class App extends React.Component {
 ReactDOM.render(
     <App url={'/demos/malena/dist/mocs/publications-home.json'}
          perPage={6}/>,
-    document.getElementById('explore')
+    document.getElementById('result')
 );

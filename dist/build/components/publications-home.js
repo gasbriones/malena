@@ -56,6 +56,9 @@ var CommentList = function (_React$Component) {
         value: function render() {
             var self = this;
             var publicationsNodes = this.props.data.map(function (publication, index) {
+                var style = {
+                    color: publication.flag
+                };
                 return _react2.default.createElement(
                     'div',
                     { key: index, className: self.props.colClass || 'item col-6_sm-12' },
@@ -78,7 +81,8 @@ var CommentList = function (_React$Component) {
                             { className: 'item-section' },
                             _react2.default.createElement('i', { className: 'icon icon-books' }),
                             publication.section
-                        )
+                        ),
+                        _react2.default.createElement('i', { className: 'icon icon-flag', style: style })
                     )
                 );
             });

@@ -28,6 +28,9 @@ class CommentList extends React.Component {
     render() {
         let self = this;
         let publicationsNodes = this.props.data.map(function (publication, index) {
+            var style = {
+                color: publication.flag
+            }
             return (
                 <div key={index} className={self.props.colClass || 'item col-6_sm-12'}>
                     <div className="item-border">
@@ -40,6 +43,7 @@ class CommentList extends React.Component {
                             <i className="icon icon-books"/>
                             {publication.section}
                         </p>
+                        <i className="icon icon-flag" style={style}/>
                     </div>
                 </div>
             );
