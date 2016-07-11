@@ -43,13 +43,15 @@ var CommentList = function (_React$Component) {
         key: '_sortByCell',
         value: function _sortByCell() {
             _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications',
-                perPage: 6, colClass: 'item col-6' }), document.getElementById('explore'));
+                perPage: 6, colClass: 'item col-6', __self: this
+            }), document.getElementById('explore'));
         }
     }, {
         key: '_sortByCol',
         value: function _sortByCol() {
             _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications',
-                perPage: 6, colClass: 'item col-12' }), document.getElementById('explore'));
+                perPage: 6, colClass: 'item col-12', __self: this
+            }), document.getElementById('explore'));
         }
     }, {
         key: 'render',
@@ -62,79 +64,105 @@ var CommentList = function (_React$Component) {
                 };
                 return _react2.default.createElement(
                     'div',
-                    { key: index, className: self.props.colClass || 'item col-6_sm-12' },
+                    { key: index, className: self.props.colClass || 'item col-6_sm-12', __self: this
+                    },
                     _react2.default.createElement(
                         'div',
-                        { className: 'item-border' },
+                        { className: 'item-border', __self: this
+                        },
                         _react2.default.createElement(
                             'h2',
-                            { className: 'item-title' },
+                            { className: 'item-title', __self: this
+                            },
                             _react2.default.createElement(
                                 'a',
-                                { className: 'item-link', href: url },
+                                { className: 'item-link', href: url, __self: this
+                                },
                                 publication.title
                             )
                         ),
                         _react2.default.createElement(
                             'p',
-                            { className: 'item-autor' },
-                            _react2.default.createElement('i', { className: 'icon icon-user' }),
+                            { className: 'item-autor', __self: this
+                            },
+                            _react2.default.createElement('i', { className: 'icon icon-user', __self: this
+                            }),
                             publication.author
                         ),
                         _react2.default.createElement(
                             'p',
-                            { className: 'item-section' },
-                            _react2.default.createElement('i', { className: 'icon icon-books' }),
+                            { className: 'item-section', __self: this
+                            },
+                            _react2.default.createElement('i', { className: 'icon icon-books', __self: this
+                            }),
                             publication.section
                         ),
-                        _react2.default.createElement('i', { className: 'icon icon-flag', style: style })
+                        _react2.default.createElement('i', { className: 'icon icon-flag', style: style, __self: this
+                        })
                     )
                 );
             });
 
             return _react2.default.createElement(
                 'div',
-                { className: 'col-12 grid-center' },
+                { className: 'col-12 grid-center', __self: this
+                },
                 _react2.default.createElement(
                     'div',
-                    { className: 'col-10_md-11 grid-spaceAround' },
+                    { className: 'col-10_md-11 grid-spaceAround', __self: this
+                    },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-6_md-4_sm-12' },
+                        { className: 'col-6_md-4_sm-12', __self: this
+                        },
                         _react2.default.createElement(
                             'h1',
-                            { className: 'title' },
+                            { className: 'title', __self: this
+                            },
                             'Explorar publicaciones'
                         )
                     ),
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-6_md-8_sm-12' },
+                        { className: 'col-6_md-8_sm-12', __self: this
+                        },
                         _react2.default.createElement(
                             'ul',
-                            { className: 'sort' },
+                            { className: 'sort', __self: this
+                            },
                             _react2.default.createElement(
                                 'li',
-                                null,
+                                {
+                                    __self: this
+                                },
                                 _react2.default.createElement(
                                     'ul',
-                                    { className: 'sort-style' },
+                                    { className: 'sort-style', __self: this
+                                    },
                                     _react2.default.createElement(
                                         'li',
-                                        null,
+                                        {
+                                            __self: this
+                                        },
                                         _react2.default.createElement(
                                             'button',
-                                            { className: 'btn-img', onClick: this._sortByCell },
-                                            _react2.default.createElement('img', { src: 'themes/malena/images/sort-icon-grid.png' })
+                                            { className: 'btn-img', onClick: this._sortByCell, __self: this
+                                            },
+                                            _react2.default.createElement('img', { src: 'themes/malena/images/sort-icon-grid.png', __self: this
+                                            })
                                         )
                                     ),
                                     _react2.default.createElement(
                                         'li',
-                                        null,
+                                        {
+                                            __self: this
+                                        },
                                         _react2.default.createElement(
                                             'button',
-                                            { className: 'btn-img', onClick: this._sortByCol },
-                                            _react2.default.createElement('img', { src: 'themes/malena/images/sort-icon-column.png' })
+                                            { className: 'btn-img', onClick: this._sortByCol, __self: this
+                                            },
+                                            _react2.default.createElement('img', { src: 'themes/malena/images/sort-icon-column.png', __self: this
+                                            })
                                         )
                                     )
                                 )
@@ -144,7 +172,8 @@ var CommentList = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                     'div',
-                    { className: 'col-10_md-11 explore-grid grid-spaceBetween' },
+                    { className: 'col-10_md-11 explore-grid grid-spaceBetween', __self: this
+                    },
                     publicationsNodes
                 )
             );
@@ -181,7 +210,8 @@ var App = function (_React$Component2) {
     _createClass(App, [{
         key: 'init',
         value: function init() {
-            _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications', perPage: 6 }), document.getElementById('explore'));
+            _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications', perPage: 6, __self: this
+            }), document.getElementById('explore'));
         }
     }, {
         key: 'loadCommentsFromServer',
@@ -211,13 +241,16 @@ var App = function (_React$Component2) {
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                { className: 'col-12 grid-center' },
-                _react2.default.createElement(CommentList, { data: this.state.data, colClass: this.props.colClass }),
+                { className: 'col-12 grid-center', __self: this
+                },
+                _react2.default.createElement(CommentList, { data: this.state.data, colClass: this.props.colClass, __self: this
+                }),
                 _react2.default.createElement(_reactPaginate2.default, { previousLabel: "«",
                     nextLabel: "»",
                     breakLabel: _react2.default.createElement(
                         'a',
-                        { href: '' },
+                        { href: '', __self: this
+                        },
                         '...'
                     ),
                     pageNum: this.state.pageNum,
@@ -226,7 +259,8 @@ var App = function (_React$Component2) {
                     clickCallback: this.handlePageClick,
                     containerClassName: "pagination",
                     subContainerClassName: "pages pagination",
-                    activeClassName: "active" })
+                    activeClassName: "active", __self: this
+                })
             );
         }
     }]);
