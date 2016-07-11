@@ -8,7 +8,7 @@ var _publicationsResultado2 = _interopRequireDefault(_publicationsResultado);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-}).call(this,require("+7ZJp0"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_62a09771.js","/")
+}).call(this,require("+7ZJp0"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_33b026e0.js","/")
 },{"+7ZJp0":25,"../../../dist/build/components/publications-resultado.js":2,"buffer":22}],2:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
@@ -86,24 +86,10 @@ var CommentList = function (_React$Component) {
                     style = {
                     color: publication.flag
                 };
-                return _react2.default.createElement('div', { key: index, className: self.props.colClass || 'item col-12_sm-12', __self: this
-                }, _react2.default.createElement('div', { className: 'item-border', __self: this
-                }, _react2.default.createElement('h2', { className: 'item-title', __self: this
-                }, _react2.default.createElement('a', { className: 'item-link', href: url, __self: this
-                }, publication.title)), _react2.default.createElement('p', { className: 'item-autor', __self: this
-                }, _react2.default.createElement('i', { className: 'icon icon-user', __self: this
-                }), publication.author), _react2.default.createElement('p', { className: 'item-section', __self: this
-                }, _react2.default.createElement('i', { className: 'icon icon-books', __self: this
-                }), publication.section), _react2.default.createElement('i', { className: 'icon icon-flag', style: style, __self: this
-                })));
+                return _react2.default.createElement('div', { key: index, className: self.props.colClass || 'item col-12_sm-12' }, _react2.default.createElement('div', { className: 'item-border' }, _react2.default.createElement('h2', { className: 'item-title' }, _react2.default.createElement('a', { className: 'item-link', href: url }, publication.title)), _react2.default.createElement('p', { className: 'item-autor' }, _react2.default.createElement('i', { className: 'icon icon-user' }), publication.author), _react2.default.createElement('p', { className: 'item-section' }, _react2.default.createElement('i', { className: 'icon icon-books' }), publication.section), _react2.default.createElement('i', { className: 'icon icon-flag', style: style })));
             });
 
-            return _react2.default.createElement('div', { className: 'col-12 grid-center', __self: this
-            }, _react2.default.createElement('div', { className: 'col-10_md-11 grid-spaceAround', __self: this
-            }, _react2.default.createElement('div', { className: 'col-12_md-12_sm-12', __self: this
-            }, _react2.default.createElement('h1', { className: 'title', __self: this
-            }, 'Resultados'))), _react2.default.createElement('div', { className: 'col-10_md-11 explore-grid grid-spaceBetween', __self: this
-            }, publicationsNodes));
+            return _react2.default.createElement('div', { className: 'col-12 grid-center' }, _react2.default.createElement('div', { className: 'col-10_md-11 grid-spaceAround' }, _react2.default.createElement('div', { className: 'col-12_md-12_sm-12' }, _react2.default.createElement('h1', { className: 'title' }, 'Resultados'))), _react2.default.createElement('div', { className: 'col-10_md-11 explore-grid grid-spaceBetween' }, publicationsNodes));
         }
     }]);
 
@@ -159,20 +145,16 @@ var App = function (_React$Component2) {
     }, {
         key: 'render',
         value: function render() {
-            return _react2.default.createElement('div', { className: 'col-12 grid-center', __self: this
-            }, _react2.default.createElement(CommentList, { data: this.state.data, colClass: this.props.colClass, __self: this
-            }), _react2.default.createElement(_reactPaginate2.default, { previousLabel: "«",
+            return _react2.default.createElement('div', { className: 'col-12 grid-center' }, _react2.default.createElement(CommentList, { data: this.state.data, colClass: this.props.colClass }), _react2.default.createElement(_reactPaginate2.default, { previousLabel: "«",
                 nextLabel: "»",
-                breakLabel: _react2.default.createElement('a', { href: '', __self: this
-                }, '...'),
+                breakLabel: _react2.default.createElement('a', { href: '' }, '...'),
                 pageNum: this.state.pageNum,
                 marginPagesDisplayed: 2,
                 pageRangeDisplayed: 5,
                 clickCallback: this.handlePageClick,
                 containerClassName: "pagination",
                 subContainerClassName: "pages pagination",
-                activeClassName: "active", __self: this
-            }));
+                activeClassName: "active" }));
         }
     }]);
 
@@ -182,8 +164,7 @@ var App = function (_React$Component2) {
 exports.default = App;
 
 _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications',
-    perPage: 6, __self: undefined
-}), document.getElementById('result'));
+    perPage: 6 }), document.getElementById('result'));
 
 }).call(this,require("+7ZJp0"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/../../../dist/build/components/publications-resultado.js","/../../../dist/build/components")
 },{"+7ZJp0":25,"axios":3,"buffer":22,"react":198,"react-dom":27,"react-paginate":31}],3:[function(require,module,exports){
@@ -2834,8 +2815,6 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -2856,10 +2835,6 @@ var PageView = function (_React$Component) {
     value: function render() {
       var linkClassName = this.props.pageLinkClassName;
       var cssClassName = this.props.pageClassName;
-      var _props = this.props;
-      var onClick = _props.onClick;
-
-      var props = _objectWithoutProperties(_props, ['onClick']);
 
       if (this.props.selected) {
         if (typeof cssClassName !== 'undefined') {
@@ -2871,10 +2846,10 @@ var PageView = function (_React$Component) {
 
       return _react2.default.createElement(
         'li',
-        { onClick: onClick, className: cssClassName },
+        { className: cssClassName },
         _react2.default.createElement(
           'a',
-          _extends({}, props, { className: linkClassName }),
+          _extends({}, this.props, { className: linkClassName }),
           this.props.page
         )
       );

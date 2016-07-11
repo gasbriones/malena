@@ -3,13 +3,17 @@ import ReactDOM from 'react-dom'
 import Slider from 'react-slick'
 import Axios from 'axios'
 
-class App extends React.Component {
+export default class App extends React.Component {
     constructor() {
         super()
         this.state = {
             items: []
         }
         this._processData = this._processData.bind(this)
+    }
+
+    init(){
+        ReactDOM.render(<App/>, document.getElementById('slider'))
     }
 
     _processData() {
@@ -73,4 +77,3 @@ class App extends React.Component {
     }
 }
 
-ReactDOM.render(<App/>, document.getElementById('slider'))

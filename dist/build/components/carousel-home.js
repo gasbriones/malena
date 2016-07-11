@@ -116,8 +116,7 @@ var App = function (_React$Component) {
                 showNav: this.state.showNav,
                 slideInterval: parseInt(this.state.slideInterval),
                 autoPlay: this.state.isPlaying,
-                slideOnThumbnailHover: this.state.slideOnThumbnailHover,
-                __self: this
+                slideOnThumbnailHover: this.state.slideOnThumbnailHover
             });
         }
     }]);
@@ -125,6 +124,4 @@ var App = function (_React$Component) {
     return App;
 }(_react2.default.Component);
 
-_reactDom2.default.render(_react2.default.createElement(App, {
-    __self: undefined
-}), document.getElementById('home-carousel'));
+_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('home-carousel'));

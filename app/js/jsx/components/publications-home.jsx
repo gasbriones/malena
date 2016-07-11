@@ -30,8 +30,8 @@ class CommentList extends React.Component {
         let publicationsNodes = this.props.data.map(function (publication, index) {
             var url = "/items/show/" + publication.id,
                 style = {
-                color: publication.flag
-            }
+                    color: publication.flag
+                }
             return (
                 <div key={index} className={self.props.colClass || 'item col-6_sm-12'}>
                     <div className="item-border">
@@ -90,7 +90,9 @@ export default class App extends React.Component {
         }
     }
 
-
+    init() {
+        ReactDOM.render(<App url={'/services/publications'} perPage={6}/>, document.getElementById('explore'));
+    }
 
     loadCommentsFromServer() {
         let self = this;
@@ -141,8 +143,4 @@ export default class App extends React.Component {
     }
 }
 
-ReactDOM.render(
-    <App url={'/services/publications'}
-         perPage={6}/>,
-    document.getElementById('explore')
-);
+

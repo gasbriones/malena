@@ -98,6 +98,13 @@ export default class App extends React.Component {
         }
     }
 
+    _init(){
+        ReactDOM.render(
+            <App url={'/services/publications'}
+                 perPage={6}/>,
+            document.getElementById('explore')
+        );
+    }
 
 
     loadCommentsFromServer() {
@@ -149,8 +156,4 @@ export default class App extends React.Component {
     }
 }
 
-ReactDOM.render(
-    <App url={'/services/publications'}
-         perPage={6}/>,
-    document.getElementById('explore')
-);
+
