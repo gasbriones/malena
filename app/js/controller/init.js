@@ -5,7 +5,7 @@ import PublicationsResultado from "../../../dist/build/components/publications-r
 
 var page = document.getElementsByTagName("body")[0];
 
-switch (page.getAttibute('data-page')) {
+switch (page.getAttribute('data-page')) {
     case 'home':
         var sh = new SliderHome(),
             ph = new PublicationsHome();
