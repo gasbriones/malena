@@ -102,6 +102,9 @@ var App = function (_React$Component) {
                 _reactSlick2.default,
                 settings,
                 this.state.items.map(function (row, index) {
+                    var style = {
+                        color: row.flag
+                    };
                     return _react2.default.createElement(
                         'div',
                         { key: index, className: 'item' },
@@ -124,7 +127,8 @@ var App = function (_React$Component) {
                                 { className: 'item-section' },
                                 _react2.default.createElement('i', { className: 'icon icon-books' }),
                                 row.section
-                            )
+                            ),
+                            _react2.default.createElement('i', { className: 'icon icon-flag', style: style })
                         )
                     );
                 })

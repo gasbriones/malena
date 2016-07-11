@@ -40,21 +40,10 @@ var CommentList = function (_React$Component) {
     }
 
     _createClass(CommentList, [{
-        key: '_sortByCell',
-        value: function _sortByCell() {
-            _reactDom2.default.render(_react2.default.createElement(App, { url: '/demos/malena/dist/mocs/publications-home.json',
-                perPage: 6, colClass: 'item col-6' }), document.getElementById('explore'));
-        }
-    }, {
-        key: '_sortByCol',
-        value: function _sortByCol() {
-            _reactDom2.default.render(_react2.default.createElement(App, { url: '/demos/malena/dist/mocs/publications-home.json',
-                perPage: 6, colClass: 'item col-12' }), document.getElementById('explore'));
-        }
-    }, {
         key: 'render',
         value: function render() {
             var self = this;
+
             var publicationsNodes = this.props.data.map(function (publication, index) {
                 var style = {
                     color: publication.flag
@@ -95,73 +84,11 @@ var CommentList = function (_React$Component) {
                     { className: 'col-10_md-11 grid-spaceAround' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-6_md-4_sm-12' },
+                        { className: 'col-12_md-12_sm-12' },
                         _react2.default.createElement(
                             'h1',
                             { className: 'title' },
-                            'Explorar publicaciones'
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col-6_md-8_sm-12' },
-                        _react2.default.createElement(
-                            'ul',
-                            { className: 'sort' },
-                            _react2.default.createElement(
-                                'li',
-                                null,
-                                _react2.default.createElement(
-                                    'ul',
-                                    { className: 'sort-style' },
-                                    _react2.default.createElement(
-                                        'li',
-                                        null,
-                                        _react2.default.createElement(
-                                            'select',
-                                            null,
-                                            _react2.default.createElement(
-                                                'option',
-                                                null,
-                                                'Ordenar por'
-                                            ),
-                                            _react2.default.createElement(
-                                                'option',
-                                                null,
-                                                'Option 1'
-                                            ),
-                                            _react2.default.createElement(
-                                                'option',
-                                                null,
-                                                'Option 2'
-                                            ),
-                                            _react2.default.createElement(
-                                                'option',
-                                                null,
-                                                'Option 3'
-                                            )
-                                        )
-                                    ),
-                                    _react2.default.createElement(
-                                        'li',
-                                        null,
-                                        _react2.default.createElement(
-                                            'button',
-                                            { className: 'btn-img', onClick: this._sortByCell },
-                                            _react2.default.createElement('img', { src: 'images/sort-icon-grid.png' })
-                                        )
-                                    ),
-                                    _react2.default.createElement(
-                                        'li',
-                                        null,
-                                        _react2.default.createElement(
-                                            'button',
-                                            { className: 'btn-img', onClick: this._sortByCol },
-                                            _react2.default.createElement('img', { src: 'images/sort-icon-column.png' })
-                                        )
-                                    )
-                                )
-                            )
+                            'Resultados'
                         )
                     )
                 ),
@@ -212,7 +139,6 @@ var App = function (_React$Component2) {
             });
 
             instance.get(self.props.url, { limit: self.props.perPage, offset: self.state.offset }).then(function (response) {
-                console.log(response);
                 self.setState({
                     data: response.data.publications,
                     pageNum: Math.ceil(response.data.meta.total_count / response.data.meta.limit)
@@ -256,4 +182,4 @@ exports.default = App;
 
 
 _reactDom2.default.render(_react2.default.createElement(App, { url: '/demos/malena/dist/mocs/publications-home.json',
-    perPage: 6 }), document.getElementById('explore'));
+    perPage: 6 }), document.getElementById('result'));
