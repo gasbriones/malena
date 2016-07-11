@@ -10,9 +10,10 @@ export default class App extends React.Component {
             items: []
         }
         this._processData = this._processData.bind(this)
+        this._init();
     }
 
-    init(){
+    _init(){
         ReactDOM.render(<App/>, document.getElementById('slider'))
     }
 

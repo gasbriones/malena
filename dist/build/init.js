@@ -22,24 +22,20 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var page = document.getElementsByTagName("body")[0];
 
-switch (page.getAttibute('data-page')) {
+switch (page.getAttribute('data-page')) {
     case 'home':
         var sh = new _sliderHome2.default(),
             ph = new _publicationsHome2.default();
-        sh.init();
-        ph.init();
         break;
     case 'explorer':
         var pe = new _publicationsExplore2.default();
-        pe.init();
         break;
     case 'result':
         var pr = new _publicationsResultado2.default();
-        pr.init();
         break;
 }
 
-}).call(this,require("+7ZJp0"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_eda71bbb.js","/")
+}).call(this,require("+7ZJp0"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_6e5839e.js","/")
 },{"+7ZJp0":28,"../../../dist/build/components/publications-explore.js":2,"../../../dist/build/components/publications-home.js":3,"../../../dist/build/components/publications-resultado.js":4,"../../../dist/build/components/slider-home.js":5,"buffer":25}],2:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
@@ -159,6 +155,7 @@ var App = function (_React$Component2) {
             data: [],
             offset: 0
         };
+        _this2._init();
         return _this2;
     }
 
@@ -172,13 +169,8 @@ var App = function (_React$Component2) {
         key: 'loadCommentsFromServer',
         value: function loadCommentsFromServer() {
             var self = this;
-            var instance = _axios2.default.create({
-                headers: {
-                    "Access-Control-Allow-Origin": "http://localhost"
-                }
-            });
 
-            instance.get(self.props.url, { limit: self.props.perPage, offset: self.state.offset }).then(function (response) {
+            _axios2.default.get(self.props.url, { limit: self.props.perPage, offset: self.state.offset }).then(function (response) {
                 console.log(response);
                 self.setState({
                     data: response.data.publications,
@@ -332,12 +324,14 @@ var App = function (_React$Component2) {
             data: [],
             offset: 0
         };
+
+        _this2._init();
         return _this2;
     }
 
     _createClass(App, [{
-        key: 'init',
-        value: function init() {
+        key: '_init',
+        value: function _init() {
             _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications', perPage: 6 }), document.getElementById('explore'));
         }
     }, {
@@ -493,10 +487,18 @@ var App = function (_React$Component2) {
             data: [],
             offset: 0
         };
+
+        _this2._init();
         return _this2;
     }
 
     _createClass(App, [{
+        key: '_init',
+        value: function _init() {
+            _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications',
+                perPage: 6 }), document.getElementById('result'));
+        }
+    }, {
         key: 'loadCommentsFromServer',
         value: function loadCommentsFromServer() {
             var self = this;
@@ -538,9 +540,6 @@ var App = function (_React$Component2) {
 }(_react2.default.Component);
 
 exports.default = App;
-
-_reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications',
-    perPage: 6 }), document.getElementById('result'));
 
 }).call(this,require("+7ZJp0"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/../../../dist/build/components/publications-resultado.js","/../../../dist/build/components")
 },{"+7ZJp0":28,"axios":6,"buffer":25,"react":221,"react-dom":30,"react-paginate":34}],5:[function(require,module,exports){
@@ -613,12 +612,13 @@ var App = function (_React$Component) {
             items: []
         };
         _this._processData = _this._processData.bind(_this);
+        _this._init();
         return _this;
     }
 
     _createClass(App, [{
-        key: 'init',
-        value: function init() {
+        key: '_init',
+        value: function _init() {
             _reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('slider'));
         }
     }, {

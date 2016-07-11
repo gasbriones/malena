@@ -175,12 +175,14 @@ var App = function (_React$Component2) {
             data: [],
             offset: 0
         };
+
+        _this2._init();
         return _this2;
     }
 
     _createClass(App, [{
-        key: 'init',
-        value: function init() {
+        key: '_init',
+        value: function _init() {
             _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications', perPage: 6 }), document.getElementById('explore'));
         }
     }, {

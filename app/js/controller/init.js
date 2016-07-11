@@ -9,15 +9,11 @@ switch (page.getAttribute('data-page')) {
     case 'home':
         var sh = new SliderHome(),
             ph = new PublicationsHome();
-        sh.init();
-        ph.init();
     break;
     case 'explorer':
         var pe = new PublicationsExplore();
-        pe.init();
     break;
     case 'result':
         var pr = new PublicationsResultado();
-        pr.init();
     break;
 }

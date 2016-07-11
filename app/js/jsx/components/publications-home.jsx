@@ -88,9 +88,11 @@ export default class App extends React.Component {
             data: [],
             offset: 0
         }
+
+        this._init();
     }
 
-    init() {
+    _init() {
         ReactDOM.render(<App url={'/services/publications'} perPage={6}/>, document.getElementById('explore'));
     }
 

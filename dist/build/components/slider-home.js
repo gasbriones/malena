@@ -42,12 +42,13 @@ var App = function (_React$Component) {
             items: []
         };
         _this._processData = _this._processData.bind(_this);
+        _this._init();
         return _this;
     }
 
     _createClass(App, [{
-        key: 'init',
-        value: function init() {
+        key: '_init',
+        value: function _init() {
             _reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('slider'));
         }
     }, {

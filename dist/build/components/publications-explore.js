@@ -203,6 +203,7 @@ var App = function (_React$Component2) {
             data: [],
             offset: 0
         };
+        _this2._init();
         return _this2;
     }
 
@@ -216,13 +217,8 @@ var App = function (_React$Component2) {
         key: 'loadCommentsFromServer',
         value: function loadCommentsFromServer() {
             var self = this;
-            var instance = _axios2.default.create({
-                headers: {
-                    "Access-Control-Allow-Origin": "http://localhost"
-                }
-            });
 
-            instance.get(self.props.url, { limit: self.props.perPage, offset: self.state.offset }).then(function (response) {
+            _axios2.default.get(self.props.url, { limit: self.props.perPage, offset: self.state.offset }).then(function (response) {
                 console.log(response);
                 self.setState({
                     data: response.data.publications,

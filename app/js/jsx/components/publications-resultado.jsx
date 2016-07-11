@@ -56,9 +56,17 @@ export default class App extends React.Component {
             data: [],
             offset: 0
         }
+
+        this._init();
     }
 
-
+    _init(){
+        ReactDOM.render(
+            <App url={'/services/publications'}
+                 perPage={6}/>,
+            document.getElementById('result')
+        );
+    }
 
     loadCommentsFromServer() {
         let self = this;
@@ -108,8 +116,4 @@ export default class App extends React.Component {
     }
 }
 
-ReactDOM.render(
-    <App url={'/services/publications'}
-         perPage={6}/>,
-    document.getElementById('result')
-);
+

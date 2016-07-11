@@ -96,6 +96,7 @@ export default class App extends React.Component {
             data: [],
             offset: 0
         }
+        this._init();
     }
 
     _init(){
@@ -109,13 +110,8 @@ export default class App extends React.Component {
 
     loadCommentsFromServer() {
         let self = this;
-        var instance = Axios.create({
-            headers: {
-                "Access-Control-Allow-Origin": "http://localhost"
-            }
-        });
 
-        instance.get(self.props.url, {limit: self.props.perPage, offset: self.state.offset}).then(function (response) {
+        Axios.get(self.props.url, {limit: self.props.perPage, offset: self.state.offset}).then(function (response) {
             console.log(response);
             self.setState({
                 data: response.data.publications,
