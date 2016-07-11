@@ -16,10 +16,11 @@ class App extends React.Component {
         let self = this;
         const array = [];
 
-        Axios.get('/demos/malena/dist/mocs/slider-home.json').then(function (response) {
+        Axios.get('/services/featured').then(function (response) {
 
             for (let value of response.data) {
                 array.push({
+                    id: "/items/show/" + value.id,
                     title: value.title,
                     author: value.author,
                     section: value.section,

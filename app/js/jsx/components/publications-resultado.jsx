@@ -12,13 +12,14 @@ class CommentList extends React.Component {
         let self = this;
 
         let publicationsNodes = this.props.data.map(function (publication, index) {
-            var style = {
+            var url = "/items/show/" + publication.id,
+                style = {
                 color: publication.flag
             }
             return (
                 <div key={index} className={self.props.colClass || 'item col-12_sm-12'}>
                     <div className="item-border">
-                        <h2 className="item-title">{publication.title}</h2>
+                        <h2 className="item-title"><a className="item-link" href={url}>{publication.title}</a></h2>
                         <p className="item-autor">
                             <i className="icon icon-user"/>
                             {publication.author}

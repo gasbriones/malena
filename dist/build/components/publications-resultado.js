@@ -45,56 +45,75 @@ var CommentList = function (_React$Component) {
             var self = this;
 
             var publicationsNodes = this.props.data.map(function (publication, index) {
-                var style = {
+                var url = "/items/show/" + publication.id,
+                    style = {
                     color: publication.flag
                 };
                 return _react2.default.createElement(
                     'div',
-                    { key: index, className: self.props.colClass || 'item col-12_sm-12' },
+                    { key: index, className: self.props.colClass || 'item col-12_sm-12', __self: this
+                    },
                     _react2.default.createElement(
                         'div',
-                        { className: 'item-border' },
+                        { className: 'item-border', __self: this
+                        },
                         _react2.default.createElement(
                             'h2',
-                            { className: 'item-title' },
-                            publication.title
+                            { className: 'item-title', __self: this
+                            },
+                            _react2.default.createElement(
+                                'a',
+                                { className: 'item-link', href: url, __self: this
+                                },
+                                publication.title
+                            )
                         ),
                         _react2.default.createElement(
                             'p',
-                            { className: 'item-autor' },
-                            _react2.default.createElement('i', { className: 'icon icon-user' }),
+                            { className: 'item-autor', __self: this
+                            },
+                            _react2.default.createElement('i', { className: 'icon icon-user', __self: this
+                            }),
                             publication.author
                         ),
                         _react2.default.createElement(
                             'p',
-                            { className: 'item-section' },
-                            _react2.default.createElement('i', { className: 'icon icon-books' }),
+                            { className: 'item-section', __self: this
+                            },
+                            _react2.default.createElement('i', { className: 'icon icon-books', __self: this
+                            }),
                             publication.section
                         ),
-                        _react2.default.createElement('i', { className: 'icon icon-flag', style: style })
+                        _react2.default.createElement('i', { className: 'icon icon-flag', style: style, __self: this
+                        })
                     )
                 );
             });
 
             return _react2.default.createElement(
                 'div',
-                { className: 'col-12 grid-center' },
+                { className: 'col-12 grid-center', __self: this
+                },
                 _react2.default.createElement(
                     'div',
-                    { className: 'col-10_md-11 grid-spaceAround' },
+                    { className: 'col-10_md-11 grid-spaceAround', __self: this
+                    },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-12_md-12_sm-12' },
+                        { className: 'col-12_md-12_sm-12', __self: this
+                        },
                         _react2.default.createElement(
                             'h1',
-                            { className: 'title' },
+                            { className: 'title', __self: this
+                            },
                             'Resultados'
                         )
                     )
                 ),
                 _react2.default.createElement(
                     'div',
-                    { className: 'col-10_md-11 explore-grid grid-spaceBetween' },
+                    { className: 'col-10_md-11 explore-grid grid-spaceBetween', __self: this
+                    },
                     publicationsNodes
                 )
             );
@@ -155,13 +174,16 @@ var App = function (_React$Component2) {
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                { className: 'col-12 grid-center' },
-                _react2.default.createElement(CommentList, { data: this.state.data, colClass: this.props.colClass }),
+                { className: 'col-12 grid-center', __self: this
+                },
+                _react2.default.createElement(CommentList, { data: this.state.data, colClass: this.props.colClass, __self: this
+                }),
                 _react2.default.createElement(_reactPaginate2.default, { previousLabel: "«",
                     nextLabel: "»",
                     breakLabel: _react2.default.createElement(
                         'a',
-                        { href: '' },
+                        { href: '', __self: this
+                        },
                         '...'
                     ),
                     pageNum: this.state.pageNum,
@@ -170,7 +192,8 @@ var App = function (_React$Component2) {
                     clickCallback: this.handlePageClick,
                     containerClassName: "pagination",
                     subContainerClassName: "pages pagination",
-                    activeClassName: "active" })
+                    activeClassName: "active", __self: this
+                })
             );
         }
     }]);
@@ -181,5 +204,6 @@ var App = function (_React$Component2) {
 exports.default = App;
 
 
-_reactDom2.default.render(_react2.default.createElement(App, { url: '/demos/malena/dist/mocs/publications-home.json',
-    perPage: 6 }), document.getElementById('result'));
+_reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications',
+    perPage: 6, __self: undefined
+}), document.getElementById('result'));

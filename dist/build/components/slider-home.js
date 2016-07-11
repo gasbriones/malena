@@ -1,5 +1,7 @@
 'use strict';
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
@@ -47,7 +49,7 @@ var App = function (_React$Component) {
             var self = this;
             var array = [];
 
-            _axios2.default.get('/demos/malena/dist/mocs/slider-home.json').then(function (response) {
+            _axios2.default.get('/services/featured').then(function (response) {
                 var _iteratorNormalCompletion = true;
                 var _didIteratorError = false;
                 var _iteratorError = undefined;
@@ -58,6 +60,7 @@ var App = function (_React$Component) {
                         var value = _step.value;
 
                         array.push({
+                            id: "/items/show/" + value.id,
                             title: value.title,
                             author: value.author,
                             section: value.section,
@@ -100,35 +103,45 @@ var App = function (_React$Component) {
             };
             return _react2.default.createElement(
                 _reactSlick2.default,
-                settings,
+                _extends({}, settings, {
+                    __self: this
+                }),
                 this.state.items.map(function (row, index) {
                     var style = {
                         color: row.flag
                     };
                     return _react2.default.createElement(
                         'div',
-                        { key: index, className: 'item' },
+                        { key: index, className: 'item', __self: this
+                        },
                         _react2.default.createElement(
                             'div',
-                            { className: 'item-border' },
+                            { className: 'item-border', __self: this
+                            },
                             _react2.default.createElement(
                                 'h2',
-                                { className: 'item-title' },
+                                { className: 'item-title', __self: this
+                                },
                                 row.title
                             ),
                             _react2.default.createElement(
                                 'p',
-                                { className: 'item-autor' },
-                                _react2.default.createElement('i', { className: 'icon icon-user' }),
+                                { className: 'item-autor', __self: this
+                                },
+                                _react2.default.createElement('i', { className: 'icon icon-user', __self: this
+                                }),
                                 row.author
                             ),
                             _react2.default.createElement(
                                 'p',
-                                { className: 'item-section' },
-                                _react2.default.createElement('i', { className: 'icon icon-books' }),
+                                { className: 'item-section', __self: this
+                                },
+                                _react2.default.createElement('i', { className: 'icon icon-books', __self: this
+                                }),
                                 row.section
                             ),
-                            _react2.default.createElement('i', { className: 'icon icon-flag', style: style })
+                            _react2.default.createElement('i', { className: 'icon icon-flag', style: style, __self: this
+                            })
                         )
                     );
                 })
@@ -139,4 +152,6 @@ var App = function (_React$Component) {
     return App;
 }(_react2.default.Component);
 
-_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('slider'));
+_reactDom2.default.render(_react2.default.createElement(App, {
+    __self: undefined
+}), document.getElementById('slider'));
