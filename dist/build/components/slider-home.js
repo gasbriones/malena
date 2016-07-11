@@ -125,7 +125,11 @@ var App = function (_React$Component) {
                             _react2.default.createElement(
                                 'h2',
                                 { className: 'item-title' },
-                                row.title
+                                _react2.default.createElement(
+                                    'a',
+                                    { className: 'item-link', href: row.title },
+                                    row.title
+                                )
                             ),
                             _react2.default.createElement(
                                 'p',

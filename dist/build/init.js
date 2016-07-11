@@ -35,7 +35,7 @@ switch (page.getAttribute('data-page')) {
         break;
 }
 
-}).call(this,require("+7ZJp0"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_6e5839e.js","/")
+}).call(this,require("+7ZJp0"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_c8a5300.js","/")
 },{"+7ZJp0":28,"../../../dist/build/components/publications-explore.js":2,"../../../dist/build/components/publications-home.js":3,"../../../dist/build/components/publications-resultado.js":4,"../../../dist/build/components/slider-home.js":5,"buffer":25}],2:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
@@ -683,7 +683,7 @@ var App = function (_React$Component) {
                 var style = {
                     color: row.flag
                 };
-                return _react2.default.createElement('div', { key: index, className: 'item' }, _react2.default.createElement('div', { className: 'item-border' }, _react2.default.createElement('h2', { className: 'item-title' }, row.title), _react2.default.createElement('p', { className: 'item-autor' }, _react2.default.createElement('i', { className: 'icon icon-user' }), row.author), _react2.default.createElement('p', { className: 'item-section' }, _react2.default.createElement('i', { className: 'icon icon-books' }), row.section), _react2.default.createElement('i', { className: 'icon icon-flag', style: style })));
+                return _react2.default.createElement('div', { key: index, className: 'item' }, _react2.default.createElement('div', { className: 'item-border' }, _react2.default.createElement('h2', { className: 'item-title' }, _react2.default.createElement('a', { className: 'item-link', href: row.title }, row.title)), _react2.default.createElement('p', { className: 'item-autor' }, _react2.default.createElement('i', { className: 'icon icon-user' }), row.author), _react2.default.createElement('p', { className: 'item-section' }, _react2.default.createElement('i', { className: 'icon icon-books' }), row.section), _react2.default.createElement('i', { className: 'icon icon-flag', style: style })));
             }));
         }
     }]);
