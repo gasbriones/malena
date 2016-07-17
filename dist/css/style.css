@@ -31,6 +31,9 @@
 html {
   background: #ffffff; }
 
+body {
+  overflow-x: hidden; }
+
 html, body {
   margin: 0;
   padding: 0;
@@ -62,6 +65,8 @@ html, body {
     .header .menu li a {
       color: #000000;
       text-decoration: none; }
+      .header .menu li a:hover, .header .menu li a.active {
+        text-decoration: underline; }
 
 .header .filters {
   padding: 0.875em 0;
@@ -90,6 +95,8 @@ html, body {
           background: #59BFD7;
           color: #ffffff;
           border-color: #357F90; }
+      .header .filters .label .filter li:last-child {
+        margin-right: 0; }
   .header .filters .input input {
     line-height: 2.25em;
     height: 2.5em;
@@ -187,8 +194,10 @@ html, body {
       position: relative; }
 
 .explore, .result {
-  background: #479EB2;
-  padding: 2.8125em 0 !important; }
+  padding: 2.8125em 0 !important;
+  background: #E9E9E9; }
+  .explore .title, .result .title {
+    color: #1A95B0; }
   .explore .explore-grid, .result .explore-grid {
     margin-top: 0.9375em; }
     .explore .explore-grid .item, .result .explore-grid .item {
@@ -207,8 +216,7 @@ html, body {
   .explore .title, .result .title {
     text-transform: uppercase;
     font-family: HelveticaNeue-Bold;
-    font-size: 1.25em;
-    color: #ffffff; }
+    font-size: 1.25em; }
   .explore .sort, .result .sort {
     float: right; }
     .explore .sort > li, .result .sort > li {
@@ -315,11 +323,6 @@ html, body {
   .detail .more a {
     color: #5AC0D7; }
 
-.resultado .result {
-  background: #E9E9E9; }
-  .resultado .result .title {
-    color: #1A95B0; }
-
 .resultado .more-filters {
   background: #AAE8F6;
   padding: 1.875em 0; }
@@ -342,3 +345,18 @@ html, body {
       box-sizing: border-box;
       box-sizing: border-box;
       padding: 0 0.3125em; }
+
+#burger {
+  position: absolute;
+  right: 0.625em;
+  top: 0.625em;
+  display: none; }
+  #burger .icon {
+    width: 2.625em;
+    height: 2.625em; }
+
+#check {
+  display: none; }
+
+#check:checked ~ .menu {
+  right: 0; }

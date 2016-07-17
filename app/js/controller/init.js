@@ -8,16 +8,16 @@ var page = document.getElementsByTagName("body")[0];
 switch (page.getAttribute('data-page')) {
     case 'home':
         let sh = new SliderHome();
-            sh._init();
-        let ph =  new PublicationsHome();
-            ph._init();
-    break;
+        sh._init();
+        let ph = new PublicationsHome();
+        ph._init();
+        break;
     case 'explorer':
-        let pe =  new PublicationsExplore();
-            pe._init();
-    break;
+        let pe = new PublicationsExplore();
+        pe._init();
+        break;
     case 'result':
-        let pr =  new PublicationsResultado();
-            pr._init();
-    break;
+        let pr = new PublicationsResultado();
+        pr._init();
+        break;
 }

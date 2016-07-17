@@ -20,15 +20,6 @@ var onError = function (err) {
     this.emit('end');
 };
 
-gulp.task('server', function () {
-    connect.server({
-        host: '0.0.0.0',
-        root: ['dist'],
-        port: 8088,
-        livereload: true
-    })
-})
-
 gulp.task('copy', function () {
     gulp.src(['app/fonts/*.*'])
         .pipe(gulp.dest('dist/fonts/'))
@@ -64,14 +55,12 @@ gulp.task('haml', function () {
             format: 'html'
         }))
         .pipe(gulp.dest('dist'))
-        .pipe(livereload())
 });
 
 gulp.task('sass', function () {
     return gulp.src('app/scss/*.scss') // Gets all files ending with .scss in app/scss and children dirs
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('dist/css/'))
-        .pipe(livereload())
 })
 
 gulp.task('prettify', function () {
@@ -81,11 +70,10 @@ gulp.task('prettify', function () {
 });
 
 gulp.task('watch',['sass', 'buildJsx', 'scripts'] , function(){
-    livereload.listen()
     gulp.watch('app/scss/*.scss', ['sass']);
     gulp.watch('app/**/*.haml', ['haml']);
     gulp.watch('app/js/jsx/**/*.jsx', ['buildJsx', 'scripts']);
     gulp.watch('app/js/controller/*.js', ['scripts']);
 });
 
-gulp.task('dev', ['watch','sass', 'server','haml','prettify','copy'])
+gulp.task('dev', ['watch','sass','haml','prettify','copy'])
