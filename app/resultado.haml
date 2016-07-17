@@ -19,7 +19,10 @@
             %img{src: 'images/logo-caicyt.png'}
           %div.col-8.grid-middle
             %div.col-12
-              %div#burger
+              %input#check.check{type:'checkbox'}
+              %label{for:'check'}
+                %div#burger
+                  %img.icon{src:'images/menu-alt.svg'}
               %ul.menu
                 %li
                   %a{href:'index.html'} Inicio
@@ -30,52 +33,52 @@
                 %li
                   %a{href:'#'} Acerca de
         %div.col-12.grid-middle.grid-center.filters
-          %div.col-10_md-11.grid-middle
-            %div.col-4_xs-12.label
+          %div.col-10_md-11.grid-middle.grid-center
+            %div.col-4_sm-11_xs-12.label
               %ul.filter
                 %li
                   %button.btn
                     Materias
                 %li
-                  %button.btn
+                  %button.btn.active
                     Licencias
                 %li
                   %button.btn
                     Certificaciones
-            %div.col-6_xs-12.input
+            %div.col-6_sm-9_xs-11.input
               %input{type:'text'}
               %button
                 %img{src: 'images/lupa.png'}
-            %div.col-2_xs-12.advanced
+            %div.col-2_xs-11.advanced
               %i.icon.icon-zoom-in
               Búsqueda avanzadas
       %div#body.grid
         %div.col-12.grid-center.more-filters
-          %div.col-7.grid.input
-            %div.col-3{'push-right':'off-1'}
+          %div.col-7_md-8_sm-9.grid.input
+            %div.col-3_xs-12{'push-right':'off-1'}
               %select
                 %option Disciplina
-            %div.col-8
+            %div.col-8_xs-12
               %input{type:'text', placeHolder: 'Palabra clave, titulo, autor, editor'}
-          %div.col-7.grid.input
-            %div.col-3{'push-right':'off-1'}
+          %div.col-7_md-8_sm-9.grid.input
+            %div.col-3_xs-12{'push-right':'off-1'}
               %select
                 %option Disciplina
-            %div.col-8.grid
-              %div.col-3
+            %div.col-8_xs-12.grid
+              %div.col-3_xs-12
                 %select
-                  %option Disciplina
-              %div.col-9
+                  %option No contiene
+              %div.col-9_xs-12
                 %input{type:'text', placeHolder: 'Palabra clave, titulo, autor, editor'}
-          %div.col-7.grid.input
-            %div.col-3{'push-right':'off-1'}
+          %div.col-7_md-8_sm-9.grid.input
+            %div.col-3_xs-12{'push-right':'off-1'}
               %select
                 %option Disciplina
-            %div.col-8.grid
-              %div.col-3
+            %div.col-8_xs-12.grid
+              %div.col-3_xs-12
                 %select
-                  %option Disciplina
-              %div.col-9
+                  %option No contiene
+              %div.col-9_xs-12
                 %input{type:'text', placeHolder: 'Palabra clave, titulo, autor, editor'}
         %div#result.result.col-12.grid-center
 

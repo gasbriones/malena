@@ -26,11 +26,27 @@
     margin-top: 0.9375em; }
   #home-carousel .image-gallery-description {
     padding: 5%;
-    font-size: 0.625em; } }
+    font-size: 0.625em; }
+  .filter {
+    margin: 0 auto;
+    display: table; } }
 
 @media screen and (max-width: 48em) {
+  #burger {
+    display: block; }
   .menu {
-    display: none; }
+    position: absolute;
+    background: #ffffff;
+    height: 100%;
+    padding-left: 2.1875em;
+    right: 0;
+    box-sizing: border-box;
+    z-index: 999;
+    transition: right 0.5s;
+    right: -600%; }
+    .menu li {
+      float: none !important;
+      line-height: 2.2; }
   .explore .sort {
     float: left;
     margin: 0.9375em 0; }
@@ -38,4 +54,6 @@
     padding: 0; }
   .explore .explore-grid .item[class*="_sm-12"] {
     flex-basis: 100%;
-    max-width: 100%; } }
+    max-width: 100%; }
+  .filters .label {
+    margin-bottom: 0.625em; } }

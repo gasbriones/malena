@@ -55,6 +55,10 @@ html {
   background: #ffffff;
 }
 
+body{
+  overflow-x: hidden;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -88,6 +92,10 @@ html, body {
       a{
         color: #000000;
         text-decoration: none;
+        &:hover,
+        &.active{
+          text-decoration: underline;
+        }
       }
     }
   }
@@ -125,6 +133,9 @@ html, body {
               color: #ffffff;
               border-color:#357F90;
             }
+          }
+          &:last-child{
+            margin-right: 0;
           }
         }
       }
@@ -265,8 +276,11 @@ html, body {
 }
 
 .explore,.result{
-  background: #479EB2;
   padding:(45em/16) 0 !important;
+  background: #E9E9E9;
+  .title{
+    color: #1A95B0;
+  }
 
   .explore-grid{
     margin-top: (15em/16);
@@ -303,7 +317,6 @@ html, body {
     text-transform: uppercase;
     font-family: HelveticaNeue-Bold;
     font-size: (20em/16);
-    color: #ffffff;
   }
 
   .sort{
@@ -462,15 +475,6 @@ html, body {
 }
 
 .resultado{
-  .result{
-    background: #E9E9E9;
-    .title{
-      color: #1A95B0;
-    }
-  }
-
-
-
   .more-filters{
     background: #AAE8F6;
     padding: (30em/16) 0;
@@ -501,5 +505,24 @@ html, body {
       }
     }
   }
+}
+
+#burger{
+  position: absolute;
+  right: (10em/16);
+  top:(10em/16);
+  display: none;
+  .icon{
+     width: (42em/16);
+    height: (42em/16);
+  }
+}
+
+#check{
+  display: none;
+}
+
+#check:checked ~ .menu{
+  right: 0;
 }
 
