@@ -59,7 +59,7 @@ export default class App extends React.Component {
                     }
                     return <div key={index} className="item">
                         <div className="item-border">
-                            <h2 className="item-title"><a className="item-link" href={row.title}>{row.title}</a></h2>
+                            <h2 className="item-title"><a className="item-link" href={row.id}>{row.title}</a></h2>
                             <p className="item-autor">
                                 <i className="icon icon-user"/>
                                 {row.author}
