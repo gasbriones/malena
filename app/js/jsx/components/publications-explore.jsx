@@ -69,11 +69,11 @@ class CommentList extends React.Component {
                                     </li>
                                     <li>
                                         <button className="btn-img" onClick={this._sortByCell}>
-                                            <img src="themes/malena/images/sort-icon-grid.png"/></button>
+                                            <img src="/themes/malena/images/sort-icon-grid.png"/></button>
                                     </li>
                                     <li>
                                         <button className="btn-img" onClick={this._sortByCol}>
-                                            <img src="themes/malena/images/sort-icon-column.png"/></button>
+                                            <img src="/themes/malena/images/sort-icon-column.png"/></button>
                                     </li>
                                 </ul>
                             </li>

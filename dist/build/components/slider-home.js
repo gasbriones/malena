@@ -135,7 +135,7 @@ var App = function (_React$Component) {
                                 },
                                 _react2.default.createElement(
                                     'a',
-                                    { className: 'item-link', href: row.title, __self: this
+                                    { className: 'item-link', href: row.id, __self: this
                                     },
                                     row.title
                                 )

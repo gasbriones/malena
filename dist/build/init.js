@@ -39,7 +39,7 @@ switch (page.getAttribute('data-page')) {
         break;
 }
 
-}).call(this,require("+7ZJp0"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_376997a7.js","/")
+}).call(this,require("+7ZJp0"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_962dcf48.js","/")
 },{"+7ZJp0":28,"../../../dist/build/components/publications-explore.js":2,"../../../dist/build/components/publications-home.js":3,"../../../dist/build/components/publications-resultado.js":4,"../../../dist/build/components/slider-home.js":5,"buffer":25}],2:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
@@ -368,11 +368,11 @@ var CommentList = function (_React$Component) {
             }, _react2.default.createElement('li', {
                 __self: this
             }, _react2.default.createElement('button', { className: 'btn-img', onClick: this._sortByCell, __self: this
-            }, _react2.default.createElement('img', { src: 'themes/malena/images/sort-icon-grid.png', __self: this
+            }, _react2.default.createElement('img', { src: '/themes/malena/images/sort-icon-grid.png', __self: this
             }))), _react2.default.createElement('li', {
                 __self: this
             }, _react2.default.createElement('button', { className: 'btn-img', onClick: this._sortByCol, __self: this
-            }, _react2.default.createElement('img', { src: 'themes/malena/images/sort-icon-column.png', __self: this
+            }, _react2.default.createElement('img', { src: '/themes/malena/images/sort-icon-column.png', __self: this
             })))))))), _react2.default.createElement('div', { className: 'col-10_md-11 explore-grid grid-spaceBetween', __self: this
             }, publicationsNodes));
         }
@@ -797,7 +797,7 @@ var App = function (_React$Component) {
                 return _react2.default.createElement('div', { key: index, className: 'item', __self: this
                 }, _react2.default.createElement('div', { className: 'item-border', __self: this
                 }, _react2.default.createElement('h2', { className: 'item-title', __self: this
-                }, _react2.default.createElement('a', { className: 'item-link', href: row.title, __self: this
+                }, _react2.default.createElement('a', { className: 'item-link', href: row.id, __self: this
                 }, row.title)), _react2.default.createElement('p', { className: 'item-autor', __self: this
                 }, _react2.default.createElement('i', { className: 'icon icon-user', __self: this
                 }), row.author), _react2.default.createElement('p', { className: 'item-section', __self: this

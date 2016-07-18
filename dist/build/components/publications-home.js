@@ -148,7 +148,7 @@ var CommentList = function (_React$Component) {
                                             'button',
                                             { className: 'btn-img', onClick: this._sortByCell, __self: this
                                             },
-                                            _react2.default.createElement('img', { src: 'themes/malena/images/sort-icon-grid.png', __self: this
+                                            _react2.default.createElement('img', { src: '/themes/malena/images/sort-icon-grid.png', __self: this
                                             })
                                         )
                                     ),
@@ -161,7 +161,7 @@ var CommentList = function (_React$Component) {
                                             'button',
                                             { className: 'btn-img', onClick: this._sortByCol, __self: this
                                             },
-                                            _react2.default.createElement('img', { src: 'themes/malena/images/sort-icon-column.png', __self: this
+                                            _react2.default.createElement('img', { src: '/themes/malena/images/sort-icon-column.png', __self: this
                                             })
                                         )
                                     )
