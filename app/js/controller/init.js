@@ -21,6 +21,5 @@ switch (document.body.dataset['page']) {
         break;
     case 'matters':
         let nv = new Navigation();
-        nv._init();
         break;            
 }
