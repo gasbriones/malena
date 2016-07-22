@@ -210,12 +210,13 @@ var App = function (_React$Component2) {
     _createClass(App, [{
         key: '_init',
         value: function _init() {
-            _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications', perPage: 6, __self: this
+            _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications', perPage: 10, __self: this
             }), document.getElementById('explore'));
         }
     }, {
         key: 'loadCommentsFromServer',
         value: function loadCommentsFromServer() {
+
             var self = this;
             var instance = _axios2.default.create({
                 headers: {
@@ -223,7 +224,7 @@ var App = function (_React$Component2) {
                 }
             });
 
-            instance.get(self.props.url, { limit: self.props.perPage, offset: self.state.offset }).then(function (response) {
+            instance.get(self.props.url, { params: { limit: self.props.perPage, offset: self.state.offset } }).then(function (response) {
                 console.log(response);
                 self.setState({
                     data: response.data.publications,

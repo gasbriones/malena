@@ -44,7 +44,7 @@ switch (document.body.dataset['page']) {
         break;
 }
 
-}).call(this,require("+7ZJp0"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_f12b55c0.js","/")
+}).call(this,require("+7ZJp0"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_3107ee6e.js","/")
 },{"+7ZJp0":29,"../../../dist/build/components/navigation.js":2,"../../../dist/build/components/publications-explore.js":3,"../../../dist/build/components/publications-home.js":4,"../../../dist/build/components/publications-resultado.js":5,"../../../dist/build/components/slider-home.js":6,"buffer":26}],2:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
@@ -492,12 +492,13 @@ var App = function (_React$Component2) {
     _createClass(App, [{
         key: '_init',
         value: function _init() {
-            _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications', perPage: 6, __self: this
+            _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications', perPage: 10, __self: this
             }), document.getElementById('explore'));
         }
     }, {
         key: 'loadCommentsFromServer',
         value: function loadCommentsFromServer() {
+
             var self = this;
             var instance = _axios2.default.create({
                 headers: {
@@ -505,7 +506,7 @@ var App = function (_React$Component2) {
                 }
             });
 
-            instance.get(self.props.url, { limit: self.props.perPage, offset: self.state.offset }).then(function (response) {
+            instance.get(self.props.url, { params: { limit: self.props.perPage, offset: self.state.offset } }).then(function (response) {
                 console.log(response);
                 self.setState({
                     data: response.data.publications,

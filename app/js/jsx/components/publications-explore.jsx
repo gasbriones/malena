@@ -101,7 +101,7 @@ export default class App extends React.Component {
     _init(){
         ReactDOM.render(
             <App url={'/services/publications'}
-                 perPage={6}/>,
+                 perPage={10}/>,
             document.getElementById('explore')
         );
     }
@@ -110,7 +110,7 @@ export default class App extends React.Component {
     loadCommentsFromServer() {
         let self = this;
 
-        Axios.get(self.props.url, {limit: self.props.perPage, offset: self.state.offset}).then(function (response) {
+        Axios.get(self.props.url, {params: {limit: self.props.perPage, offset: self.state.offset}}).then(function (response) {
             console.log(response);
             self.setState({
                 data: response.data.publications,

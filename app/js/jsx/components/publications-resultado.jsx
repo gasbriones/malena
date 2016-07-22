@@ -61,7 +61,7 @@ export default class App extends React.Component {
     _init(){
         ReactDOM.render(
             <App url={'/services/publications'}
-                 perPage={6}/>,
+                 perPage={10}/>,
             document.getElementById('result')
         );
     }
@@ -74,7 +74,7 @@ export default class App extends React.Component {
             }
         });
 
-        instance.get(self.props.url, {limit: self.props.perPage, offset: self.state.offset}).then(function (response) {
+        instance.get(self.props.url, {params: {limit: self.props.perPage, offset: self.state.offset}}).then(function (response) {
             self.setState({
                 data: response.data.publications,
                 pageNum: Math.ceil(response.data.meta.total_count / response.data.meta.limit)
