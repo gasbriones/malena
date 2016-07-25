@@ -43,14 +43,16 @@ var CommentList = function (_React$Component) {
         key: '_sortByCell',
         value: function _sortByCell() {
             _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications',
-                perPage: 6, colClass: 'item col-6', __self: this
+                perPage: 10, colClass: 'item col-6',
+                sort: 'grid', __self: this
             }), document.getElementById('explore'));
         }
     }, {
         key: '_sortByCol',
         value: function _sortByCol() {
             _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications',
-                perPage: 6, colClass: 'item col-12', __self: this
+                perPage: 10, colClass: 'item col-12',
+                sort: 'col', __self: this
             }), document.getElementById('explore'));
         }
     }, {
@@ -144,26 +146,16 @@ var CommentList = function (_React$Component) {
                                         {
                                             __self: this
                                         },
-                                        _react2.default.createElement(
-                                            'button',
-                                            { className: 'btn-img', onClick: this._sortByCell, __self: this
-                                            },
-                                            _react2.default.createElement('img', { src: '/themes/malena/images/sort-icon-grid.png', __self: this
-                                            })
-                                        )
+                                        _react2.default.createElement('button', { className: 'btn-img btn-sort-grid', onClick: this._sortByCell, __self: this
+                                        })
                                     ),
                                     _react2.default.createElement(
                                         'li',
                                         {
                                             __self: this
                                         },
-                                        _react2.default.createElement(
-                                            'button',
-                                            { className: 'btn-img', onClick: this._sortByCol, __self: this
-                                            },
-                                            _react2.default.createElement('img', { src: '/themes/malena/images/sort-icon-column.png', __self: this
-                                            })
-                                        )
+                                        _react2.default.createElement('button', { className: 'btn-img btn-sort-col', onClick: this._sortByCol, __self: this
+                                        })
                                     )
                                 )
                             )
@@ -202,7 +194,8 @@ var App = function (_React$Component2) {
 
         _this2.state = {
             data: [],
-            offset: 0
+            offset: 0,
+            sort: 'grid'
         };
         return _this2;
     }
@@ -210,7 +203,7 @@ var App = function (_React$Component2) {
     _createClass(App, [{
         key: '_init',
         value: function _init() {
-            _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications', perPage: 10, __self: this
+            _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications', sort: "grid", perPage: 10, __self: this
             }), document.getElementById('explore'));
         }
     }, {
@@ -240,9 +233,10 @@ var App = function (_React$Component2) {
     }, {
         key: 'render',
         value: function render() {
+            console.log('aaaaaaa', this);
             return _react2.default.createElement(
                 'div',
-                { className: 'col-12 grid-center', __self: this
+                { className: "col-12 grid-center sort-" + this.props.sort, __self: this
                 },
                 _react2.default.createElement(CommentList, { data: this.state.data, colClass: this.props.colClass, __self: this
                 }),

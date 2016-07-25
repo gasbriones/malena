@@ -275,9 +275,29 @@ html, body {
   }
 }
 
-.explore,.result{
+.explore,
+.result{
   padding:(45em/16) 0 !important;
   background: #E9E9E9;
+  
+ .sort-grid {
+    .btn-sort-grid{
+      background:url(../images/sort-icon-column-hover.png) !important;
+    }
+    .btn-sort-col{
+      background:url(../images/sort-icon-grid.png) !important;
+    }
+  }
+  
+  .sort-col {
+    .btn-sort-grid{
+      background:url(../images/sort-icon-column.png) !important;
+    }
+    .btn-sort-col{
+      background:url(../images/sort-icon-grid-hover.png) !important;
+    }
+  }
+  
   .title{
     color: #1A95B0;
   }
@@ -334,10 +354,17 @@ html, body {
       .btn-img{
         background: none;
         border: none;
+        width:30px;
+        height:30px;
+        display:block;
       }
       .sort-style{
         li{
           float: left;
+          margin-left:12px;
+          text-align:center;
+          display:block;
+          height:30px;
         }
       }
     }

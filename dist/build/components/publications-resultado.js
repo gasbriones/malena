@@ -151,7 +151,7 @@ var App = function (_React$Component2) {
         key: '_init',
         value: function _init() {
             _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications',
-                perPage: 6, __self: this
+                perPage: 10, __self: this
             }), document.getElementById('result'));
         }
     }, {
@@ -164,7 +164,7 @@ var App = function (_React$Component2) {
                 }
             });
 
-            instance.get(self.props.url, { limit: self.props.perPage, offset: self.state.offset }).then(function (response) {
+            instance.get(self.props.url, { params: { limit: self.props.perPage, offset: self.state.offset } }).then(function (response) {
                 self.setState({
                     data: response.data.publications,
                     pageNum: Math.ceil(response.data.meta.total_count / response.data.meta.limit)

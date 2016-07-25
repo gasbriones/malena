@@ -251,7 +251,7 @@ var App = function (_React$Component2) {
         key: '_init',
         value: function _init() {
             _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications',
-                perPage: 6, __self: this
+                perPage: 10, __self: this
             }), document.getElementById('explore'));
         }
     }, {
@@ -259,7 +259,7 @@ var App = function (_React$Component2) {
         value: function loadCommentsFromServer() {
             var self = this;
 
-            _axios2.default.get(self.props.url, { limit: self.props.perPage, offset: self.state.offset }).then(function (response) {
+            _axios2.default.get(self.props.url, { params: { limit: self.props.perPage, offset: self.state.offset } }).then(function (response) {
                 console.log(response);
                 self.setState({
                     data: response.data.publications,

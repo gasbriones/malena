@@ -12,7 +12,8 @@ class CommentList extends React.Component {
     _sortByCell() {
         ReactDOM.render(
             <App url={'/services/publications'}
-                 perPage={6} colClass={'item col-6'}/>,
+                 perPage={10} colClass={'item col-6'}
+                 sort={'grid'}/>,
             document.getElementById('explore')
         )
     }
@@ -20,7 +21,8 @@ class CommentList extends React.Component {
     _sortByCol() {
         ReactDOM.render(
             <App url={'/services/publications'}
-                 perPage={6} colClass={'item col-12'}/>,
+                 perPage={10} colClass={'item col-12'}
+                 sort={'col'}/>,
             document.getElementById('explore')
         )
     }
@@ -59,14 +61,8 @@ class CommentList extends React.Component {
                         <ul className="sort">
                             <li>
                                 <ul className="sort-style">
-                                    <li>
-                                        <button className="btn-img" onClick={this._sortByCell}>
-                                            <img src="/themes/malena/images/sort-icon-grid.png"/></button>
-                                    </li>
-                                    <li>
-                                        <button className="btn-img" onClick={this._sortByCol}>
-                                            <img src="/themes/malena/images/sort-icon-column.png"/></button>
-                                    </li>
+                                    <li><button className="btn-img btn-sort-grid" onClick={this._sortByCell}></button></li>
+                                    <li><button className="btn-img btn-sort-col" onClick={this._sortByCol}></button></li>
                                 </ul>
                             </li>
                         </ul>
@@ -86,12 +82,13 @@ export default class App extends React.Component {
 
         this.state = {
             data: [],
-            offset: 0
+            offset: 0,
+            sort: 'grid'
         }
     }
 
     _init() {
-        ReactDOM.render(<App url={'/services/publications'} perPage={10}/>, document.getElementById('explore'));
+        ReactDOM.render(<App url={'/services/publications'} sort={"grid"} perPage={10}/>, document.getElementById('explore'));
     }
 
     loadCommentsFromServer() {
@@ -126,8 +123,9 @@ export default class App extends React.Component {
     };
 
     render() {
+        console.log('aaaaaaa',this)
         return (
-            <div className="col-12 grid-center">
+            <div className={"col-12 grid-center sort-" + this.props.sort}>
                 <CommentList data={this.state.data} colClass={this.props.colClass}/>
                 <ReactPaginate previousLabel={"«"}
                                nextLabel={"»"}
