@@ -45,7 +45,7 @@ var CommentList = function (_React$Component) {
             var self = this;
 
             var publicationsNodes = this.props.data.map(function (publication, index) {
-                var url = "/items/show/" + publication.id,
+                var url = self.props.baseUrl + "/items/show/" + publication.id,
                     style = {
                     color: publication.flag
                 };
@@ -150,9 +150,10 @@ var App = function (_React$Component2) {
     _createClass(App, [{
         key: '_init',
         value: function _init() {
-            _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications',
-                perPage: 10, __self: this
-            }), document.getElementById('result'));
+            var el = document.getElementById('result');
+            _reactDom2.default.render(_react2.default.createElement(App, { url: el.dataset['baseurl'] + '/services/publications',
+                perPage: 10, baseUrl: this.props.baseUrl, __self: this
+            }), el);
         }
     }, {
         key: 'loadCommentsFromServer',
@@ -183,7 +184,7 @@ var App = function (_React$Component2) {
                 'div',
                 { className: 'col-12 grid-center', __self: this
                 },
-                _react2.default.createElement(CommentList, { data: this.state.data, colClass: this.props.colClass, __self: this
+                _react2.default.createElement(CommentList, { data: this.state.data, colClass: this.props.colClass, baseUrl: this.props.baseUrl, __self: this
                 }),
                 _react2.default.createElement(_reactPaginate2.default, { previousLabel: "«",
                     nextLabel: "»",

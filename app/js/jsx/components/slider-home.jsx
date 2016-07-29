@@ -13,18 +13,19 @@ export default class App extends React.Component {
     }
 
     _init(){
-        ReactDOM.render(<App/>, document.getElementById('slider'))
+        var el = document.getElementById('slider');
+        ReactDOM.render(<App baseUrl={el.dataset['baseurl']}/>, el)
     }
 
     _processData() {
         let self = this;
         const array = [];
 
-        Axios.get('/services/featured').then(function (response) {
+        Axios.get(self.props.baseUrl + '/services/featured').then(function (response) {
 
             for (let value of response.data) {
                 array.push({
-                    id: "/items/show/" + value.id,
+                    id: self.props.baseUrl + "/items/show/" + value.id,
                     title: value.title,
                     author: value.author,
                     section: value.section,
@@ -76,4 +77,3 @@ export default class App extends React.Component {
         );
     }
 }
-

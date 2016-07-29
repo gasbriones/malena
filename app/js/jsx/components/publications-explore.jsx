@@ -10,25 +10,31 @@ class CommentList extends React.Component {
     }
 
     _sortByCell() {
+        var el = document.getElementById('explore');
         ReactDOM.render(
-            <App url={'/demos/malena/dist/mocs/publications-home.json'}
-                 perPage={6} colClass={'item col-6'}/>,
-            document.getElementById('explore')
+            <App url={el.dataset['baseurl'] +'/demos/malena/dist/mocs/publications-home.json'}
+                 perPage={10} colClass={'item col-6'}
+                 baseUrl={el.dataset['baseurl']}
+                 sort={'grid'}/>,
+            el
         )
     }
 
     _sortByCol() {
+        var el = document.getElementById('explore');
         ReactDOM.render(
-            <App url={'/demos/malena/dist/mocs/publications-home.json'}
-                 perPage={6} colClass={'item col-12'}/>,
-            document.getElementById('explore')
+            <App url={el.dataset['baseurl'] +'/demos/malena/dist/mocs/publications-home.json'}
+                 perPage={10} colClass={'item col-12'}
+                 baseUrl={el.dataset['baseurl']}
+                 sort={'col'}/>,
+            el
         )
     }
 
     render() {
         let self = this;
         let publicationsNodes = this.props.data.map(function (publication, index) {
-            var  url = "/items/show/" + publication.id,
+            var  url = self.props.baseUrl + "/items/show/" + publication.id,
                 style = {
                 color: publication.flag
             }
@@ -67,14 +73,8 @@ class CommentList extends React.Component {
                                             <option>Option 3</option>
                                         </select>
                                     </li>
-                                    <li>
-                                        <button className="btn-img" onClick={this._sortByCell}>
-                                            <img src="/themes/malena/images/sort-icon-grid.png"/></button>
-                                    </li>
-                                    <li>
-                                        <button className="btn-img" onClick={this._sortByCol}>
-                                            <img src="/themes/malena/images/sort-icon-column.png"/></button>
-                                    </li>
+                                    <li><button className="btn-img btn-sort-grid" onClick={this._sortByCell}></button></li>
+                                    <li><button className="btn-img btn-sort-col" onClick={this._sortByCol}></button></li>
                                 </ul>
                             </li>
                         </ul>
@@ -99,10 +99,13 @@ export default class App extends React.Component {
     }
 
     _init(){
+        var el = document.getElementById('explore');
         ReactDOM.render(
-            <App url={'/services/publications'}
-                 perPage={10}/>,
-            document.getElementById('explore')
+            <App url={el.dataset['baseurl'] + '/services/publications'}
+                 perPage={10}
+                 sort={"grid"}
+                baseUrl={el.dataset['baseurl']}/>,
+            el
         );
     }
 
@@ -111,7 +114,6 @@ export default class App extends React.Component {
         let self = this;
 
         Axios.get(self.props.url, {params: {limit: self.props.perPage, offset: self.state.offset}}).then(function (response) {
-            console.log(response);
             self.setState({
                 data: response.data.publications,
                 pageNum: Math.ceil(response.data.meta.total_count / response.data.meta.limit)
@@ -135,7 +137,7 @@ export default class App extends React.Component {
     render() {
         return (
             <div className="col-12 grid-center">
-                <CommentList data={this.state.data} colClass={this.props.colClass}/>
+                <CommentList data={this.state.data} colClass={this.props.colClass} baseUrl={this.props.baseUrl}/>
                 <ReactPaginate previousLabel={"«"}
                                nextLabel={"»"}
                                breakLabel={<a href="">...</a>}

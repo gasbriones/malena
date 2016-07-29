@@ -61,7 +61,7 @@ var App = function (_React$Component) {
             var array = [];
             var self = this;
 
-            _axios2.default.get('/services/featured').then(function (response) {
+            _axios2.default.get(self.props.baseUrl + '/services/featured').then(function (response) {
                 var _iteratorNormalCompletion = true;
                 var _didIteratorError = false;
                 var _iteratorError = undefined;
@@ -125,6 +125,7 @@ var App = function (_React$Component) {
     return App;
 }(_react2.default.Component);
 
-_reactDom2.default.render(_react2.default.createElement(App, {
-    __self: undefined
-}), document.getElementById('home-carousel'));
+var el = document.getElementById('home-carousel');
+
+_reactDom2.default.render(_react2.default.createElement(App, { baseUrl: el.dataset['baseurl'], __self: undefined
+}), el);

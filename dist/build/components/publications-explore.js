@@ -42,23 +42,29 @@ var CommentList = function (_React$Component) {
     _createClass(CommentList, [{
         key: '_sortByCell',
         value: function _sortByCell() {
-            _reactDom2.default.render(_react2.default.createElement(App, { url: '/demos/malena/dist/mocs/publications-home.json',
-                perPage: 6, colClass: 'item col-6', __self: this
-            }), document.getElementById('explore'));
+            var el = document.getElementById('explore');
+            _reactDom2.default.render(_react2.default.createElement(App, { url: el.dataset['baseurl'] + '/demos/malena/dist/mocs/publications-home.json',
+                perPage: 10, colClass: 'item col-6',
+                baseUrl: el.dataset['baseurl'],
+                sort: 'grid', __self: this
+            }), el);
         }
     }, {
         key: '_sortByCol',
         value: function _sortByCol() {
-            _reactDom2.default.render(_react2.default.createElement(App, { url: '/demos/malena/dist/mocs/publications-home.json',
-                perPage: 6, colClass: 'item col-12', __self: this
-            }), document.getElementById('explore'));
+            var el = document.getElementById('explore');
+            _reactDom2.default.render(_react2.default.createElement(App, { url: el.dataset['baseurl'] + '/demos/malena/dist/mocs/publications-home.json',
+                perPage: 10, colClass: 'item col-12',
+                baseUrl: el.dataset['baseurl'],
+                sort: 'col', __self: this
+            }), el);
         }
     }, {
         key: 'render',
         value: function render() {
             var self = this;
             var publicationsNodes = this.props.data.map(function (publication, index) {
-                var url = "/items/show/" + publication.id,
+                var url = self.props.baseUrl + "/items/show/" + publication.id,
                     style = {
                     color: publication.flag
                 };
@@ -184,26 +190,16 @@ var CommentList = function (_React$Component) {
                                         {
                                             __self: this
                                         },
-                                        _react2.default.createElement(
-                                            'button',
-                                            { className: 'btn-img', onClick: this._sortByCell, __self: this
-                                            },
-                                            _react2.default.createElement('img', { src: '/themes/malena/images/sort-icon-grid.png', __self: this
-                                            })
-                                        )
+                                        _react2.default.createElement('button', { className: 'btn-img btn-sort-grid', onClick: this._sortByCell, __self: this
+                                        })
                                     ),
                                     _react2.default.createElement(
                                         'li',
                                         {
                                             __self: this
                                         },
-                                        _react2.default.createElement(
-                                            'button',
-                                            { className: 'btn-img', onClick: this._sortByCol, __self: this
-                                            },
-                                            _react2.default.createElement('img', { src: '/themes/malena/images/sort-icon-column.png', __self: this
-                                            })
-                                        )
+                                        _react2.default.createElement('button', { className: 'btn-img btn-sort-col', onClick: this._sortByCol, __self: this
+                                        })
                                     )
                                 )
                             )
@@ -250,9 +246,12 @@ var App = function (_React$Component2) {
     _createClass(App, [{
         key: '_init',
         value: function _init() {
-            _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications',
-                perPage: 10, __self: this
-            }), document.getElementById('explore'));
+            var el = document.getElementById('explore');
+            _reactDom2.default.render(_react2.default.createElement(App, { url: el.dataset['baseurl'] + '/services/publications',
+                perPage: 10,
+                sort: "grid",
+                baseUrl: el.dataset['baseurl'], __self: this
+            }), el);
         }
     }, {
         key: 'loadCommentsFromServer',
@@ -260,7 +259,6 @@ var App = function (_React$Component2) {
             var self = this;
 
             _axios2.default.get(self.props.url, { params: { limit: self.props.perPage, offset: self.state.offset } }).then(function (response) {
-                console.log(response);
                 self.setState({
                     data: response.data.publications,
                     pageNum: Math.ceil(response.data.meta.total_count / response.data.meta.limit)
@@ -279,7 +277,7 @@ var App = function (_React$Component2) {
                 'div',
                 { className: 'col-12 grid-center', __self: this
                 },
-                _react2.default.createElement(CommentList, { data: this.state.data, colClass: this.props.colClass, __self: this
+                _react2.default.createElement(CommentList, { data: this.state.data, colClass: this.props.colClass, baseUrl: this.props.baseUrl, __self: this
                 }),
                 _react2.default.createElement(_reactPaginate2.default, { previousLabel: "«",
                     nextLabel: "»",

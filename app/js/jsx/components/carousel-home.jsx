@@ -31,7 +31,7 @@ class App extends React.Component {
         const array = [];
         let self = this;
 
-        Axios.get('/services/featured').then(function (response) {
+        Axios.get(self.props.baseUrl + '/services/featured').then(function (response) {
             for (let value of response.data) {
                 array.push({
                     original: value.original,
@@ -64,5 +64,6 @@ class App extends React.Component {
         )
     }
 }
+var el = document.getElementById('home-carousel');
 
-ReactDOM.render(<App/>, document.getElementById('home-carousel'))
+ReactDOM.render(<App baseUrl={el.dataset['baseurl']}/>, el)

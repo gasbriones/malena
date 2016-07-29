@@ -12,7 +12,7 @@ class CommentList extends React.Component {
         let self = this;
 
         let publicationsNodes = this.props.data.map(function (publication, index) {
-            var url = "/items/show/" + publication.id,
+            var url = self.props.baseUrl + "/items/show/" + publication.id,
                 style = {
                 color: publication.flag
             }
@@ -59,10 +59,11 @@ export default class App extends React.Component {
     }
 
     _init(){
+        var el = document.getElementById('result');
         ReactDOM.render(
-            <App url={'/services/publications'}
-                 perPage={10}/>,
-            document.getElementById('result')
+            <App url={el.dataset['baseurl'] + '/services/publications'}
+                 perPage={10} baseUrl={this.props.baseUrl}/>,
+            el
         );
     }
 
@@ -98,7 +99,7 @@ export default class App extends React.Component {
     render() {
         return (
             <div className="col-12 grid-center">
-                <CommentList data={this.state.data} colClass={this.props.colClass}/>
+                <CommentList data={this.state.data} colClass={this.props.colClass} baseUrl={this.props.baseUrl}/>
                 <ReactPaginate previousLabel={"«"}
                                nextLabel={"»"}
                                breakLabel={<a href="">...</a>}

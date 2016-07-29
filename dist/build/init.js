@@ -44,7 +44,7 @@ switch (document.body.dataset['page']) {
         break;
 }
 
-}).call(this,require("+7ZJp0"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_2dd7ad1c.js","/")
+}).call(this,require("+7ZJp0"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_bbf0a5d8.js","/")
 },{"+7ZJp0":29,"../../../dist/build/components/navigation.js":2,"../../../dist/build/components/publications-explore.js":3,"../../../dist/build/components/publications-home.js":4,"../../../dist/build/components/publications-resultado.js":5,"../../../dist/build/components/slider-home.js":6,"buffer":26}],2:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
@@ -194,23 +194,29 @@ var CommentList = function (_React$Component) {
     _createClass(CommentList, [{
         key: '_sortByCell',
         value: function _sortByCell() {
-            _reactDom2.default.render(_react2.default.createElement(App, { url: '/demos/malena/dist/mocs/publications-home.json',
-                perPage: 6, colClass: 'item col-6', __self: this
-            }), document.getElementById('explore'));
+            var el = document.getElementById('explore');
+            _reactDom2.default.render(_react2.default.createElement(App, { url: el.dataset['baseurl'] + '/demos/malena/dist/mocs/publications-home.json',
+                perPage: 10, colClass: 'item col-6',
+                baseUrl: el.dataset['baseurl'],
+                sort: 'grid', __self: this
+            }), el);
         }
     }, {
         key: '_sortByCol',
         value: function _sortByCol() {
-            _reactDom2.default.render(_react2.default.createElement(App, { url: '/demos/malena/dist/mocs/publications-home.json',
-                perPage: 6, colClass: 'item col-12', __self: this
-            }), document.getElementById('explore'));
+            var el = document.getElementById('explore');
+            _reactDom2.default.render(_react2.default.createElement(App, { url: el.dataset['baseurl'] + '/demos/malena/dist/mocs/publications-home.json',
+                perPage: 10, colClass: 'item col-12',
+                baseUrl: el.dataset['baseurl'],
+                sort: 'col', __self: this
+            }), el);
         }
     }, {
         key: 'render',
         value: function render() {
             var self = this;
             var publicationsNodes = this.props.data.map(function (publication, index) {
-                var url = "/items/show/" + publication.id,
+                var url = self.props.baseUrl + "/items/show/" + publication.id,
                     style = {
                     color: publication.flag
                 };
@@ -249,13 +255,11 @@ var CommentList = function (_React$Component) {
                 __self: this
             }, 'Option 3'))), _react2.default.createElement('li', {
                 __self: this
-            }, _react2.default.createElement('button', { className: 'btn-img', onClick: this._sortByCell, __self: this
-            }, _react2.default.createElement('img', { src: '/themes/malena/images/sort-icon-grid.png', __self: this
-            }))), _react2.default.createElement('li', {
+            }, _react2.default.createElement('button', { className: 'btn-img btn-sort-grid', onClick: this._sortByCell, __self: this
+            })), _react2.default.createElement('li', {
                 __self: this
-            }, _react2.default.createElement('button', { className: 'btn-img', onClick: this._sortByCol, __self: this
-            }, _react2.default.createElement('img', { src: '/themes/malena/images/sort-icon-column.png', __self: this
-            })))))))), _react2.default.createElement('div', { className: 'col-10_md-11 explore-grid grid-spaceBetween', __self: this
+            }, _react2.default.createElement('button', { className: 'btn-img btn-sort-col', onClick: this._sortByCol, __self: this
+            }))))))), _react2.default.createElement('div', { className: 'col-10_md-11 explore-grid grid-spaceBetween', __self: this
             }, publicationsNodes));
         }
     }]);
@@ -290,9 +294,12 @@ var App = function (_React$Component2) {
     _createClass(App, [{
         key: '_init',
         value: function _init() {
-            _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications',
-                perPage: 10, __self: this
-            }), document.getElementById('explore'));
+            var el = document.getElementById('explore');
+            _reactDom2.default.render(_react2.default.createElement(App, { url: el.dataset['baseurl'] + '/services/publications',
+                perPage: 10,
+                sort: "grid",
+                baseUrl: el.dataset['baseurl'], __self: this
+            }), el);
         }
     }, {
         key: 'loadCommentsFromServer',
@@ -300,7 +307,6 @@ var App = function (_React$Component2) {
             var self = this;
 
             _axios2.default.get(self.props.url, { params: { limit: self.props.perPage, offset: self.state.offset } }).then(function (response) {
-                console.log(response);
                 self.setState({
                     data: response.data.publications,
                     pageNum: Math.ceil(response.data.meta.total_count / response.data.meta.limit)
@@ -316,7 +322,7 @@ var App = function (_React$Component2) {
         key: 'render',
         value: function render() {
             return _react2.default.createElement('div', { className: 'col-12 grid-center', __self: this
-            }, _react2.default.createElement(CommentList, { data: this.state.data, colClass: this.props.colClass, __self: this
+            }, _react2.default.createElement(CommentList, { data: this.state.data, colClass: this.props.colClass, baseUrl: this.props.baseUrl, __self: this
             }), _react2.default.createElement(_reactPaginate2.default, { previousLabel: "«",
                 nextLabel: "»",
                 breakLabel: _react2.default.createElement('a', { href: '', __self: this
@@ -408,25 +414,27 @@ var CommentList = function (_React$Component) {
     _createClass(CommentList, [{
         key: '_sortByCell',
         value: function _sortByCell() {
-            _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications',
+            var el = document.getElementById('explore');
+            _reactDom2.default.render(_react2.default.createElement(App, { url: el.dataset['baseurl'] + '/services/publications',
                 perPage: 10, colClass: 'item col-6',
                 sort: 'grid', __self: this
-            }), document.getElementById('explore'));
+            }), el);
         }
     }, {
         key: '_sortByCol',
         value: function _sortByCol() {
-            _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications',
+            var el = document.getElementById('explore');
+            _reactDom2.default.render(_react2.default.createElement(App, { url: el.dataset['baseurl'] + '/services/publications',
                 perPage: 10, colClass: 'item col-12',
                 sort: 'col', __self: this
-            }), document.getElementById('explore'));
+            }), el);
         }
     }, {
         key: 'render',
         value: function render() {
             var self = this;
             var publicationsNodes = this.props.data.map(function (publication, index) {
-                var url = "/items/show/" + publication.id,
+                var url = self.props.baseUrl + "/items/show/" + publication.id,
                     style = {
                     color: publication.flag
                 };
@@ -493,8 +501,9 @@ var App = function (_React$Component2) {
     _createClass(App, [{
         key: '_init',
         value: function _init() {
-            _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications', sort: "grid", perPage: 10, __self: this
-            }), document.getElementById('explore'));
+            var el = document.getElementById('explore');
+            _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications', sort: "grid", perPage: 10, baseUrl: el.dataset['baseurl'], __self: this
+            }), el);
         }
     }, {
         key: 'loadCommentsFromServer',
@@ -523,9 +532,8 @@ var App = function (_React$Component2) {
     }, {
         key: 'render',
         value: function render() {
-            console.log('aaaaaaa', this);
             return _react2.default.createElement('div', { className: "col-12 grid-center sort-" + this.props.sort, __self: this
-            }, _react2.default.createElement(CommentList, { data: this.state.data, colClass: this.props.colClass, __self: this
+            }, _react2.default.createElement(CommentList, { data: this.state.data, colClass: this.props.colClass, baseUrl: this.props.baseUrl, __self: this
             }), _react2.default.createElement(_reactPaginate2.default, { previousLabel: "«",
                 nextLabel: "»",
                 breakLabel: _react2.default.createElement('a', { href: '', __self: this
@@ -620,7 +628,7 @@ var CommentList = function (_React$Component) {
             var self = this;
 
             var publicationsNodes = this.props.data.map(function (publication, index) {
-                var url = "/items/show/" + publication.id,
+                var url = self.props.baseUrl + "/items/show/" + publication.id,
                     style = {
                     color: publication.flag
                 };
@@ -675,9 +683,10 @@ var App = function (_React$Component2) {
     _createClass(App, [{
         key: '_init',
         value: function _init() {
-            _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications',
-                perPage: 10, __self: this
-            }), document.getElementById('result'));
+            var el = document.getElementById('result');
+            _reactDom2.default.render(_react2.default.createElement(App, { url: el.dataset['baseurl'] + '/services/publications',
+                perPage: 10, baseUrl: this.props.baseUrl, __self: this
+            }), el);
         }
     }, {
         key: 'loadCommentsFromServer',
@@ -705,7 +714,7 @@ var App = function (_React$Component2) {
         key: 'render',
         value: function render() {
             return _react2.default.createElement('div', { className: 'col-12 grid-center', __self: this
-            }, _react2.default.createElement(CommentList, { data: this.state.data, colClass: this.props.colClass, __self: this
+            }, _react2.default.createElement(CommentList, { data: this.state.data, colClass: this.props.colClass, baseUrl: this.props.baseUrl, __self: this
             }), _react2.default.createElement(_reactPaginate2.default, { previousLabel: "«",
                 nextLabel: "»",
                 breakLabel: _react2.default.createElement('a', { href: '', __self: this
@@ -813,9 +822,9 @@ var App = function (_React$Component) {
     _createClass(App, [{
         key: '_init',
         value: function _init() {
-            _reactDom2.default.render(_react2.default.createElement(App, {
-                __self: this
-            }), document.getElementById('slider'));
+            var el = document.getElementById('slider');
+            _reactDom2.default.render(_react2.default.createElement(App, { baseUrl: el.dataset['baseurl'], __self: this
+            }), el);
         }
     }, {
         key: '_processData',
@@ -823,7 +832,7 @@ var App = function (_React$Component) {
             var self = this;
             var array = [];
 
-            _axios2.default.get('/services/featured').then(function (response) {
+            _axios2.default.get(self.props.baseUrl + '/services/featured').then(function (response) {
                 var _iteratorNormalCompletion = true;
                 var _didIteratorError = false;
                 var _iteratorError = undefined;
@@ -834,7 +843,7 @@ var App = function (_React$Component) {
                         var value = _step.value;
 
                         array.push({
-                            id: "/items/show/" + value.id,
+                            id: self.props.baseUrl + "/items/show/" + value.id,
                             title: value.title,
                             author: value.author,
                             section: value.section,

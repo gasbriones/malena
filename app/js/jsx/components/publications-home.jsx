@@ -10,27 +10,30 @@ class CommentList extends React.Component {
     }
 
     _sortByCell() {
+        var el = document.getElementById('explore');
         ReactDOM.render(
-            <App url={'/services/publications'}
+            <App url={el.dataset['baseurl'] + '/services/publications'}
                  perPage={10} colClass={'item col-6'}
                  sort={'grid'}/>,
-            document.getElementById('explore')
+            el
+
         )
     }
 
     _sortByCol() {
+        var el = document.getElementById('explore')
         ReactDOM.render(
-            <App url={'/services/publications'}
+            <App url={el.dataset['baseurl'] + '/services/publications'}
                  perPage={10} colClass={'item col-12'}
                  sort={'col'}/>,
-            document.getElementById('explore')
+            el
         )
     }
 
     render() {
         let self = this;
         let publicationsNodes = this.props.data.map(function (publication, index) {
-            var url = "/items/show/" + publication.id,
+            var url = self.props.baseUrl + "/items/show/" + publication.id,
                 style = {
                     color: publication.flag
                 }
@@ -88,7 +91,8 @@ export default class App extends React.Component {
     }
 
     _init() {
-        ReactDOM.render(<App url={'/services/publications'} sort={"grid"} perPage={10}/>, document.getElementById('explore'));
+        var el = document.getElementById('explore');
+        ReactDOM.render(<App url={'/services/publications'} sort={"grid"} perPage={10} baseUrl={el.dataset['baseurl']}/>, el);
     }
 
     loadCommentsFromServer() {
@@ -123,10 +127,9 @@ export default class App extends React.Component {
     };
 
     render() {
-        console.log('aaaaaaa',this)
         return (
             <div className={"col-12 grid-center sort-" + this.props.sort}>
-                <CommentList data={this.state.data} colClass={this.props.colClass}/>
+                <CommentList data={this.state.data} colClass={this.props.colClass} baseUrl={this.props.baseUrl}/>
                 <ReactPaginate previousLabel={"«"}
                                nextLabel={"»"}
                                breakLabel={<a href="">...</a>}

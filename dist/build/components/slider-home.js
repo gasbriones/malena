@@ -50,9 +50,9 @@ var App = function (_React$Component) {
     _createClass(App, [{
         key: '_init',
         value: function _init() {
-            _reactDom2.default.render(_react2.default.createElement(App, {
-                __self: this
-            }), document.getElementById('slider'));
+            var el = document.getElementById('slider');
+            _reactDom2.default.render(_react2.default.createElement(App, { baseUrl: el.dataset['baseurl'], __self: this
+            }), el);
         }
     }, {
         key: '_processData',
@@ -60,7 +60,7 @@ var App = function (_React$Component) {
             var self = this;
             var array = [];
 
-            _axios2.default.get('/services/featured').then(function (response) {
+            _axios2.default.get(self.props.baseUrl + '/services/featured').then(function (response) {
                 var _iteratorNormalCompletion = true;
                 var _didIteratorError = false;
                 var _iteratorError = undefined;
@@ -71,7 +71,7 @@ var App = function (_React$Component) {
                         var value = _step.value;
 
                         array.push({
-                            id: "/items/show/" + value.id,
+                            id: self.props.baseUrl + "/items/show/" + value.id,
                             title: value.title,
                             author: value.author,
                             section: value.section,

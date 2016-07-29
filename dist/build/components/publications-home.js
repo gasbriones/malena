@@ -42,25 +42,27 @@ var CommentList = function (_React$Component) {
     _createClass(CommentList, [{
         key: '_sortByCell',
         value: function _sortByCell() {
-            _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications',
+            var el = document.getElementById('explore');
+            _reactDom2.default.render(_react2.default.createElement(App, { url: el.dataset['baseurl'] + '/services/publications',
                 perPage: 10, colClass: 'item col-6',
                 sort: 'grid', __self: this
-            }), document.getElementById('explore'));
+            }), el);
         }
     }, {
         key: '_sortByCol',
         value: function _sortByCol() {
-            _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications',
+            var el = document.getElementById('explore');
+            _reactDom2.default.render(_react2.default.createElement(App, { url: el.dataset['baseurl'] + '/services/publications',
                 perPage: 10, colClass: 'item col-12',
                 sort: 'col', __self: this
-            }), document.getElementById('explore'));
+            }), el);
         }
     }, {
         key: 'render',
         value: function render() {
             var self = this;
             var publicationsNodes = this.props.data.map(function (publication, index) {
-                var url = "/items/show/" + publication.id,
+                var url = self.props.baseUrl + "/items/show/" + publication.id,
                     style = {
                     color: publication.flag
                 };
@@ -203,8 +205,9 @@ var App = function (_React$Component2) {
     _createClass(App, [{
         key: '_init',
         value: function _init() {
-            _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications', sort: "grid", perPage: 10, __self: this
-            }), document.getElementById('explore'));
+            var el = document.getElementById('explore');
+            _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications', sort: "grid", perPage: 10, baseUrl: el.dataset['baseurl'], __self: this
+            }), el);
         }
     }, {
         key: 'loadCommentsFromServer',
@@ -233,12 +236,11 @@ var App = function (_React$Component2) {
     }, {
         key: 'render',
         value: function render() {
-            console.log('aaaaaaa', this);
             return _react2.default.createElement(
                 'div',
                 { className: "col-12 grid-center sort-" + this.props.sort, __self: this
                 },
-                _react2.default.createElement(CommentList, { data: this.state.data, colClass: this.props.colClass, __self: this
+                _react2.default.createElement(CommentList, { data: this.state.data, colClass: this.props.colClass, baseUrl: this.props.baseUrl, __self: this
                 }),
                 _react2.default.createElement(_reactPaginate2.default, { previousLabel: "«",
                     nextLabel: "»",
