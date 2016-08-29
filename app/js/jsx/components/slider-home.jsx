@@ -28,6 +28,7 @@ export default class App extends React.Component {
                     id: self.props.baseUrl + "/items/show/" + value.id,
                     title: value.title,
                     author: value.author,
+                    issn: value.issn,
                     section: value.section,
                     flag: value.flag
                 });
@@ -64,6 +65,10 @@ export default class App extends React.Component {
                             <p className="item-autor">
                                 <i className="icon icon-user"/>
                                 {row.author}
+                            </p>
+                            <p className="item-issn">
+                                <i className="icon icon-issn"/>
+                                {row.issn}
                             </p>
                             <p className="item-section">
                                 <i className="icon icon-books"/>

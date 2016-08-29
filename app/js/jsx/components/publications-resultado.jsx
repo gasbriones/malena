@@ -24,6 +24,10 @@ class CommentList extends React.Component {
                             <i className="icon icon-user"/>
                             {publication.author}
                         </p>
+                        <p className="item-autor">
+                            <i className="icon icon-issn"/>
+                            {publication.issn}
+                        </p>
                         <p className="item-section">
                             <i className="icon icon-books"/>
                             {publication.section}
