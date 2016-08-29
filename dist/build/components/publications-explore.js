@@ -97,6 +97,14 @@ var CommentList = function (_React$Component) {
                         ),
                         _react2.default.createElement(
                             'p',
+                            { className: 'item-autor', __self: this
+                            },
+                            _react2.default.createElement('i', { className: 'icon icon-issn', __self: this
+                            }),
+                            publication.issn
+                        ),
+                        _react2.default.createElement(
+                            'p',
                             { className: 'item-section', __self: this
                             },
                             _react2.default.createElement('i', { className: 'icon icon-books', __self: this

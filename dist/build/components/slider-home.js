@@ -74,6 +74,7 @@ var App = function (_React$Component) {
                             id: self.props.baseUrl + "/items/show/" + value.id,
                             title: value.title,
                             author: value.author,
+                            issn: value.issn,
                             section: value.section,
                             flag: value.flag
                         });
@@ -147,6 +148,14 @@ var App = function (_React$Component) {
                                 _react2.default.createElement('i', { className: 'icon icon-user', __self: this
                                 }),
                                 row.author
+                            ),
+                            _react2.default.createElement(
+                                'p',
+                                { className: 'item-issn', __self: this
+                                },
+                                _react2.default.createElement('i', { className: 'icon icon-issn', __self: this
+                                }),
+                                row.issn
                             ),
                             _react2.default.createElement(
                                 'p',
