@@ -182,7 +182,7 @@ var App = function (_React$Component2) {
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                { className: 'col-12 grid-center', __self: this
+                { className: "col-12 grid-center sort-" + this.props.sort, __self: this
                 },
                 _react2.default.createElement(CommentList, { data: this.state.data, colClass: this.props.colClass, baseUrl: this.props.baseUrl, __self: this
                 }),

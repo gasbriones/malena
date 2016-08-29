@@ -44,7 +44,7 @@ switch (document.body.dataset['page']) {
         break;
 }
 
-}).call(this,require("+7ZJp0"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_bbf0a5d8.js","/")
+}).call(this,require("+7ZJp0"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_dadfa232.js","/")
 },{"+7ZJp0":29,"../../../dist/build/components/navigation.js":2,"../../../dist/build/components/publications-explore.js":3,"../../../dist/build/components/publications-home.js":4,"../../../dist/build/components/publications-resultado.js":5,"../../../dist/build/components/slider-home.js":6,"buffer":26}],2:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
@@ -321,7 +321,7 @@ var App = function (_React$Component2) {
     }, {
         key: 'render',
         value: function render() {
-            return _react2.default.createElement('div', { className: 'col-12 grid-center', __self: this
+            return _react2.default.createElement('div', { className: "col-12 grid-center sort-" + this.props.sort, __self: this
             }, _react2.default.createElement(CommentList, { data: this.state.data, colClass: this.props.colClass, baseUrl: this.props.baseUrl, __self: this
             }), _react2.default.createElement(_reactPaginate2.default, { previousLabel: "«",
                 nextLabel: "»",
@@ -502,7 +502,7 @@ var App = function (_React$Component2) {
         key: '_init',
         value: function _init() {
             var el = document.getElementById('explore');
-            _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications', sort: "grid", perPage: 10, baseUrl: el.dataset['baseurl'], __self: this
+            _reactDom2.default.render(_react2.default.createElement(App, { url: el.dataset['baseurl'] + '/services/publications', sort: "grid", perPage: 10, baseUrl: el.dataset['baseurl'], __self: this
             }), el);
         }
     }, {
@@ -713,7 +713,7 @@ var App = function (_React$Component2) {
     }, {
         key: 'render',
         value: function render() {
-            return _react2.default.createElement('div', { className: 'col-12 grid-center', __self: this
+            return _react2.default.createElement('div', { className: "col-12 grid-center sort-" + this.props.sort, __self: this
             }, _react2.default.createElement(CommentList, { data: this.state.data, colClass: this.props.colClass, baseUrl: this.props.baseUrl, __self: this
             }), _react2.default.createElement(_reactPaginate2.default, { previousLabel: "«",
                 nextLabel: "»",

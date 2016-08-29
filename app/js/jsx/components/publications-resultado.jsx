@@ -98,7 +98,7 @@ export default class App extends React.Component {
 
     render() {
         return (
-            <div className="col-12 grid-center">
+            <div className={"col-12 grid-center sort-" + this.props.sort}>
                 <CommentList data={this.state.data} colClass={this.props.colClass} baseUrl={this.props.baseUrl}/>
                 <ReactPaginate previousLabel={"«"}
                                nextLabel={"»"}

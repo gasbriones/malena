@@ -206,7 +206,7 @@ var App = function (_React$Component2) {
         key: '_init',
         value: function _init() {
             var el = document.getElementById('explore');
-            _reactDom2.default.render(_react2.default.createElement(App, { url: '/services/publications', sort: "grid", perPage: 10, baseUrl: el.dataset['baseurl'], __self: this
+            _reactDom2.default.render(_react2.default.createElement(App, { url: el.dataset['baseurl'] + '/services/publications', sort: "grid", perPage: 10, baseUrl: el.dataset['baseurl'], __self: this
             }), el);
         }
     }, {

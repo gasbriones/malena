@@ -2,7 +2,7 @@ import SliderHome from "../../../dist/build/components/slider-home.js";
 import PublicationsHome from "../../../dist/build/components/publications-home.js";
 import PublicationsExplore from "../../../dist/build/components/publications-explore.js"
 import PublicationsResultado from "../../../dist/build/components/publications-resultado.js"
-import Navigation from "../../../dist/build/components/navigation.js"
+//import Navigation from "../../../dist/build/components/navigation.js"
 
 switch (document.body.dataset['page']) {
     case 'home':
@@ -19,7 +19,9 @@ switch (document.body.dataset['page']) {
         let pr = new PublicationsResultado();
         pr._init();
         break;
+    /*
     case 'matters':
         let nv = new Navigation();
-        break;            
+        break;
+                    */
 }

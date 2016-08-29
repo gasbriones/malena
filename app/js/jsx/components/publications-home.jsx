@@ -92,7 +92,7 @@ export default class App extends React.Component {
 
     _init() {
         var el = document.getElementById('explore');
-        ReactDOM.render(<App url={'/services/publications'} sort={"grid"} perPage={10} baseUrl={el.dataset['baseurl']}/>, el);
+        ReactDOM.render(<App url={el.dataset['baseurl'] +'/services/publications'} sort={"grid"} perPage={10} baseUrl={el.dataset['baseurl']}/>, el);
     }
 
     loadCommentsFromServer() {
