@@ -37,7 +37,7 @@ var App = function (_React$Component) {
     function App() {
         _classCallCheck(this, App);
 
-        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this));
+        var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
 
         _this.state = {
             isPlaying: true,
@@ -116,8 +116,7 @@ var App = function (_React$Component) {
                 showNav: this.state.showNav,
                 slideInterval: parseInt(this.state.slideInterval),
                 autoPlay: this.state.isPlaying,
-                slideOnThumbnailHover: this.state.slideOnThumbnailHover,
-                __self: this
+                slideOnThumbnailHover: this.state.slideOnThumbnailHover
             });
         }
     }]);
@@ -127,5 +126,4 @@ var App = function (_React$Component) {
 
 var el = document.getElementById('home-carousel');
 
-_reactDom2.default.render(_react2.default.createElement(App, { baseUrl: el.dataset['baseurl'], __self: undefined
-}), el);
+_reactDom2.default.render(_react2.default.createElement(App, { baseUrl: el.dataset['baseurl'] }), el);

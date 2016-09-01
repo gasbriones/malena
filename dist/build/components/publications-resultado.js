@@ -36,7 +36,7 @@ var CommentList = function (_React$Component) {
     function CommentList() {
         _classCallCheck(this, CommentList);
 
-        return _possibleConstructorReturn(this, Object.getPrototypeOf(CommentList).call(this));
+        return _possibleConstructorReturn(this, (CommentList.__proto__ || Object.getPrototypeOf(CommentList)).call(this));
     }
 
     _createClass(CommentList, [{
@@ -45,75 +45,64 @@ var CommentList = function (_React$Component) {
             var self = this;
 
             var publicationsNodes = this.props.data.map(function (publication, index) {
-                var url = self.props.baseUrl + "/items/show/" + publication.id,
-                    style = {
-                    color: publication.flag
-                };
+                var url = self.props.baseUrl + "/items/show/" + publication.id;
                 return _react2.default.createElement(
                     'div',
-                    { key: index, className: self.props.colClass || 'item col-12_sm-12', __self: this
-                    },
+                    { key: index, className: self.props.colClass || 'item col-12_sm-12' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'item-border', __self: this
-                        },
+                        { className: 'item-border' },
                         _react2.default.createElement(
                             'h2',
-                            { className: 'item-title', __self: this
-                            },
+                            { className: 'item-title' },
                             _react2.default.createElement(
                                 'a',
-                                { className: 'item-link', href: url, __self: this
-                                },
+                                { className: 'item-link', href: url },
                                 publication.title
                             )
                         ),
                         _react2.default.createElement(
                             'p',
-                            { className: 'item-autor', __self: this
-                            },
-                            _react2.default.createElement('i', { className: 'icon icon-user', __self: this
-                            }),
+                            { className: 'item-autor' },
+                            _react2.default.createElement('i', { className: 'icon icon-user' }),
                             publication.author
                         ),
                         _react2.default.createElement(
                             'p',
-                            { className: 'item-section', __self: this
-                            },
-                            _react2.default.createElement('i', { className: 'icon icon-books', __self: this
-                            }),
+                            { className: 'item-autor' },
+                            _react2.default.createElement('i', { className: 'icon icon-issn' }),
+                            publication.issn
+                        ),
+                        _react2.default.createElement(
+                            'p',
+                            { className: 'item-section' },
+                            _react2.default.createElement('i', { className: 'icon icon-books' }),
                             publication.section
                         ),
-                        _react2.default.createElement('i', { className: 'icon icon-flag', style: style, __self: this
-                        })
+                        publication.flag && _react2.default.createElement('i', { className: 'icon icon-flag icon-flag-' + publication.flag })
                     )
                 );
             });
 
             return _react2.default.createElement(
                 'div',
-                { className: 'col-12 grid-center', __self: this
-                },
+                { className: 'col-12 grid-center' },
                 _react2.default.createElement(
                     'div',
-                    { className: 'col-10_md-11 grid-spaceAround', __self: this
-                    },
+                    { className: 'col-10_md-11 grid-spaceAround' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-12_md-12_sm-12', __self: this
-                        },
+                        { className: 'col-12_md-12_sm-12' },
                         _react2.default.createElement(
                             'h1',
-                            { className: 'title', __self: this
-                            },
+                            { className: 'title' },
                             'Resultados'
                         )
                     )
                 ),
                 _react2.default.createElement(
                     'div',
-                    { className: 'col-10_md-11 explore-grid grid-spaceBetween', __self: this
-                    },
+                    { className: 'col-10_md-11 explore-grid grid-spaceBetween' },
                     publicationsNodes
                 )
             );
@@ -129,7 +118,7 @@ var App = function (_React$Component2) {
     function App(props) {
         _classCallCheck(this, App);
 
-        var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, props));
+        var _this2 = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
         _this2.handlePageClick = function (data) {
             var selected = data.selected;
@@ -152,8 +141,7 @@ var App = function (_React$Component2) {
         value: function _init() {
             var el = document.getElementById('result');
             _reactDom2.default.render(_react2.default.createElement(App, { url: el.dataset['baseurl'] + '/services/publications',
-                perPage: 10, baseUrl: this.props.baseUrl, __self: this
-            }), el);
+                perPage: 10, baseUrl: this.props.baseUrl }), el);
         }
     }, {
         key: 'loadCommentsFromServer',
@@ -182,16 +170,13 @@ var App = function (_React$Component2) {
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                { className: "col-12 grid-center sort-" + this.props.sort, __self: this
-                },
-                _react2.default.createElement(CommentList, { data: this.state.data, colClass: this.props.colClass, baseUrl: this.props.baseUrl, __self: this
-                }),
+                { className: "col-12 grid-center sort-" + this.props.sort },
+                _react2.default.createElement(CommentList, { data: this.state.data, colClass: this.props.colClass, baseUrl: this.props.baseUrl }),
                 _react2.default.createElement(_reactPaginate2.default, { previousLabel: "«",
                     nextLabel: "»",
                     breakLabel: _react2.default.createElement(
                         'a',
-                        { href: '', __self: this
-                        },
+                        { href: '' },
                         '...'
                     ),
                     pageNum: this.state.pageNum,
@@ -200,8 +185,7 @@ var App = function (_React$Component2) {
                     clickCallback: this.handlePageClick,
                     containerClassName: "pagination",
                     subContainerClassName: "pages pagination",
-                    activeClassName: "active", __self: this
-                })
+                    activeClassName: "active" })
             );
         }
     }]);

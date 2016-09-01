@@ -4,8 +4,6 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
@@ -38,7 +36,7 @@ var App = function (_React$Component) {
     function App() {
         _classCallCheck(this, App);
 
-        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this));
+        var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
 
         _this.state = {
             items: []
@@ -51,8 +49,7 @@ var App = function (_React$Component) {
         key: '_init',
         value: function _init() {
             var el = document.getElementById('slider');
-            _reactDom2.default.render(_react2.default.createElement(App, { baseUrl: el.dataset['baseurl'], __self: this
-            }), el);
+            _reactDom2.default.render(_react2.default.createElement(App, { baseUrl: el.dataset['baseurl'] }), el);
         }
     }, {
         key: '_processData',
@@ -74,6 +71,7 @@ var App = function (_React$Component) {
                             id: self.props.baseUrl + "/items/show/" + value.id,
                             title: value.title,
                             author: value.author,
+                            issn: value.issn,
                             section: value.section,
                             flag: value.flag
                         });
@@ -114,50 +112,42 @@ var App = function (_React$Component) {
             };
             return _react2.default.createElement(
                 _reactSlick2.default,
-                _extends({}, settings, {
-                    __self: this
-                }),
+                settings,
                 this.state.items.map(function (row, index) {
-                    var style = {
-                        color: row.flag
-                    };
                     return _react2.default.createElement(
                         'div',
-                        { key: index, className: 'item', __self: this
-                        },
+                        { key: index, className: 'item' },
                         _react2.default.createElement(
                             'div',
-                            { className: 'item-border', __self: this
-                            },
+                            { className: 'item-border' },
                             _react2.default.createElement(
                                 'h2',
-                                { className: 'item-title', __self: this
-                                },
+                                { className: 'item-title' },
                                 _react2.default.createElement(
                                     'a',
-                                    { className: 'item-link', href: row.id, __self: this
-                                    },
+                                    { className: 'item-link', href: row.id },
                                     row.title
                                 )
                             ),
                             _react2.default.createElement(
                                 'p',
-                                { className: 'item-autor', __self: this
-                                },
-                                _react2.default.createElement('i', { className: 'icon icon-user', __self: this
-                                }),
+                                { className: 'item-autor' },
+                                _react2.default.createElement('i', { className: 'icon icon-user' }),
                                 row.author
                             ),
                             _react2.default.createElement(
                                 'p',
-                                { className: 'item-section', __self: this
-                                },
-                                _react2.default.createElement('i', { className: 'icon icon-books', __self: this
-                                }),
+                                { className: 'item-issn' },
+                                _react2.default.createElement('i', { className: 'icon icon-issn' }),
+                                row.issn
+                            ),
+                            _react2.default.createElement(
+                                'p',
+                                { className: 'item-section' },
+                                _react2.default.createElement('i', { className: 'icon icon-books' }),
                                 row.section
                             ),
-                            _react2.default.createElement('i', { className: 'icon icon-flag', style: style, __self: this
-                            })
+                            row.flag && _react2.default.createElement('i', { className: 'icon icon-flag icon-flag-' + row.flag })
                         )
                     );
                 })

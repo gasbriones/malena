@@ -56,27 +56,26 @@ export default class App extends React.Component {
         return (
             <Slider {...settings}>
                 {this.state.items.map(function (row, index) {
-                    var style = {
-                        color: row.flag
-                    }
                     return <div key={index} className="item">
-                        <div className="item-border">
-                            <h2 className="item-title"><a className="item-link" href={row.id}>{row.title}</a></h2>
-                            <p className="item-autor">
-                                <i className="icon icon-user"/>
-                                {row.author}
-                            </p>
-                            <p className="item-issn">
-                                <i className="icon icon-issn"/>
-                                {row.issn}
-                            </p>
-                            <p className="item-section">
-                                <i className="icon icon-books"/>
-                                {row.section}
-                            </p>
-                            <i className="icon icon-flag" style={style}/>
-                        </div>
-                    </div>
+                            <div className="item-border">
+                                <h2 className="item-title"><a className="item-link" href={row.id}>{row.title}</a></h2>
+                                <p className="item-autor">
+                                    <i className="icon icon-user"/>
+                                    {row.author}
+                                </p>
+                                <p className="item-issn">
+                                    <i className="icon icon-issn"/>
+                                    {row.issn}
+                                </p>
+                                <p className="item-section">
+                                    <i className="icon icon-books"/>
+                                    {row.section}
+                                </p>
+                                {
+                                    row.flag && <i className={'icon icon-flag icon-flag-' + row.flag} />
+                                }
+                            </div>
+                         </div>
                 })}
             </Slider>
         );
