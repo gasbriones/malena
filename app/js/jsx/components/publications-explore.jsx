@@ -12,20 +12,19 @@ class CommentList extends React.Component {
     _sortByCell() {
         var el = document.getElementById('explore');
         ReactDOM.render(
-            <App url={el.dataset['baseurl'] +'/demos/malena/dist/mocs/publications-home.json'}
+            <App url={el.dataset['baseurl'] + '/services/publications'}
                  perPage={10} colClass={'item col-6'}
-                 baseUrl={el.dataset['baseurl']}
                  sort={'grid'}/>,
             el
+
         )
     }
 
     _sortByCol() {
-        var el = document.getElementById('explore');
+        var el = document.getElementById('explore')
         ReactDOM.render(
-            <App url={el.dataset['baseurl'] +'/demos/malena/dist/mocs/publications-home.json'}
+            <App url={el.dataset['baseurl'] + '/services/publications'}
                  perPage={10} colClass={'item col-12'}
-                 baseUrl={el.dataset['baseurl']}
                  sort={'col'}/>,
             el
         )
@@ -34,10 +33,8 @@ class CommentList extends React.Component {
     render() {
         let self = this;
         let publicationsNodes = this.props.data.map(function (publication, index) {
-            var  url = self.props.baseUrl + "/items/show/" + publication.id,
-                style = {
-                color: publication.flag
-            }
+            var  url = self.props.baseUrl + "/items/show/" + publication.id;
+
             return (
                 <div key={index} className={self.props.colClass || 'item col-12_sm-12'}>
                     <div className="item-border">
@@ -54,7 +51,9 @@ class CommentList extends React.Component {
                             <i className="icon icon-books"/>
                             {publication.section}
                         </p>
-                        <i className="icon icon-flag" style={style}/>
+                        {
+                            publication.flag && <i className={'icon icon-flag icon-flag-' + publication.flag} />
+                        }
                     </div>
                 </div>
             );

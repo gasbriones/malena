@@ -45,10 +45,7 @@ var CommentList = function (_React$Component) {
             var self = this;
 
             var publicationsNodes = this.props.data.map(function (publication, index) {
-                var url = self.props.baseUrl + "/items/show/" + publication.id,
-                    style = {
-                    color: publication.flag
-                };
+                var url = self.props.baseUrl + "/items/show/" + publication.id;
                 return _react2.default.createElement(
                     'div',
                     { key: index, className: self.props.colClass || 'item col-12_sm-12', __self: this
@@ -92,7 +89,7 @@ var CommentList = function (_React$Component) {
                             }),
                             publication.section
                         ),
-                        _react2.default.createElement('i', { className: 'icon icon-flag', style: style, __self: this
+                        publication.flag && _react2.default.createElement('i', { className: 'icon icon-flag icon-flag-' + publication.flag, __self: this
                         })
                     )
                 );

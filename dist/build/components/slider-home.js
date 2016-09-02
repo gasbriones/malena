@@ -119,9 +119,6 @@ var App = function (_React$Component) {
                     __self: this
                 }),
                 this.state.items.map(function (row, index) {
-                    var style = {
-                        color: row.flag
-                    };
                     return _react2.default.createElement(
                         'div',
                         { key: index, className: 'item', __self: this
@@ -165,7 +162,7 @@ var App = function (_React$Component) {
                                 }),
                                 row.section
                             ),
-                            _react2.default.createElement('i', { className: 'icon icon-flag', style: style, __self: this
+                            row.flag && _react2.default.createElement('i', { className: 'icon icon-flag icon-flag-' + row.flag, __self: this
                             })
                         )
                     );

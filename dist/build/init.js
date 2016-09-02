@@ -44,7 +44,7 @@ switch (document.body.dataset['page']) {
                     */
 }
 
-}).call(this,require("+7ZJp0"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_3e2093ba.js","/")
+}).call(this,require("+7ZJp0"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_47d61c37.js","/")
 },{"+7ZJp0":28,"../../../dist/build/components/publications-explore.js":2,"../../../dist/build/components/publications-home.js":3,"../../../dist/build/components/publications-resultado.js":4,"../../../dist/build/components/slider-home.js":5,"buffer":25}],2:[function(require,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 'use strict';
@@ -116,9 +116,8 @@ var CommentList = function (_React$Component) {
         key: '_sortByCell',
         value: function _sortByCell() {
             var el = document.getElementById('explore');
-            _reactDom2.default.render(_react2.default.createElement(App, { url: el.dataset['baseurl'] + '/demos/malena/dist/mocs/publications-home.json',
+            _reactDom2.default.render(_react2.default.createElement(App, { url: el.dataset['baseurl'] + '/services/publications',
                 perPage: 10, colClass: 'item col-6',
-                baseUrl: el.dataset['baseurl'],
                 sort: 'grid', __self: this
             }), el);
         }
@@ -126,9 +125,8 @@ var CommentList = function (_React$Component) {
         key: '_sortByCol',
         value: function _sortByCol() {
             var el = document.getElementById('explore');
-            _reactDom2.default.render(_react2.default.createElement(App, { url: el.dataset['baseurl'] + '/demos/malena/dist/mocs/publications-home.json',
+            _reactDom2.default.render(_react2.default.createElement(App, { url: el.dataset['baseurl'] + '/services/publications',
                 perPage: 10, colClass: 'item col-12',
-                baseUrl: el.dataset['baseurl'],
                 sort: 'col', __self: this
             }), el);
         }
@@ -137,10 +135,8 @@ var CommentList = function (_React$Component) {
         value: function render() {
             var self = this;
             var publicationsNodes = this.props.data.map(function (publication, index) {
-                var url = self.props.baseUrl + "/items/show/" + publication.id,
-                    style = {
-                    color: publication.flag
-                };
+                var url = self.props.baseUrl + "/items/show/" + publication.id;
+
                 return _react2.default.createElement('div', { key: index, className: self.props.colClass || 'item col-12_sm-12', __self: this
                 }, _react2.default.createElement('div', { className: 'item-border', __self: this
                 }, _react2.default.createElement('h2', { className: 'item-title', __self: this
@@ -151,7 +147,7 @@ var CommentList = function (_React$Component) {
                 }, _react2.default.createElement('i', { className: 'icon icon-issn', __self: this
                 }), publication.issn), _react2.default.createElement('p', { className: 'item-section', __self: this
                 }, _react2.default.createElement('i', { className: 'icon icon-books', __self: this
-                }), publication.section), _react2.default.createElement('i', { className: 'icon icon-flag', style: style, __self: this
+                }), publication.section), publication.flag && _react2.default.createElement('i', { className: 'icon icon-flag icon-flag-' + publication.flag, __self: this
                 })));
             });
 
@@ -357,10 +353,8 @@ var CommentList = function (_React$Component) {
         value: function render() {
             var self = this;
             var publicationsNodes = this.props.data.map(function (publication, index) {
-                var url = self.props.baseUrl + "/items/show/" + publication.id,
-                    style = {
-                    color: publication.flag
-                };
+                var url = self.props.baseUrl + "/items/show/" + publication.id;
+
                 return _react2.default.createElement('div', { key: index, className: self.props.colClass || 'item col-6_sm-12', __self: this
                 }, _react2.default.createElement('div', { className: 'item-border', __self: this
                 }, _react2.default.createElement('h2', { className: 'item-title', __self: this
@@ -371,7 +365,7 @@ var CommentList = function (_React$Component) {
                 }, _react2.default.createElement('i', { className: 'icon icon-issn', __self: this
                 }), publication.issn), _react2.default.createElement('p', { className: 'item-section', __self: this
                 }, _react2.default.createElement('i', { className: 'icon icon-books', __self: this
-                }), publication.section), _react2.default.createElement('i', { className: 'icon icon-flag', style: style, __self: this
+                }), publication.section), publication.flag && _react2.default.createElement('i', { className: 'icon icon-flag icon-flag-' + publication.flag, __self: this
                 })));
             });
 
@@ -553,10 +547,7 @@ var CommentList = function (_React$Component) {
             var self = this;
 
             var publicationsNodes = this.props.data.map(function (publication, index) {
-                var url = self.props.baseUrl + "/items/show/" + publication.id,
-                    style = {
-                    color: publication.flag
-                };
+                var url = self.props.baseUrl + "/items/show/" + publication.id;
                 return _react2.default.createElement('div', { key: index, className: self.props.colClass || 'item col-12_sm-12', __self: this
                 }, _react2.default.createElement('div', { className: 'item-border', __self: this
                 }, _react2.default.createElement('h2', { className: 'item-title', __self: this
@@ -567,7 +558,7 @@ var CommentList = function (_React$Component) {
                 }, _react2.default.createElement('i', { className: 'icon icon-issn', __self: this
                 }), publication.issn), _react2.default.createElement('p', { className: 'item-section', __self: this
                 }, _react2.default.createElement('i', { className: 'icon icon-books', __self: this
-                }), publication.section), _react2.default.createElement('i', { className: 'icon icon-flag', style: style, __self: this
+                }), publication.section), publication.flag && _react2.default.createElement('i', { className: 'icon icon-flag icon-flag-' + publication.flag, __self: this
                 })));
             });
 
@@ -815,9 +806,6 @@ var App = function (_React$Component) {
             return _react2.default.createElement(_reactSlick2.default, _extends({}, settings, {
                 __self: this
             }), this.state.items.map(function (row, index) {
-                var style = {
-                    color: row.flag
-                };
                 return _react2.default.createElement('div', { key: index, className: 'item', __self: this
                 }, _react2.default.createElement('div', { className: 'item-border', __self: this
                 }, _react2.default.createElement('h2', { className: 'item-title', __self: this
@@ -828,7 +816,7 @@ var App = function (_React$Component) {
                 }, _react2.default.createElement('i', { className: 'icon icon-issn', __self: this
                 }), row.issn), _react2.default.createElement('p', { className: 'item-section', __self: this
                 }, _react2.default.createElement('i', { className: 'icon icon-books', __self: this
-                }), row.section), _react2.default.createElement('i', { className: 'icon icon-flag', style: style, __self: this
+                }), row.section), row.flag && _react2.default.createElement('i', { className: 'icon icon-flag icon-flag-' + row.flag, __self: this
                 })));
             }));
         }
